@@ -18,6 +18,7 @@ class GUIImage;
 class GUIWindow;
 
 #include <vector>
+#include <memory>
 #include <SFML\Graphics\RenderWindow.hpp>
 
 class Capitalist
@@ -26,98 +27,111 @@ public:
 	Capitalist();
 	~Capitalist();
 
-	int			getFood();
-	int			getGoods();
-	int			getTech();
-	int			getTaxes();
-	int			getNuclearWeapon();
-	int			getSpaceProgram();
-	int			getSpyNetwork();
-	int			getCurrency();
+	int	getFood();
+	int	getGoods();
+	int	getTech();
+	int	getTaxes();
+	int	getNuclearWeapon();
+	int	getSpaceProgram();
+	int	getSpyNetwork();
+	int	getCurrency();
 	//President	getPresident();
 
-	void		setFood(int food);
-	void		setGoods(int goods);
-	void		setTech(int tech);
-	void		setTaxes(int taxes);
+	void setFood(int food);
+	void setGoods(int goods);
+	void setTech(int tech);
+	void setTaxes(int taxes);
 	//void		setPresident(President &president);
 
-	void		getTaxIncome();
-	void		updateFood();
-	bool		enoughFood();
+	void getTaxIncome();
+	void updateFood();
+	bool enoughFood();
 
 
-	void		initializeCapitalistWindowInformation();
+	void initializeCapitalistWindow();
 
-	/*updatefunktion för menyknappar*/
-	void		update(GUIElement *guiElement);
-	void		render();
+	void onGUIClick(std::shared_ptr<GUIElement> guiElement);
 
-	/*Menyknappar för kapitalister när de har aktiverats*/
-	void		triggerTaxesMenu();
+	void openTaxesMenu();
+	void openResourceMenu();
+	void openUpgradeMenu();
+	void openExportMenu();
+
+	void closeTaxesMenu();
+	void closeResourceMenu();
+	void closeUpgradeMenu();
+	void closeExportMenu();
 
 
-	void		closeWindow(GUIWindow *guiWindow);
+	void upgradeNuclearWeapon();
+	void upgradeSpaceProgram();
+	void upgradeSpyNetwork();
 
-	void		upgradeNuclearWeapon();
-	void		upgradeSpaceProgram();
-	void		upgradeSpyNetwork();
-
-	bool		enableToIncreasePopulation();
-	void		increasePopulation();
+	bool enableToIncreasePopulation();
+	void increasePopulation();
 
 private:
-	int			mPatriotism;
-	int			mCurrency;
-	int			mPopulation;
-	int			mFood;
-	int			mGoods;
-	int			mTech;
-	int			mTaxes;
-	int			mSpyNetwork;
-	int			mNuclearWeapon;
-	int			mSpaceProgram;
+	int	mPatriotism;
+	int	mCurrency;
+	int	mPopulation;
+	int	mFood;
+	int	mGoods;
+	int	mTech;
+	int	mTaxes;
+	int	mSpyNetwork;
+	int	mNuclearWeapon;
+	int	mSpaceProgram;
 	//President	*mPresident;
-	bool		mIncreasePopulation;
+	bool mIncreasePopulation;
 
 
-	GUIWindow *mTaxesWindow;
-	GUIImage  *mTaxesImage;
+
+	//Huvudfönstret för kapitalisterna
+	std::shared_ptr<GUIElement> mCapitalistMainWindow;		
+	std::shared_ptr<GUIElement> mCapitalistTaxesButton;		
+	std::shared_ptr<GUIElement> mCapitalistResourceButton;	
+	std::shared_ptr<GUIElement> mCapitalistUpgradeButton;		
+	std::shared_ptr<GUIElement> mCapitalistExportButton;	
+	std::shared_ptr<GUIElement> mCapitalistMainWindowImage;	
+	std::shared_ptr<GUIElement> mCapitalistTaxesImage;
+	std::shared_ptr<GUIElement> mCapitalistResourceImage;
+	std::shared_ptr<GUIElement> mCapitalistUpgradeImage;
+	std::shared_ptr<GUIElement> mCapitalistExportImage;
+
+	//GUI för taxes
+	std::shared_ptr<GUIElement> mTaxesWindow;
+	std::shared_ptr<GUIElement> mTaxesImage;
 	
+	std::shared_ptr<GUIElement> mIncreaseTaxesButton;
+	std::shared_ptr<GUIElement> mDecreaseTaxesButton;
+	std::shared_ptr<GUIElement> mIncreaseTaxesImage;
+	std::shared_ptr<GUIElement> mDecreaseTaxesImage;
 
-	/*GUI-knappar som hör till taxes menyn*/
-	GUIButton *mIncreaseTaxes;
-	GUIButton *mDecreaseTaxes;
-	GUIImage *mIncreaseTaxesImage;
-	GUIImage *mDecreaseTaxesImage;
-
-
-	GUIButton *mCloseWindow;
+	std::shared_ptr<GUIElement> mTaxesCloseButton;
+	std::shared_ptr<GUIElement> mTaxesCloseImage;
 
 
-	GUIManager *guiManager;
+	//GUI för resurser
+	std::shared_ptr<GUIElement> mResourceWindow;
+	std::shared_ptr<GUIElement> mResourceImage;
+
+	std::shared_ptr<GUIElement> mResourceCloseButton;
+	std::shared_ptr<GUIElement> mResourceCloseImage;
 
 
+	//GUI för uppgradering
+	std::shared_ptr<GUIElement> mUpgradeWindow;
+	std::shared_ptr<GUIElement> mUpgradeImage;
 
+	std::shared_ptr<GUIElement> mUpgradeCloseButton;
+	std::shared_ptr<GUIElement> mUpgradeCloseImage;
 
+	//GUI för uppgradering
+	std::shared_ptr<GUIElement> mExportWindow;
+	std::shared_ptr<GUIElement> mExportImage;
 
-	/*
-	 * Medlemsvariabler för GUI
-	 */
-
-	GUIWindow *mCapitalistMainWindow;		
-	GUIImage  *mCapitalistMainWindowImage;	
-	GUIButton *mCapitalistTaxesButton;		
-	GUIButton *mCapitalistResourcesButton;	
-	GUIButton *mCapitalistUpgradeButton;		
-	GUIButton *mCapitalistExportButton;	
-	GUIImage  *mCapitalistTaxesImage;
-	GUIImage  *mCapitalistResourceImage;
-	GUIImage  *mCapitalistUpgradeImage;
-	GUIImage  *mCapitalistExportImage;
-
-	
-
+	std::shared_ptr<GUIElement> mExportCloseButton;
+	std::shared_ptr<GUIElement> mExportCloseImage;
 };
 
 

@@ -19,7 +19,7 @@
 class GUIImage : public GUIElement
 {
 public:
-	GUIImage(int x, int y, int width, int height, std::string string, GUIElement *parent = 0);
+	GUIImage(int x, int y, int width, int height, std::string string, std::shared_ptr<GUIElement> parent = 0);
 
 	~GUIImage(){}
 

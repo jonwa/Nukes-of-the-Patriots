@@ -1,7 +1,7 @@
 #include "GUIImage.h"
 #include "ResourceHandler.h"
 
-GUIImage::GUIImage(int x, int y, int width, int height, std::string string, GUIElement *parent) : 
+GUIImage::GUIImage(int x, int y, int width, int height, std::string string, std::shared_ptr<GUIElement> parent) : 
 	GUIElement(x, y, width, height, parent, GUIType::Image)
 {
 	setImage(string);	
@@ -22,6 +22,7 @@ void GUIImage::setImage(std::string& string)
 {
 	mTexture.loadFromImage(*ResourceHandler::getInstance()->loadImage(string));
 	mSprite.setTexture(mTexture);
+	mSprite.setPosition(mX, mY);
 	sf::FloatRect boundBox = mSprite.getGlobalBounds();
 	setWidth(boundBox.width);
 	setHeight(boundBox.height);
@@ -44,26 +45,19 @@ void GUIImage::setScale(float width, float height)
  */
 void GUIImage::render(sf::RenderWindow * window)
 {
-	float x = getX();
-	float y = getY();
 	bool visible = getVisible();
-	GUIElement *parent = getParent();
+	std::shared_ptr<GUIElement> parent = getParent();
 	while(parent != NULL)
 	{
-		x += parent->getX();
-		y += parent->getY();
 		visible = parent->getVisible();
 		if(!visible)
 		{
 			break;
 		}
-
 		parent = parent->getParent();
 	}
-
 	if(visible)
 	{
-		mSprite.setPosition(sf::Vector2f(x, y));
 		window->draw(mSprite);
 	}
 }

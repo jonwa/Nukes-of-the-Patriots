@@ -6,7 +6,7 @@
 class GUIButton: public GUIElement
 {
 public:
-			GUIButton(int x, int y, int width, int height, GUIElement *parent = 0);
+			GUIButton(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent = 0);
 	void	render(sf::RenderWindow *window);
 	void	setScale(float width, float height);
 			~GUIButton(){}

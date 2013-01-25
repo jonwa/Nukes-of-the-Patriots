@@ -19,7 +19,7 @@ GUIManager::GUIManager() :
 {
 }
 
-void GUIManager::addGUIElement(GUIElement *guiElement)
+void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 {
 	mGuiElements.push_back(guiElement);
 	if(!guiElement->getChildVector().empty())
@@ -40,11 +40,11 @@ void GUIManager::addGUIElement(GUIElement *guiElement)
 
 void GUIManager::render(sf::RenderWindow *window)
 {
-	for(std::vector<GUIElement*>::iterator it = mGuiElements.begin(); it != mGuiElements.end(); it++)
+	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
-		if((*it)->getVisible())
+		if(mGuiElements[i]->getVisible())
 		{
-				(*it)->render(window);
+				mGuiElements[i]->render(window);
 		}
 	}
 }
@@ -52,9 +52,9 @@ void GUIManager::render(sf::RenderWindow *window)
 void GUIManager::update()
 {
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
-	for(std::vector<GUIElement*>::iterator it = mGuiElements.begin(); it != mGuiElements.end(); it++)
+	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
-		GUIElement *guiElement = (*it);
+		std::shared_ptr<GUIElement> guiElement = mGuiElements[i];
 		bool isMouseInside = guiElement->getMouseIsInside();
 		// Check if mouse is colliding with gui element
 		if(mousePos.x > guiElement->getX() && mousePos.x < guiElement->getX() + guiElement->getWidth() && mousePos.y > guiElement->getY() && mousePos.y < guiElement->getY() + guiElement->getHeight())
@@ -80,44 +80,44 @@ void GUIManager::update()
 	}
 }
 
-void GUIManager::addOnMouseClickEventHandler(std::function <void (GUIElement*)> func)
+void GUIManager::addOnMouseClickEventHandler(std::function <void (std::shared_ptr<GUIElement>)> func)
 {
 	mOnMouseClickFuncs.push_back(func);
 }
 
 
-void GUIManager::addOnMouseEnterEventHandler(std::function <void (GUIElement*)> func)
+void GUIManager::addOnMouseEnterEventHandler(std::function <void (std::shared_ptr<GUIElement>)> func)
 {
 	mOnMouseEnterFuncs.push_back(func);
 }
 
-void GUIManager::addOnMouseLeaveEventHandler(std::function <void (GUIElement*)> func)
+void GUIManager::addOnMouseLeaveEventHandler(std::function <void (std::shared_ptr<GUIElement>)> func)
 {
 	mOnMouseLeaveFuncs.push_back(func);
 }
 
 //Trigger events (call the callback functions)
-void GUIManager::triggerOnMouseClickEvent(GUIElement *guiElement)
+void GUIManager::triggerOnMouseClickEvent(std::shared_ptr<GUIElement> guiElement)
 {
-	for(std::vector<std::function <void (GUIElement*)>>::iterator it = mOnMouseClickFuncs.begin(); it != mOnMouseClickFuncs.end(); it++)
+	for(std::vector<std::function <void (std::shared_ptr<GUIElement>)>>::iterator it = mOnMouseClickFuncs.begin(); it != mOnMouseClickFuncs.end(); it++)
 	{
 		if((*it) != NULL)
 			(*it)(guiElement);
 	}
 }
 
-void GUIManager::triggerOnMouseEnterEvent(GUIElement *guiElement)
+void GUIManager::triggerOnMouseEnterEvent(std::shared_ptr<GUIElement> guiElement)
 {
-	for(std::vector<std::function <void (GUIElement*)>>::iterator it = mOnMouseEnterFuncs.begin(); it != mOnMouseEnterFuncs.end(); it++)
+	for(std::vector<std::function <void (std::shared_ptr<GUIElement>)>>::iterator it = mOnMouseEnterFuncs.begin(); it != mOnMouseEnterFuncs.end(); it++)
 	{
 		if((*it) != NULL)
 			(*it)(guiElement);
 	}
 }
 
-void GUIManager::triggerOnMouseLeaveEvent(GUIElement *guiElement)
+void GUIManager::triggerOnMouseLeaveEvent(std::shared_ptr<GUIElement> guiElement)
 {
-	for(std::vector<std::function <void (GUIElement*)>>::iterator it = mOnMouseLeaveFuncs.begin(); it != mOnMouseLeaveFuncs.end(); it++)
+	for(std::vector<std::function <void (std::shared_ptr<GUIElement>)>>::iterator it = mOnMouseLeaveFuncs.begin(); it != mOnMouseLeaveFuncs.end(); it++)
 	{
 		if((*it) != NULL)
 			(*it)(guiElement);

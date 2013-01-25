@@ -2,7 +2,7 @@
 #include <SFML\System\String.hpp>
 #include <iostream>
 
-GUIText::GUIText(int x, int y, std::string text, GUIElement *parent) :
+GUIText::GUIText(int x, int y, std::string text, std::shared_ptr<GUIElement> parent) :
 	GUIElement(x, y, 0, 0, parent, GUIType::Text),
 	mFont(sf::Font::getDefaultFont())
 {
@@ -31,13 +31,10 @@ void GUIText::setScale(float width, float height)
 
 void GUIText::render(sf::RenderWindow *window)
 {
-	float x = getX(), y = getY();
 	bool visible = getVisible();
-	GUIElement *parent = getParent();
+	std::shared_ptr<GUIElement> parent = getParent();
 	while(parent != NULL)
 	{
-		x += parent->getX();
-		y += parent->getY();
 		visible = parent->getVisible();
 		if(!visible)
 			break;
@@ -46,9 +43,8 @@ void GUIText::render(sf::RenderWindow *window)
 	if(visible)
 	{
 		mText.setColor(sf::Color::Color(0, 255, 0, 255));
-		mText.setPosition(sf::Vector2f(x, y));
+		mText.setPosition(sf::Vector2f(getX(), getY()));
 		window->draw(mText);
-		std::cout << "BLBALBALBALBA" << std::endl;
 	}
 
 	

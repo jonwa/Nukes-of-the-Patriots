@@ -6,7 +6,7 @@
 class GUIWindow: public GUIElement
 {
 public:
-			GUIWindow(int x, int y, int width, int height, GUIElement *parent = 0);
+			GUIWindow(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent = 0);
 	void	render(sf::RenderWindow *window);
 	void	setScale(float width, float height);
 			~GUIWindow(){}

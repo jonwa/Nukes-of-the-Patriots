@@ -1,19 +1,16 @@
 #include "GUIWindow.h"
 
-GUIWindow::GUIWindow(int x, int y, int width, int height, GUIElement *parent) :
+GUIWindow::GUIWindow(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent) :
 	GUIElement(x, y, width, height, parent, GUIType::Window)
 {
 }
 
 void GUIWindow::render(sf::RenderWindow *window)
 {
-	float x = getX(), y = getY();
 	bool visible = getVisible();
-	GUIElement *parent = getParent();
+	std::shared_ptr<GUIElement> parent = getParent();
 	while(parent != NULL)
 	{
-		x += parent->getX();
-		y += parent->getY();
 		visible = parent->getVisible();
 		if(!visible)
 			break;
@@ -22,7 +19,7 @@ void GUIWindow::render(sf::RenderWindow *window)
 	if(visible)
 	{
 		sf::RectangleShape rect(sf::Vector2f(getWidth(), getHeight()));
-		rect.setPosition(x, y);
+		rect.setPosition(mX, mY);
 		rect.setFillColor(sf::Color::Color(255, 0, 0, 255));
 		window->draw(rect);
 	}

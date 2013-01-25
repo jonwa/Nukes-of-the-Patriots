@@ -19,7 +19,7 @@ Capitalist::Capitalist() :
 	mNuclearWeapon(10),
 	mIncreasePopulation(false)
 {
-	//initializeCapitalistWindowInformation();
+	initializeCapitalistWindow();
 }
 
 
@@ -73,6 +73,8 @@ int Capitalist::getSpyNetwork()
 //{
 //	return mPresident;
 //}
+
+
 //--------------------------------------------
 /*Funktioner som ger medlemsvariabler nya värden*/
 void Capitalist::setFood(int food)
@@ -99,6 +101,8 @@ void Capitalist::setTech(int tech)
 //{
 //	mPresident = president;
 //}
+
+
 //-----------------------------------------------------------
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
@@ -154,82 +158,189 @@ bool Capitalist::enoughFood()
  *
  *				Av: Jon Wahlström		2013-01-23
  */
-void Capitalist::initializeCapitalistWindowInformation()
+void Capitalist::initializeCapitalistWindow()
 {
-	mCapitalistMainWindow		= new GUIWindow	(0, 0, 1024, 768);
-	mCapitalistMainWindowImage	= new GUIImage	(0, 0, 0, 0, "ref.png", mCapitalistMainWindow);
-	mCapitalistTaxesButton		= new GUIButton	(112, 636, 200, 132, mCapitalistMainWindow);
-	mCapitalistResourcesButton	= new GUIButton	(0, 0, 0, 0, mCapitalistMainWindow);
-	mCapitalistUpgradeButton	= new GUIButton	(0, 0, 0, 0, mCapitalistMainWindow);
-	mCapitalistExportButton		= new GUIButton	(0, 0, 0, 0, mCapitalistMainWindow);
-	mCapitalistTaxesImage		= new GUIImage	(112, 636, 200, 132, "7_kap_tax.png", mCapitalistMainWindow);
-	//mCapitalistResourceImage	= new GUIImage	(0, 0, 200, 132, "7_kom_res.png", mCapitalistMainWindow);
-	//mCapitalistUpgradeImage		= new GUIImage	(0, 0, 200, 132, "7_kom_upg.png", mCapitalistMainWindow);
-	//mCapitalistExportImage		= new GUIImage	(0, 0, 200, 132, "7_kom_exp.png", mCapitalistMainWindow);
+	mCapitalistMainWindow		= std::make_shared<GUIElement>( GUIWindow(0, 0, 1024, 768));
+	mCapitalistMainWindowImage	= std::make_shared<GUIElement>( GUIImage(0, 0, 0, 0, "CapitalistImages/ref.png", mCapitalistMainWindow));//(0, 0, 0, 0, "CapitalistImages/ref.png", mCapitalistMainWindow));
+	mCapitalistTaxesButton		= std::make_shared<GUIElement>( GUIButton(112, 636, 200, 132, mCapitalistMainWindow));
+	mCapitalistResourceButton	= std::make_shared<GUIElement>( GUIButton(312, 636, 200, 132, mCapitalistMainWindow));
+	mCapitalistUpgradeButton	= std::make_shared<GUIElement>( GUIButton(517, 636, 200, 132, mCapitalistMainWindow));
+	mCapitalistExportButton		= std::make_shared<GUIElement>( GUIButton(711, 636, 200, 132, mCapitalistMainWindow));
+	mCapitalistTaxesImage		= std::make_shared<GUIElement>( GUIImage (112, 636, 200, 132, "CapitalistImages/7_kap_tax.png", mCapitalistMainWindow));
+	mCapitalistResourceImage	= std::make_shared<GUIElement>( GUIImage (312, 636, 200, 132, "CapitalistImages/7_kap_res.png", mCapitalistMainWindow));
+	mCapitalistUpgradeImage		= std::make_shared<GUIElement>( GUIImage (517, 636, 200, 132, "CapitalistImages/7_kap_upg.png", mCapitalistMainWindow));
+	mCapitalistExportImage		= std::make_shared<GUIElement>( GUIImage (711, 636, 200, 132, "CapitalistImages/7_kap_exp.png", mCapitalistMainWindow));
 
+
+
+	mTaxesWindow	= NULL;
+	mResourceWindow	= NULL;
+	mUpgradeWindow	= NULL;
+	mExportWindow	= NULL;
 
 	/*
-	 *	Lägger in föräldernoden i vektorn som finns i GUIManager
-	 *	och kommer automatiskt få med sig alla barnnoder till denna
-	 *	vilet är alla GUIElement som finns i denna klass som har 
-	 *	mCapitalistMainWindow som parent-argument i dess konstruktor
-	 */
+	 	Lägger in föräldernoden i vektorn som finns i GUIManager
+	 	och kommer automatiskt få med sig alla barnnoder till denna
+	 	vilket är alla GUIElement som finns i denna klass som har 
+	 	mCapitalistMainWindow som parent-argument i dess konstruktor
+																		*/
 	GUIManager::getInstance()->addGUIElement(mCapitalistMainWindow);
 }
-
 
 /*
  * Om vänster musknapp har blivit nedtryckt och GUI elementet är en existerande knapp
  * kommer denna att kalla på sin funktion för att initiera ett nytt fönster med nya
  * menyval beroende på vilken knapp som blivit vald.
  *
- *
  *		Av: Jon Wahlström	2013-23-01
  */
-void Capitalist::update(GUIElement *guiElement)
+void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 {
 	if(guiElement == mCapitalistTaxesButton)
 	{
-		triggerTaxesMenu();	
+		openTaxesMenu();	
 	}
-}
 
-
-// Av: Jon Wahlström
-void Capitalist::render()
-{
-	initializeCapitalistWindowInformation();
-}
-
-
-/* */
-void Capitalist::triggerTaxesMenu()
-{
-	mTaxesWindow			= new GUIWindow(200, 200, 600, 300, mCapitalistMainWindow);
-	mTaxesImage				= new GUIImage(224, 264, 568, 165, "ref5.png", mTaxesWindow);
-	
-	GUIManager::getInstance()->addGUIElement(mTaxesWindow);
-}
-
-
-
-
-
-/*
- * Stänger ner det fönstret som är aktivt
- * 
- *	 Av: Jon Wahlström 2013-01-23
- */
-void Capitalist::closeWindow(GUIWindow *guiWindow)
-{
-	
-	if(mCloseWindow->getParent() == mTaxesWindow)
+	if(guiElement == mTaxesCloseButton)
 	{
-		mTaxesWindow->setVisible(false);
+		closeTaxesMenu();
 	}
 
+	if(guiElement == mCapitalistResourceButton)
+	{
+		openResourceMenu();
+	}
+
+	if(guiElement == mResourceCloseButton)
+	{
+		closeResourceMenu();
+	}
+
+	if(guiElement == mCapitalistUpgradeButton)
+	{
+		openUpgradeMenu();
+	}
+
+	if(guiElement == mUpgradeCloseButton)
+	{
+		closeUpgradeMenu();
+	}
+
+	if(guiElement == mCapitalistExportButton)
+	{
+		openExportMenu();
+	}
+
+	if(guiElement == mExportCloseButton)
+	{
+		closeExportMenu();
+	}
 }
 
+// JON WAHLSTRÖM
+void Capitalist::openTaxesMenu()
+{
+	if(mTaxesWindow == NULL) 
+	{
+		mTaxesWindow			= std::make_shared<GUIElement>( GUIWindow(227, 264, 570, 168, mCapitalistMainWindow));
+		mTaxesImage				= std::make_shared<GUIElement>( GUIImage (-227, -264, 1024, 768, "CapitalistImages/ref5.png", mTaxesWindow));
+	
+		mTaxesCloseButton		= std::make_shared<GUIElement>( GUIButton(235, 110, 100, 40, mTaxesWindow));
+		mTaxesCloseImage		= std::make_shared<GUIElement>( GUIImage (235, 110, 100, 40, "CapitalistImages/button_okay.png", mTaxesWindow));
+
+		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
+	}
+
+	if(!mTaxesWindow->getVisible())
+	{
+		mTaxesWindow->setVisible(true);
+	}
+}
+// JON WAHLSTRÖM
+void Capitalist::openResourceMenu()
+{
+	if(mResourceWindow == NULL)
+	{
+		mResourceWindow			= std::make_shared<GUIElement>( GUIWindow(227, 264 , 568, 165, mCapitalistMainWindow));
+		mResourceImage			= std::make_shared<GUIElement>( GUIImage(-227, -264, 1024, 768, "CapitalistImages/ref6.png", mResourceWindow));
+
+		mResourceCloseButton    = std::make_shared<GUIElement>( GUIButton(235, 110, 100, 40, mResourceWindow));
+		mResourceCloseImage		= std::make_shared<GUIElement>( GUIImage (235, 110, 100, 40, "CapitalistImages/button_okay.png", mResourceWindow));
+
+		GUIManager::getInstance()->addGUIElement(mResourceWindow);
+	}
+
+	if(!mResourceWindow->getVisible())
+	{
+		mResourceWindow->setVisible(true);
+	}
+}
+
+// JON WAHLSTRÖM
+void Capitalist::openUpgradeMenu()
+{
+	if(mUpgradeWindow == NULL)
+	{
+		mUpgradeWindow			= std::make_shared<GUIElement>( GUIWindow(226, 79 , 568, 534, mCapitalistMainWindow));
+		mUpgradeImage			= std::make_shared<GUIElement>( GUIImage(-226, -79, 1024, 768, "CapitalistImages/ref7.png", mUpgradeWindow));
+
+		mUpgradeCloseButton		= std::make_shared<GUIElement>( GUIButton(236, 478, 100, 40, mUpgradeWindow));
+		mUpgradeCloseImage		= std::make_shared<GUIElement>( GUIImage (236, 478, 100, 40, "CapitalistImages/button_okay.png", mUpgradeWindow));
+
+		GUIManager::getInstance()->addGUIElement(mUpgradeWindow);
+		
+	}
+
+	if(!mUpgradeWindow->getVisible())
+	{
+		mUpgradeWindow->setVisible(true);
+	}
+}
+
+// JON WAHLSTRÖM
+void Capitalist::openExportMenu()
+{
+	if(mExportWindow == NULL)
+	{
+		mExportWindow			= std::make_shared<GUIElement>( GUIWindow(226, 79, 568, 534, mCapitalistMainWindow));
+		mExportImage			= std::make_shared<GUIElement>( GUIImage(-226, -79, 1024, 768, "CapitalistImages/ref8.png", mExportWindow));
+
+		mExportCloseButton		 = std::make_shared<GUIElement>( GUIButton(236, 478, 100, 40, mExportWindow));
+		mExportCloseImage		 = std::make_shared<GUIElement>( GUIImage (236, 478, 100, 40, "CapitalistImages/button_okay.png", mExportWindow));
+
+		GUIManager::getInstance()->addGUIElement(mExportWindow);
+	}
+
+	if(!mExportWindow->getVisible())
+	{
+		mExportWindow->setVisible(true);
+	}
+}
+
+
+// JON WAHLSTRÖM
+void Capitalist::closeTaxesMenu()
+{
+	mTaxesWindow->setVisible(false);
+	
+}
+
+// JON WAHLSTRÖM
+void Capitalist::closeResourceMenu()
+{
+	mResourceWindow->setVisible(false);
+}
+
+void Capitalist::closeUpgradeMenu()
+{
+	mUpgradeWindow->setVisible(false);
+}
+
+
+void Capitalist::closeExportMenu()
+{
+	mExportWindow->setVisible(false);
+}
 
 
 void Capitalist::updateFood()

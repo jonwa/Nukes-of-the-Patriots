@@ -1,6 +1,6 @@
 #include "GUIElement.h"
 
-GUIElement::GUIElement(int x, int y, int width, int height, GUIElement *parent, GUIType guiType) : 
+GUIElement::GUIElement(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent, GUIType guiType) : 
 	mX(x),
 	mY(y),
 	mWidth(width),
@@ -12,16 +12,27 @@ GUIElement::GUIElement(int x, int y, int width, int height, GUIElement *parent, 
 {
 	if(mParent != NULL)
 	{
-		mParent->addChild(this);
+		mParent->addChild(getPtr());
+		setX(mX += mParent->getX());
+		setY(mY += mParent->getY());
 	}
 }
 
-void GUIElement::addChild(GUIElement *guiElement)
+GUIElement::~GUIElement()
+{
+}
+
+std::shared_ptr<GUIElement> GUIElement::getPtr()
+{
+	return std::shared_ptr<GUIElement>(this);
+}
+
+void GUIElement::addChild(std::shared_ptr<GUIElement> guiElement)
 {
 	mChilds.push_back(guiElement);
 }
 
-std::vector<GUIElement*>& GUIElement::getChildVector()
+std::vector<std::shared_ptr<GUIElement>>& GUIElement::getChildVector()
 {
 	return mChilds;
 }
@@ -51,7 +62,7 @@ bool GUIElement::getVisible()const
 { 
 	return mVisible; 
 }
-GUIElement* GUIElement::getParent()const
+std::shared_ptr<GUIElement> GUIElement::getParent()const
 {
 	return mParent;
 }
@@ -87,7 +98,7 @@ void GUIElement::setHeight(int height)
 void GUIElement::setVisible(bool visible)
 { 
 	mVisible = visible;
-	for(std::vector<GUIElement*>::size_type i = 0; i < mChilds.size(); ++i)
+	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mChilds.size(); ++i)
 	{
 		mChilds[i]->setVisible(visible);
 	}

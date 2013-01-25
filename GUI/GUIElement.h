@@ -2,20 +2,20 @@
 #define _GUIElement_H
 
 #include <SFML\Graphics.hpp>
+#include <memory>
 #include <vector>
-enum			GUIType{Window, Button, Text, Image};
+enum	GUIType{Window, Button, Text, Image};
 
-class GUIElement
+class GUIElement : public std::enable_shared_from_this<GUIElement>
 {
 public:
-
-					GUIElement(int x, int y, int width, int height, GUIElement *parent, GUIType guiType);
+					GUIElement(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent, GUIType guiType);
 	int				getX()const;
 	int				getY()const;
 	int				getWidth()const;
 	int				getHeight()const;
 	bool			getVisible()const;
-	GUIElement *	getParent()const;
+	std::shared_ptr<GUIElement> getParent()const;
 	GUIType			getGUIType()const;
 	int				getAlpha()const;
 	bool			getMouseIsInside()const;
@@ -27,19 +27,20 @@ public:
 	void			setVisible(bool visible);
 	void			setAlpha(int alpha);
 	void			setMouseIsInside(bool inside);
-	void			addChild(GUIElement *guiElement);
-	std::vector<GUIElement*>& getChildVector();
+	void			addChild(std::shared_ptr<GUIElement> guiElement);
+	std::shared_ptr<GUIElement> getPtr();
+	std::vector<std::shared_ptr<GUIElement>>& getChildVector();
 
-	virtual void	setScale(float width, float height) = 0;
-	virtual void	render(sf::RenderWindow *window) = 0;
-	virtual			~GUIElement(){}
+	virtual void	setScale(float width, float height) {}
+	virtual void	render(sf::RenderWindow *window) {}
+	virtual			~GUIElement();
 protected:
 	int mX, mY, mWidth, mHeight, mAlpha;
 	bool mVisible, mMouseInside;
-	GUIElement *mParent;
+	std::shared_ptr<GUIElement> mParent;
 	GUIType mGUIType;
 	
-	std::vector<GUIElement*> mChilds;
+	std::vector<std::shared_ptr<GUIElement>> mChilds;
 };
 
 #endif

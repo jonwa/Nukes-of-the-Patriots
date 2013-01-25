@@ -7,7 +7,7 @@
 class GUIText: public GUIElement
 {
 public:
-				GUIText(int x, int y, std::string text, GUIElement *parent = 0);
+				GUIText(int x, int y, std::string text, std::shared_ptr<GUIElement> parent = 0);
 	std::string getText()const{ return mText.getString(); }
 	void		setText(std::string text);
 	void		setScale(float width, float height);

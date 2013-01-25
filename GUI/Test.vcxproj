@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Capitalist.cpp" />
+    <ClCompile Include="Communist.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="GUIButton.cpp" />
     <ClCompile Include="GUIElement.cpp" />
@@ -24,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Capitalist.h" />
+    <ClInclude Include="Communist.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="GUIButton.h" />
     <ClInclude Include="GUIElement.h" />
