@@ -17,6 +17,7 @@ class GUIWindow;
 
 #include <vector>
 #include <memory>
+#include <sstream>
 #include <SFML\Graphics\RenderWindow.hpp>
 
 class Capitalist
@@ -69,15 +70,27 @@ public:
 	void increasePopulation();
 
 private:
+	std::string intToString(int i)
+	{
+		std::stringstream converter;
+		converter << i;
+		return converter.str();
+	}
+	
 	int	mPatriotism;
 	int	mCurrency;
 	int	mPopulation;
+
 	int	mFood;
+	std::shared_ptr<GUIElement> mFoodText;
+
 	int	mGoods;
 	int	mTech;
 	int	mTaxes;
 	int	mSpyNetwork;
 	int	mNuclearWeapon;
+	std::shared_ptr<GUIElement> mNuclearText;
+
 	int	mSpaceProgram;
 	//President	*mPresident;
 	bool mIncreasePopulation;

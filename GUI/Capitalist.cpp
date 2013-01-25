@@ -4,6 +4,7 @@
 #include "GUIWindow.h"
 #include "GUIButton.h"
 #include "GUIImage.h"
+#include "GUIText.h"
 
 #include <SFML\Window\Mouse.hpp>
 
@@ -171,7 +172,7 @@ void Capitalist::initializeCapitalistWindow()
 	mCapitalistUpgradeImage		= std::make_shared<GUIImage> (517, 636, 200, 132, "CapitalistImages/7_kap_upg.png", mCapitalistMainWindow);
 	mCapitalistExportImage		= std::make_shared<GUIImage> (711, 636, 200, 132, "CapitalistImages/7_kap_exp.png", mCapitalistMainWindow);
 
-
+	mFoodText	= std::make_shared<GUIText> (160, 16, intToString(mFood), mCapitalistMainWindow);
 
 	mTaxesWindow	= NULL;
 	mResourceWindow	= NULL;
@@ -201,37 +202,37 @@ void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 		openTaxesMenu();	
 	}
 
-	if(guiElement == mTaxesCloseButton)
+	else if(guiElement == mTaxesCloseButton)
 	{
 		closeTaxesMenu();
 	}
 
-	if(guiElement == mCapitalistResourceButton)
+	else if(guiElement == mCapitalistResourceButton)
 	{
 		openResourceMenu();
 	}
 
-	if(guiElement == mResourceCloseButton)
+	else if(guiElement == mResourceCloseButton)
 	{
 		closeResourceMenu();
 	}
 
-	if(guiElement == mCapitalistUpgradeButton)
+	else if(guiElement == mCapitalistUpgradeButton)
 	{
 		openUpgradeMenu();
 	}
 
-	if(guiElement == mUpgradeCloseButton)
+	else if(guiElement == mUpgradeCloseButton)
 	{
 		closeUpgradeMenu();
 	}
 
-	if(guiElement == mCapitalistExportButton)
+	else if(guiElement == mCapitalistExportButton)
 	{
 		openExportMenu();
 	}
 
-	if(guiElement == mExportCloseButton)
+	else if(guiElement == mExportCloseButton)
 	{
 		closeExportMenu();
 	}

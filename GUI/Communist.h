@@ -9,6 +9,7 @@ Arvid Backman 2013-01-21
 #define COMMUNIST_H
 
 #include <memory>
+#include <sstream>
 
 class President;
 class GUIElement;
@@ -58,6 +59,13 @@ public:
 
 
 private:
+	std::string intToString(int i)
+	{
+		std::stringstream converter;
+		converter << i;
+		return converter.str();
+	}
+
 	int			mPatriotism;
 	int			mCurrency;
 	int			mPopulation;
