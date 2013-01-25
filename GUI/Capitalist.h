@@ -13,6 +13,7 @@ class GUIManager;
 class GUIElement;
 class GUIButton;
 class GUIImage;
+class GUIText;
 class GUIWindow;
 
 #include <vector>
@@ -46,7 +47,6 @@ public:
 	void updateFood();
 	bool enoughFood();
 
-
 	void initializeCapitalistWindow();
 
 	void onGUIClick(std::shared_ptr<GUIElement> guiElement);
@@ -60,7 +60,6 @@ public:
 	void closeResourceMenu();
 	void closeUpgradeMenu();
 	void closeExportMenu();
-
 
 	void upgradeNuclearWeapon();
 	void upgradeSpaceProgram();
@@ -82,14 +81,14 @@ private:
 	int	mPopulation;
 
 	int	mFood;
-	std::shared_ptr<GUIElement> mFoodText;
+	std::shared_ptr<GUIText> mFoodText;
 
 	int	mGoods;
 	int	mTech;
 	int	mTaxes;
 	int	mSpyNetwork;
 	int	mNuclearWeapon;
-	std::shared_ptr<GUIElement> mNuclearText;
+	std::shared_ptr<GUIText> mNuclearText;
 
 	int	mSpaceProgram;
 	//President	*mPresident;

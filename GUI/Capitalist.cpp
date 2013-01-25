@@ -80,7 +80,8 @@ int Capitalist::getSpyNetwork()
 /*Funktioner som ger medlemsvariabler nya värden*/
 void Capitalist::setFood(int food)
 {
-	mFood = food;
+	mFood += food;
+	mFoodText->setText(intToString(mFood));
 }
 
 void Capitalist::setGoods(int goods)
@@ -113,6 +114,8 @@ void Capitalist::upgradeNuclearWeapon()
 
 	mGoods	-= 10;
 	mTech	-= 5;
+
+	mNuclearText->setText(intToString(mNuclearWeapon));
 }
 
 /*	Uppgraderar mSpaceProgram med ett
@@ -172,7 +175,8 @@ void Capitalist::initializeCapitalistWindow()
 	mCapitalistUpgradeImage		= std::make_shared<GUIImage> (517, 636, 200, 132, "CapitalistImages/7_kap_upg.png", mCapitalistMainWindow);
 	mCapitalistExportImage		= std::make_shared<GUIImage> (711, 636, 200, 132, "CapitalistImages/7_kap_exp.png", mCapitalistMainWindow);
 
-	mFoodText	= std::make_shared<GUIText> (160, 16, intToString(mFood), mCapitalistMainWindow);
+	mFoodText		= std::make_shared<GUIText> (160, 16, intToString(mFood), mCapitalistMainWindow);
+	mNuclearText	= std::make_shared<GUIText> (962, 16, intToString(mNuclearWeapon), mCapitalistMainWindow);
 
 	mTaxesWindow	= NULL;
 	mResourceWindow	= NULL;
@@ -199,7 +203,7 @@ void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 {
 	if(guiElement == mCapitalistTaxesButton)
 	{
-		openTaxesMenu();	
+		openTaxesMenu();
 	}
 
 	else if(guiElement == mTaxesCloseButton)

@@ -14,16 +14,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-=======
-std::string intToString(int i)
-{
-	std::stringstream converter;
-	converter << i;
-	return converter.str();
-}
-
->>>>>>> 5589e8b9a8845461971af51a53cefe8afb4cc96d
 sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!", sf::Style::Fullscreen);
 
 

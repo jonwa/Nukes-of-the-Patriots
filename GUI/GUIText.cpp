@@ -42,7 +42,7 @@ void GUIText::render(sf::RenderWindow &window)
 	}
 	if(visible)
 	{
-		mText.setColor(sf::Color::Color(0, 255, 0, 255));
+		mText.setColor(sf::Color::Color(0, 255, 255, 255));
 		mText.setPosition(sf::Vector2f(getX(), getY()));
 		window.draw(mText);
 	}
