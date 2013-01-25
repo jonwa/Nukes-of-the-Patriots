@@ -154,10 +154,10 @@ bool Capitalist::enoughFood()
 }
 
 /*
- * Initierar huvudfönster med all GUI-information som behövs
- *
- *				Av: Jon Wahlström		2013-01-23
- */
+  Initierar huvudfönster med all GUI-information som behövs
+ 
+ 				Av: Jon Wahlström		2013-01-23
+																*/
 void Capitalist::initializeCapitalistWindow()
 {
 	mCapitalistMainWindow		= std::make_shared<GUIWindow>(0, 0, 1024, 768);
@@ -188,12 +188,12 @@ void Capitalist::initializeCapitalistWindow()
 }
 
 /*
- * Om vänster musknapp har blivit nedtryckt och GUI elementet är en existerande knapp
- * kommer denna att kalla på sin funktion för att initiera ett nytt fönster med nya
- * menyval beroende på vilken knapp som blivit vald.
- *
- *		Av: Jon Wahlström	2013-23-01
- */
+  Om vänster musknapp har blivit nedtryckt och GUI elementet är en existerande knapp
+  kommer denna att kalla på sin open menu funktion för att initiera ett nytt fönster med nya
+  menyval beroende på vilken knapp som blivit vald.
+ 
+ 		Av: Jon Wahlström	2013-23-01
+																		*/
 void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 {
 	if(guiElement == mCapitalistTaxesButton)
@@ -237,7 +237,12 @@ void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 	}
 }
 
-// JON WAHLSTRÖM
+/*
+	Initierar GUI information för taxes fönstret som dyker upp då
+	denna menyknapp blivit vald. 
+
+		Av: Jon Wahlström 2013-01-24
+																*/
 void Capitalist::openTaxesMenu()
 {
 	if(mTaxesWindow == NULL) 
@@ -256,7 +261,13 @@ void Capitalist::openTaxesMenu()
 		mTaxesWindow->setVisible(true);
 	}
 }
-// JON WAHLSTRÖM
+
+/*
+	Initierar GUI information för resurs fönstret som dyker upp då
+	denna menyknapp blivit vald. 
+
+		Av: Jon Wahlström 2013-01-24
+																*/
 void Capitalist::openResourceMenu()
 {
 	if(mResourceWindow == NULL)
@@ -276,7 +287,12 @@ void Capitalist::openResourceMenu()
 	}
 }
 
-// JON WAHLSTRÖM
+/*
+	Initierar GUI information för upgraderings fönstret som dyker upp då
+	denna menyknapp blivit vald. 
+
+		Av: Jon Wahlström 2013-01-24
+																*/
 void Capitalist::openUpgradeMenu()
 {
 	if(mUpgradeWindow == NULL)
@@ -297,7 +313,12 @@ void Capitalist::openUpgradeMenu()
 	}
 }
 
-// JON WAHLSTRÖM
+/*
+	Initierar GUI information för export fönstret som dyker upp då
+	denna menyknapp blivit vald. 
+
+		Av: Jon Wahlström 2013-01-24
+																*/
 void Capitalist::openExportMenu()
 {
 	if(mExportWindow == NULL)
@@ -317,15 +338,19 @@ void Capitalist::openExportMenu()
 	}
 }
 
-
-// JON WAHLSTRÖM
+/*
+	Dessa funktioner kallas då menyfönstret väljs att stängas ner. 
+	Det den gör är att sätta fönstrets synlighet till false och 
+	därmed kommer fönstrets barnnoder även dem att sättas till false
+		
+		Av: Jon Wahlström 2013-24-01
+															*/
 void Capitalist::closeTaxesMenu()
 {
 	mTaxesWindow->setVisible(false);
 	
 }
 
-// JON WAHLSTRÖM
 void Capitalist::closeResourceMenu()
 {
 	mResourceWindow->setVisible(false);
@@ -335,7 +360,6 @@ void Capitalist::closeUpgradeMenu()
 {
 	mUpgradeWindow->setVisible(false);
 }
-
 
 void Capitalist::closeExportMenu()
 {
