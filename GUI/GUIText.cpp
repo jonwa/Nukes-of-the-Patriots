@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "GUIText.h"
 #include <SFML\System\String.hpp>
 #include <iostream>
@@ -57,6 +60,7 @@ void GUIText::render(sf::RenderWindow &window)
 			mChilds[i]->render(window);
 		}
 	}*/
+<<<<<<< HEAD
 =======
 #include "GUIText.h"
 #include <SFML\System\String.hpp>
@@ -117,4 +121,6 @@ void GUIText::render(sf::RenderWindow *window)
 		}
 	}*/
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

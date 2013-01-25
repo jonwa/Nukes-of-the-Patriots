@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "Capitalist.h"
 #include "GUIElement.h"
 #include "GUIManager.h"
@@ -394,6 +397,7 @@ void Capitalist::increasePopulation()
 	++mPopulation;
 
 	mIncreasePopulation = false;
+<<<<<<< HEAD
 =======
 #include "Capitalist.h"
 #include "GUIElement.h"
@@ -791,4 +795,6 @@ void Capitalist::increasePopulation()
 
 	mIncreasePopulation = false;
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

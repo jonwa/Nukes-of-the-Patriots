@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #ifndef _GUI_MANAGER_H
 #define _GUI_MANAGER_H
 
@@ -35,6 +38,7 @@ private:
 };
 
 #endif
+<<<<<<< HEAD
 =======
 #ifndef _GUI_MANAGER_H
 #define _GUI_MANAGER_H
@@ -73,3 +77,5 @@ private:
 
 #endif
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea

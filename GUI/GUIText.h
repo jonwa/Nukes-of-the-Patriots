@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #ifndef _GUI_TEXT_H
 #define _GUI_TEXT_H
 
@@ -19,6 +22,7 @@ private:
 	sf::Font mFont;
 };
 
+<<<<<<< HEAD
 =======
 #ifndef _GUI_TEXT_H
 #define _GUI_TEXT_H
@@ -41,4 +45,6 @@ private:
 };
 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #endif

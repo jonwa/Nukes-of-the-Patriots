@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "GUIImage.h"
 #include "ResourceHandler.h"
 
@@ -61,6 +64,7 @@ void GUIImage::render(sf::RenderWindow &window)
 	{
 		window.draw(mSprite);
 	}
+<<<<<<< HEAD
 =======
 #include "GUIImage.h"
 #include "ResourceHandler.h"
@@ -125,4 +129,6 @@ void GUIImage::render(sf::RenderWindow * window)
 		window->draw(mSprite);
 	}
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

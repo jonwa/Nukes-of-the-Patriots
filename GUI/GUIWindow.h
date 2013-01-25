@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #ifndef _GUI_WINDOW_H
 #define _GUI_WINDOW_H
 
@@ -13,6 +16,7 @@ public:
 			~GUIWindow(){}
 };
 
+<<<<<<< HEAD
 =======
 #ifndef _GUI_WINDOW_H
 #define _GUI_WINDOW_H
@@ -29,4 +33,6 @@ public:
 };
 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #endif

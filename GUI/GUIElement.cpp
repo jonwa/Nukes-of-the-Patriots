@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "GUIElement.h"
 
 GUIElement::GUIElement(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent, GUIType guiType) : 
@@ -108,6 +111,7 @@ void GUIElement::setVisible(bool visible)
 void GUIElement::setAlpha(int alpha)
 {
 	mAlpha = alpha; 
+<<<<<<< HEAD
 =======
 #include "GUIElement.h"
 
@@ -218,4 +222,6 @@ void GUIElement::setAlpha(int alpha)
 {
 	mAlpha = alpha; 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

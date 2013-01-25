@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #ifndef _GUIElement_H
 #define _GUIElement_H
 
@@ -44,6 +47,7 @@ protected:
 	std::vector<std::shared_ptr<GUIElement>> mChilds;
 };
 
+<<<<<<< HEAD
 =======
 #ifndef _GUIElement_H
 #define _GUIElement_H
@@ -91,4 +95,6 @@ protected:
 };
 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #endif

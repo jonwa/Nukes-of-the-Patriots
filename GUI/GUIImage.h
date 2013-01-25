@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 /*
  *  GUIImage används för att ladda in bilder 
  *  denna använder i sin tur ResourceHandler för att lägga in dessa
@@ -36,6 +39,7 @@ private:
 	sf::Sprite mSprite;
 };
 
+<<<<<<< HEAD
 =======
 /*
  *  GUIImage används för att ladda in bilder 
@@ -75,4 +79,6 @@ private:
 };
 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #endif

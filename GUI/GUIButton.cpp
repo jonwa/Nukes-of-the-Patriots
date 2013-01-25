@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "GUIButton.h"
 
 GUIButton::GUIButton(int x, int y, int width, int height, std::shared_ptr<GUIElement> parent) :
@@ -38,6 +41,7 @@ void GUIButton::setScale(float width, float height)
 {
 	mWidth	*= width;
 	mHeight *= height;
+<<<<<<< HEAD
 =======
 #include "GUIButton.h"
 
@@ -79,4 +83,6 @@ void GUIButton::setScale(float width, float height)
 	mWidth	*= width;
 	mHeight *= height;
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

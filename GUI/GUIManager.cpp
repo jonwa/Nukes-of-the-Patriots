@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include "GUIManager.h"
 
 GUIManager* GUIManager::mInstance = NULL;
@@ -124,6 +127,7 @@ void GUIManager::triggerOnMouseLeaveEvent(std::shared_ptr<GUIElement> guiElement
 			(*it)(guiElement);
 	}
 }
+<<<<<<< HEAD
 =======
 #include "GUIManager.h"
 
@@ -251,3 +255,5 @@ void GUIManager::triggerOnMouseLeaveEvent(std::shared_ptr<GUIElement> guiElement
 	}
 }
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #include <SFML/Graphics.hpp>
 #include <SFML\Window\Mouse.hpp>
 #include "GUIManager.h"
@@ -49,6 +52,7 @@ int main()
         window.display();
     }
     return EXIT_SUCCESS;
+<<<<<<< HEAD
 =======
 #include <SFML/Graphics.hpp>
 #include <SFML\Window\Mouse.hpp>
@@ -101,4 +105,6 @@ int main()
     }
     return EXIT_SUCCESS;
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 }

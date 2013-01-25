@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 /*
  * Klass för kapitalisterna i spelet Nukes of the Patriots
  * 
@@ -134,6 +137,7 @@ private:
 };
 
 
+<<<<<<< HEAD
 =======
 /*
  * Klass för kapitalisterna i spelet Nukes of the Patriots
@@ -273,4 +277,6 @@ private:
 
 
 >>>>>>> parent of 5c595d1... asdasd
+=======
+>>>>>>> e8055fcf44317e4746a3cdb3e75fce869a1dc5ea
 #endif
