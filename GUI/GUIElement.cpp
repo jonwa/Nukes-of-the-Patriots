@@ -25,6 +25,7 @@ GUIElement::~GUIElement()
 std::shared_ptr<GUIElement> GUIElement::getPtr()
 {
 	return std::shared_ptr<GUIElement>(this);
+	//return shared_from_this();
 }
 
 void GUIElement::addChild(std::shared_ptr<GUIElement> guiElement)

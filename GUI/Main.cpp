@@ -21,13 +21,13 @@ std::string intToString(int i)
 	return converter.str();
 }
 
-sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!", sf::Style::Fullscreen);
+sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!"/*, sf::Style::Fullscreen*/);
 
 
 int main()
 {
 
-	Communist communist;
+	//Communist communist;
 	Capitalist capitalist;
 	std::function <void (std::shared_ptr<GUIElement>)> capitalistFunctions	= std::bind(&Capitalist::onGUIClick, capitalist, std::placeholders::_1);
 
@@ -43,7 +43,7 @@ int main()
                 window.close();
         }
         window.clear();
-		GUIManager::getInstance()->render(&window);
+		GUIManager::getInstance()->render(window);
 
         window.display();
     }

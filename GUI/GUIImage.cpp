@@ -43,7 +43,7 @@ void GUIImage::setScale(float width, float height)
  * 
  *
  */
-void GUIImage::render(sf::RenderWindow * window)
+void GUIImage::render(sf::RenderWindow &window)
 {
 	bool visible = getVisible();
 	std::shared_ptr<GUIElement> parent = getParent();
@@ -58,6 +58,6 @@ void GUIImage::render(sf::RenderWindow * window)
 	}
 	if(visible)
 	{
-		window->draw(mSprite);
+		window.draw(mSprite);
 	}
 }

@@ -29,7 +29,7 @@ void GUIText::setScale(float width, float height)
 	setHeight(boundBox.height);
 }
 
-void GUIText::render(sf::RenderWindow *window)
+void GUIText::render(sf::RenderWindow &window)
 {
 	bool visible = getVisible();
 	std::shared_ptr<GUIElement> parent = getParent();
@@ -44,7 +44,7 @@ void GUIText::render(sf::RenderWindow *window)
 	{
 		mText.setColor(sf::Color::Color(0, 255, 0, 255));
 		mText.setPosition(sf::Vector2f(getX(), getY()));
-		window->draw(mText);
+		window.draw(mText);
 	}
 
 	

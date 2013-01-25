@@ -5,7 +5,7 @@ GUIWindow::GUIWindow(int x, int y, int width, int height, std::shared_ptr<GUIEle
 {
 }
 
-void GUIWindow::render(sf::RenderWindow *window)
+void GUIWindow::render(sf::RenderWindow &window)
 {
 	bool visible = getVisible();
 	std::shared_ptr<GUIElement> parent = getParent();
@@ -21,7 +21,7 @@ void GUIWindow::render(sf::RenderWindow *window)
 		sf::RectangleShape rect(sf::Vector2f(getWidth(), getHeight()));
 		rect.setPosition(mX, mY);
 		rect.setFillColor(sf::Color::Color(255, 0, 0, 255));
-		window->draw(rect);
+		window.draw(rect);
 	}
 
 

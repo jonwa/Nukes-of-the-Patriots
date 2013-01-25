@@ -160,16 +160,16 @@ bool Capitalist::enoughFood()
  */
 void Capitalist::initializeCapitalistWindow()
 {
-	mCapitalistMainWindow		= std::make_shared<GUIElement>( GUIWindow(0, 0, 1024, 768));
-	mCapitalistMainWindowImage	= std::make_shared<GUIElement>( GUIImage(0, 0, 0, 0, "CapitalistImages/ref.png", mCapitalistMainWindow));//(0, 0, 0, 0, "CapitalistImages/ref.png", mCapitalistMainWindow));
-	mCapitalistTaxesButton		= std::make_shared<GUIElement>( GUIButton(112, 636, 200, 132, mCapitalistMainWindow));
-	mCapitalistResourceButton	= std::make_shared<GUIElement>( GUIButton(312, 636, 200, 132, mCapitalistMainWindow));
-	mCapitalistUpgradeButton	= std::make_shared<GUIElement>( GUIButton(517, 636, 200, 132, mCapitalistMainWindow));
-	mCapitalistExportButton		= std::make_shared<GUIElement>( GUIButton(711, 636, 200, 132, mCapitalistMainWindow));
-	mCapitalistTaxesImage		= std::make_shared<GUIElement>( GUIImage (112, 636, 200, 132, "CapitalistImages/7_kap_tax.png", mCapitalistMainWindow));
-	mCapitalistResourceImage	= std::make_shared<GUIElement>( GUIImage (312, 636, 200, 132, "CapitalistImages/7_kap_res.png", mCapitalistMainWindow));
-	mCapitalistUpgradeImage		= std::make_shared<GUIElement>( GUIImage (517, 636, 200, 132, "CapitalistImages/7_kap_upg.png", mCapitalistMainWindow));
-	mCapitalistExportImage		= std::make_shared<GUIElement>( GUIImage (711, 636, 200, 132, "CapitalistImages/7_kap_exp.png", mCapitalistMainWindow));
+	mCapitalistMainWindow		= std::make_shared<GUIWindow>(0, 0, 1024, 768);
+	mCapitalistMainWindowImage	= std::make_shared<GUIImage> (0, 0, 0, 0, "CapitalistImages/ref.png", mCapitalistMainWindow);
+	mCapitalistTaxesButton		= std::make_shared<GUIButton>(112, 636, 200, 132, mCapitalistMainWindow);
+	mCapitalistResourceButton	= std::make_shared<GUIButton>(312, 636, 200, 132, mCapitalistMainWindow);
+	mCapitalistUpgradeButton	= std::make_shared<GUIButton>(517, 636, 200, 132, mCapitalistMainWindow);
+	mCapitalistExportButton		= std::make_shared<GUIButton>(711, 636, 200, 132, mCapitalistMainWindow);
+	mCapitalistTaxesImage		= std::make_shared<GUIImage> (112, 636, 200, 132, "CapitalistImages/7_kap_tax.png", mCapitalistMainWindow);
+	mCapitalistResourceImage	= std::make_shared<GUIImage> (312, 636, 200, 132, "CapitalistImages/7_kap_res.png", mCapitalistMainWindow);
+	mCapitalistUpgradeImage		= std::make_shared<GUIImage> (517, 636, 200, 132, "CapitalistImages/7_kap_upg.png", mCapitalistMainWindow);
+	mCapitalistExportImage		= std::make_shared<GUIImage> (711, 636, 200, 132, "CapitalistImages/7_kap_exp.png", mCapitalistMainWindow);
 
 
 
@@ -242,11 +242,11 @@ void Capitalist::openTaxesMenu()
 {
 	if(mTaxesWindow == NULL) 
 	{
-		mTaxesWindow			= std::make_shared<GUIElement>( GUIWindow(227, 264, 570, 168, mCapitalistMainWindow));
-		mTaxesImage				= std::make_shared<GUIElement>( GUIImage (-227, -264, 1024, 768, "CapitalistImages/ref5.png", mTaxesWindow));
+		mTaxesWindow			= std::make_shared<GUIWindow>(227, 264, 570, 168, mCapitalistMainWindow);
+		mTaxesImage				= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref5.png", mTaxesWindow);
 	
-		mTaxesCloseButton		= std::make_shared<GUIElement>( GUIButton(235, 110, 100, 40, mTaxesWindow));
-		mTaxesCloseImage		= std::make_shared<GUIElement>( GUIImage (235, 110, 100, 40, "CapitalistImages/button_okay.png", mTaxesWindow));
+		mTaxesCloseButton		= std::make_shared<GUIButton>(235, 110, 100, 40, mTaxesWindow);
+		mTaxesCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mTaxesWindow);
 
 		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
 	}
@@ -261,11 +261,11 @@ void Capitalist::openResourceMenu()
 {
 	if(mResourceWindow == NULL)
 	{
-		mResourceWindow			= std::make_shared<GUIElement>( GUIWindow(227, 264 , 568, 165, mCapitalistMainWindow));
-		mResourceImage			= std::make_shared<GUIElement>( GUIImage(-227, -264, 1024, 768, "CapitalistImages/ref6.png", mResourceWindow));
+		mResourceWindow			= std::make_shared<GUIWindow>(227, 264 , 568, 165, mCapitalistMainWindow);
+		mResourceImage			= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref6.png", mResourceWindow);
 
-		mResourceCloseButton    = std::make_shared<GUIElement>( GUIButton(235, 110, 100, 40, mResourceWindow));
-		mResourceCloseImage		= std::make_shared<GUIElement>( GUIImage (235, 110, 100, 40, "CapitalistImages/button_okay.png", mResourceWindow));
+		mResourceCloseButton    = std::make_shared<GUIButton>(235, 110, 100, 40, mResourceWindow);
+		mResourceCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mResourceWindow);
 
 		GUIManager::getInstance()->addGUIElement(mResourceWindow);
 	}
@@ -281,11 +281,11 @@ void Capitalist::openUpgradeMenu()
 {
 	if(mUpgradeWindow == NULL)
 	{
-		mUpgradeWindow			= std::make_shared<GUIElement>( GUIWindow(226, 79 , 568, 534, mCapitalistMainWindow));
-		mUpgradeImage			= std::make_shared<GUIElement>( GUIImage(-226, -79, 1024, 768, "CapitalistImages/ref7.png", mUpgradeWindow));
+		mUpgradeWindow			= std::make_shared<GUIWindow>(226, 79 , 568, 534, mCapitalistMainWindow);
+		mUpgradeImage			= std::make_shared<GUIImage> (-226, -79, 1024, 768, "CapitalistImages/ref7.png", mUpgradeWindow);
 
-		mUpgradeCloseButton		= std::make_shared<GUIElement>( GUIButton(236, 478, 100, 40, mUpgradeWindow));
-		mUpgradeCloseImage		= std::make_shared<GUIElement>( GUIImage (236, 478, 100, 40, "CapitalistImages/button_okay.png", mUpgradeWindow));
+		mUpgradeCloseButton		= std::make_shared<GUIButton>(236, 478, 100, 40, mUpgradeWindow);
+		mUpgradeCloseImage		= std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mUpgradeWindow);
 
 		GUIManager::getInstance()->addGUIElement(mUpgradeWindow);
 		
@@ -302,11 +302,11 @@ void Capitalist::openExportMenu()
 {
 	if(mExportWindow == NULL)
 	{
-		mExportWindow			= std::make_shared<GUIElement>( GUIWindow(226, 79, 568, 534, mCapitalistMainWindow));
-		mExportImage			= std::make_shared<GUIElement>( GUIImage(-226, -79, 1024, 768, "CapitalistImages/ref8.png", mExportWindow));
+		mExportWindow			= std::make_shared<GUIWindow> (226, 79, 568, 534, mCapitalistMainWindow);
+		mExportImage			= std::make_shared<GUIImage>  (-226, -79, 1024, 768, "CapitalistImages/ref8.png", mExportWindow);
 
-		mExportCloseButton		 = std::make_shared<GUIElement>( GUIButton(236, 478, 100, 40, mExportWindow));
-		mExportCloseImage		 = std::make_shared<GUIElement>( GUIImage (236, 478, 100, 40, "CapitalistImages/button_okay.png", mExportWindow));
+		mExportCloseButton		 = std::make_shared<GUIButton>(236, 478, 100, 40, mExportWindow);
+		mExportCloseImage		 = std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mExportWindow);
 
 		GUIManager::getInstance()->addGUIElement(mExportWindow);
 	}

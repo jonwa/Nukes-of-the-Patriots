@@ -24,12 +24,12 @@ void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 	mGuiElements.push_back(guiElement);
 	if(!guiElement->getChildVector().empty())
 	{
-		for(std::vector<GUIElement*>::size_type i = 0; i < guiElement->getChildVector().size(); ++i)
+		for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < guiElement->getChildVector().size(); ++i)
 		{
 			mGuiElements.push_back(guiElement->getChildVector()[i]);
 			if(!guiElement->getChildVector().empty())
 			{
-				for(std::vector<GUIElement*>::size_type j = 0; j < guiElement->getChildVector()[i]->getChildVector().size(); ++j)
+				for(std::vector<std::shared_ptr<GUIElement>>::size_type j = 0; j < guiElement->getChildVector()[i]->getChildVector().size(); ++j)
 				{
 					mGuiElements.push_back(guiElement->getChildVector()[i]->getChildVector()[j]);
 				}
@@ -38,13 +38,13 @@ void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 	}
 }
 
-void GUIManager::render(sf::RenderWindow *window)
+void GUIManager::render(sf::RenderWindow &window)
 {
-	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
+	for(std::vector<std::shared_ptr<GUIElement>>::iterator it = mGuiElements.begin(); it != mGuiElements.end(); ++it)
 	{
-		if(mGuiElements[i]->getVisible())
+		if((*it)->getVisible())
 		{
-				mGuiElements[i]->render(window);
+				(*it)->render(window);
 		}
 	}
 }

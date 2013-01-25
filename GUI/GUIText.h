@@ -11,7 +11,7 @@ public:
 	std::string getText()const{ return mText.getString(); }
 	void		setText(std::string text);
 	void		setScale(float width, float height);
-	void		render(sf::RenderWindow *window);
+	void		render(sf::RenderWindow &window);
 				~GUIText(){}
 private:
 	sf::Text mText;

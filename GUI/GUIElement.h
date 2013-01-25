@@ -32,7 +32,7 @@ public:
 	std::vector<std::shared_ptr<GUIElement>>& getChildVector();
 
 	virtual void	setScale(float width, float height) {}
-	virtual void	render(sf::RenderWindow *window) {}
+	virtual void	render(sf::RenderWindow &window) {}
 	virtual			~GUIElement();
 protected:
 	int mX, mY, mWidth, mHeight, mAlpha;

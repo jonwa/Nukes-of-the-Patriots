@@ -28,7 +28,7 @@ public:
 	void setImage(std::string &string);
 	void setScale(float width, float height);
 
-	void render (sf::RenderWindow *window);
+	void render (sf::RenderWindow &window);
 	
 private:
 	sf::Texture mTexture;

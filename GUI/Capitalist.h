@@ -5,8 +5,6 @@
  *	  Jon Wahlström
  */
 
-
-
 #ifndef CAPITALIST_H
 #define CAPITALIST_H
 
