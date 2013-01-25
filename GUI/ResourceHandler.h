@@ -17,8 +17,6 @@
  *	
  *				mPlayerSprite.setTexture(mPlayerTexture);
  *
- *							
- *		Samma gäller ljud och music men då med sf::SoundBuffer/sf::Sound variabler samt sf::Music. 
  *
  *		Av: Jon Wahlström 2013-01-20
  */
