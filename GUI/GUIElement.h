@@ -4,7 +4,7 @@
 #include <SFML\Graphics.hpp>
 #include <memory>
 #include <vector>
-enum	GUIType{Window, Button, Text, Image};
+enum	GUIType{WINDOW, BUTTON, TEXT, IMAGE};
 
 class GUIElement : public std::enable_shared_from_this<GUIElement>
 {

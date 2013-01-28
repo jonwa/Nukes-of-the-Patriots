@@ -2,7 +2,7 @@
 #include "ResourceHandler.h"
 
 GUIImage::GUIImage(int x, int y, int width, int height, std::string string, std::shared_ptr<GUIElement> parent) : 
-	GUIElement(x, y, width, height, parent, GUIType::Image)
+	GUIElement(x, y, width, height, parent, IMAGE)
 {
 	setImage(string);	
 }
@@ -20,12 +20,14 @@ sf::Sprite GUIImage::getImage()const
  */
 void GUIImage::setImage(std::string& string)
 {
+	float xPos = static_cast<float>(mX);
+	float yPos = static_cast<float>(mY);
 	mTexture.loadFromImage(*ResourceHandler::getInstance()->loadImage(string));
 	mSprite.setTexture(mTexture);
-	mSprite.setPosition(mX, mY);
+	mSprite.setPosition(xPos, yPos);
 	sf::FloatRect boundBox = mSprite.getGlobalBounds();
-	setWidth(boundBox.width);
-	setHeight(boundBox.height);
+	setWidth(static_cast<int>(boundBox.width));
+	setHeight(static_cast<int>(boundBox.height));
 }
 
 /*
@@ -35,8 +37,8 @@ void GUIImage::setScale(float width, float height)
 {
 	mSprite.setScale(width, height);
 	sf::FloatRect boundBox = mSprite.getGlobalBounds();
-	setWidth(boundBox.width);
-	setHeight(boundBox.height);
+	setWidth(static_cast<int>(boundBox.width));
+	setHeight(static_cast<int>(boundBox.height));
 }
 
 /*

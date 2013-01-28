@@ -28,6 +28,12 @@
     <Filter Include="ResourceHandler">
       <UniqueIdentifier>{a4ccad2d-86c3-440f-bf7c-23fe74327ccd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Menu - header">
+      <UniqueIdentifier>{4ff27d93-7de2-4e34-a550-f79aed7ba8f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu - source">
+      <UniqueIdentifier>{287aeafe-eb10-4f49-bcc9-951f1ada1f29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -94,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="ResourceHandler.h">
       <Filter>ResourceHandler</Filter>
+    </ClInclude>
+    <ClInclude Include="SplashScreen.h">
+      <Filter>Menu - header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
