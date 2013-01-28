@@ -25,6 +25,7 @@ public:
 private:
 	static GUIManager* mInstance;
 
+	void removeGuiElements();
 
 	sf::RenderWindow *mWindow;
 	std::vector<std::shared_ptr<GUIElement>> mGuiElements;

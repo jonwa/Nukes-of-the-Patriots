@@ -20,6 +20,13 @@ GUIElement::GUIElement(int x, int y, int width, int height, std::shared_ptr<GUIE
 
 GUIElement::~GUIElement()
 {
+	while(!mChilds.empty())
+	{
+		for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mChilds.size(); ++i)
+		{
+			mChilds.erase(mChilds.begin() + i);
+		}
+	}
 }
 
 std::shared_ptr<GUIElement> GUIElement::getPtr()

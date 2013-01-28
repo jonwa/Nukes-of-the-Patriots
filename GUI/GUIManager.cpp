@@ -38,6 +38,17 @@ void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 	}
 }
 
+void GUIManager::removeGuiElements()
+{
+	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
+	{
+		if(!mGuiElements[i]->getVisible())
+		{
+			mGuiElements.erase(mGuiElements.begin() + i);
+		}
+	}
+}
+
 void GUIManager::render(sf::RenderWindow &window)
 {
 	for(std::vector<std::shared_ptr<GUIElement>>::iterator it = mGuiElements.begin(); it != mGuiElements.end(); ++it)
@@ -78,6 +89,8 @@ void GUIManager::update()
 			}
 		}
 	}
+
+	removeGuiElements();
 }
 
 void GUIManager::addOnMouseClickEventHandler(std::function <void (std::shared_ptr<GUIElement>)> func)
