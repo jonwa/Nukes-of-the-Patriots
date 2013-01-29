@@ -1,5 +1,11 @@
 #ifndef _GUIElement_H
 #define _GUIElement_H
+/*
+	Basklass för alla GUIElement: GUIWindow, GUIButton, GUIImage, GUIText.
+
+	Av: Aleksi Lindman
+		Arvid Backman
+							*/
 
 #include <SFML\Graphics.hpp>
 #include <memory>

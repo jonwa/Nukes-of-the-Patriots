@@ -1,5 +1,13 @@
 #ifndef _GUI_MANAGER_H
 #define _GUI_MANAGER_H
+/* Klass som hanterar GUIElementen
+
+	Av: Aleksi Lindman
+		Arvid Backman
+
+							 */
+
+
 
 #include "GUIElement.h"
 #include <functional>
