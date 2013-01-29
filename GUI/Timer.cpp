@@ -35,7 +35,7 @@ bool Timer::tick()
 
 void Timer::killTimer()
 {
-	delete this;
+	TimerHandler::getInstance()->removeTimer(this);
 }
 
 Timer::~Timer()

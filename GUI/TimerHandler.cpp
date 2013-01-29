@@ -14,6 +14,7 @@ void TimerHandler::removeTimer(Timer* timer)
 	{
 		if((*it) == timer)
 		{
+			//delete (*it);
 			mVecTimers.erase(it);
 			break;
 		}
