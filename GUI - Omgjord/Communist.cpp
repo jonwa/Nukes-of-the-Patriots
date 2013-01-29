@@ -17,8 +17,10 @@ Communist::Communist()
 	mSpaceProgram		= 0;
 	mNuclearWeapon		= 10;
 	mIncreasePopulation = false;
+	mType				= COMMUNIST;
 
 	initializeCommunistWindow();
+	initializeGuiFunctions();
 }
 
 
@@ -26,23 +28,6 @@ Communist::~Communist()
 {
 }
 
-//-------------------------------------
-/*Funktioner som returnerar medlemsvariablernas värden*/
-
-//President Communist::getPresident()
-//{
-//	return mPresident;
-//}
-
-//--------------------------------------------
-/*Funktioner som ger medlemsvariabler nya värden*/
-
-//President Communist::setPresident(President &president)
-//{
-//	mPresident = &president;
-//}
-
-//-----------------------------------------------------------
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
 void Communist::upgradeNuclearWeapon()
@@ -86,42 +71,22 @@ void Communist::initializeCommunistWindow()
 	mCommunistUpgradeImage;
 	mCommunistExportImage;
 
-	GUIManager::getInstance()->addGUIElement(mCommunistMainWindow);
 
-	mTaxesWindow = NULL;
-}
-
-void Communist::onGuiClick(std::shared_ptr<GUIElement> guiElement)
-{
-	if(guiElement == mCommunistTaxesButton)
-	{
-		openTaxesMenu();
-	}
-	else if(guiElement == mTaxesCloseButton)
-	{
-		closeTaxesMenu();
-	}
-}
-
-void Communist::openTaxesMenu()
-{
-	if(mTaxesWindow == NULL)
-	{
-		mTaxesWindow		= std::make_shared<GUIWindow>	(227, 264, 570, 168, mCommunistMainWindow);
-		mTaxesImage			= std::make_shared<GUIImage>	(-227, -264, 0, 0, "ref5.png", mTaxesWindow);
-		mTaxesCloseButton	= std::make_shared<GUIButton>	(235, 110, 101, 40, mTaxesWindow);
-
-		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
-	}
-	if(!mTaxesWindow->getVisible())
-	{
-		mTaxesWindow->setVisible(true);
-	}
-}
-
-void Communist::closeTaxesMenu()
-{
+	mTaxesWindow		= std::make_shared<GUIWindow>	(227, 264, 570, 168, mCommunistMainWindow);
+	mTaxesImage			= std::make_shared<GUIImage>	(-227, -264, 0, 0, "ref5.png", mTaxesWindow);
+	mTaxesCloseButton	= std::make_shared<GUIButton>	(235, 110, 101, 40, mTaxesWindow);
 	mTaxesWindow->setVisible(false);
+
+
+	GUIManager::getInstance()->addGUIElement(mCommunistMainWindow);
+}
+
+void Communist::initializeGuiFunctions()
+{
+	mCommunistTaxesButton->setOnClickFunction([=]() { mTaxesWindow->setVisible(true); });
+	mCommunistResourcesButton->setOnClickFunction( [=]() {  });
+	mCommunistUpgradeButton->setOnClickFunction( [=]() {  });
+	mCommunistExportButton->setOnClickFunction( [=]() {  });
 }
 
 void Communist::showGUI()

@@ -74,6 +74,15 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>SuperPower- source</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Randomizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="President.cpp">
+      <Filter>SuperPower- source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventHandler.h">
@@ -113,6 +122,15 @@
       <Filter>SuperPower -header</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
+      <Filter>SuperPower -header</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Randomizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="President.h">
       <Filter>SuperPower -header</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,22 +25,6 @@ public:
 	Communist();
 	~Communist();
 
-	int			getFood();
-	int			getGoods();
-	int			getTech();
-	int			getTaxes();
-	int			getNuclearWeapon();
-	int			getSpaceProgram();
-	int			getSpyNetwork();
-	int			getCurrency();
-	//President	getPresident();
-
-	void		setFood(int food);
-	void		setGoods(int goods);
-	void		setTech(int tech);
-	void		setTaxes(int taxes);
-	//void		setPresident(President &president);
-
 	void		getTaxIncome();
 	void		updateFood();
 	bool		enoughFood();
@@ -48,15 +32,6 @@ public:
 	void		upgradeNuclearWeapon();
 	void		upgradeSpaceProgram();
 	void		upgradeSpyNetwork();
-
-	bool		enableToIncreasePopulation();
-	void		increasePopulation();
-
-	void		initializeCommunistWindow();
-	void		onGuiClick(std::shared_ptr<GUIElement> guiElement);
-
-	void		openTaxesMenu();
-	void		closeTaxesMenu();
 
 	void showGUI();
 	void hideGUI();
@@ -67,7 +42,10 @@ private:
 		converter << i;
 		return converter.str();
 	}
- 
+
+	void initializeCommunistWindow();
+	void initializeGuiFunctions();
+
 	//President	*mPresident;
 	
 

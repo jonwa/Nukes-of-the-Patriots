@@ -21,9 +21,9 @@ int main()
 
 	//Communist communist;
 	Capitalist capitalist;
-	std::function <void (std::shared_ptr<GUIElement>)> capitalistFunctions	= std::bind(&Capitalist::onGUIClick, capitalist, std::placeholders::_1);
+	//std::function <void (std::shared_ptr<GUIElement>)> capitalistFunctions	= std::bind(&Capitalist::onGUIClick, capitalist, std::placeholders::_1);
 
-	GUIManager::getInstance()->addOnMouseClickEventHandler(capitalistFunctions);
+	//GUIManager::getInstance()->addOnMouseClickEventHandler(capitalistFunctions);
 
 	while (window.isOpen())
     {

@@ -8,7 +8,7 @@
 #ifndef CAPITALIST_H
 #define CAPITALIST_H
 
-//class President;
+class President;
 class GUIManager;
 class GUIElement;
 class GUIButton;
@@ -28,26 +28,12 @@ public:
 	Capitalist();
 	~Capitalist();
 
-	void initializeCapitalistWindow();
-
-	void onGUIClick(std::shared_ptr<GUIElement> guiElement);
-
-	void openTaxesMenu();
-	void openResourceMenu();
-	void openUpgradeMenu();
-	void openExportMenu();
-
-	void closeTaxesMenu();
-	void closeResourceMenu();
-	void closeUpgradeMenu();
-	void closeExportMenu();
+	std::shared_ptr<President>	getPresident();
+	void						setPresident(std::shared_ptr<President>);
 
 	void upgradeNuclearWeapon();
 	void upgradeSpaceProgram();
 	void upgradeSpyNetwork();
-
-	bool enableToIncreasePopulation();
-	void increasePopulation();
 
 	void showGUI();
 	void hideGUI();
@@ -59,9 +45,10 @@ private:
 		return converter.str();
 	}
 	
+	void initializeCapitalistWindow();
 	void initializeGuiFunctions();
 
-	//President	*mPresident;
+	std::shared_ptr<President> mPresident;
 	
 
 

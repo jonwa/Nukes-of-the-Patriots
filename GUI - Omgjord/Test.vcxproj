@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Capitalist.cpp" />
     <ClCompile Include="Communist.cpp" />
     <ClCompile Include="EventHandler.cpp" />
@@ -23,10 +24,13 @@
     <ClCompile Include="GUIWindow.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="President.cpp" />
+    <ClCompile Include="Randomizer.cpp" />
     <ClCompile Include="SuperPower.cpp" />
     <ClCompile Include="ResourceHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Capitalist.h" />
     <ClInclude Include="Communist.h" />
     <ClInclude Include="EventHandler.h" />
@@ -38,6 +42,8 @@
     <ClInclude Include="GUIText.h" />
     <ClInclude Include="GUIWindow.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="President.h" />
+    <ClInclude Include="Randomizer.h" />
     <ClInclude Include="SuperPower.h" />
     <ClInclude Include="ResourceHandler.h" />
   </ItemGroup>

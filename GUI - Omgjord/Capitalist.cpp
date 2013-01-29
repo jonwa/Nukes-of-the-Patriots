@@ -5,11 +5,13 @@
 #include "GUIButton.h"
 #include "GUIImage.h"
 #include "GUIText.h"
+#include "President.h"
 #include <iostream>
 
 #include <SFML\Window\Mouse.hpp>
 
-Capitalist::Capitalist()
+Capitalist::Capitalist() :
+	mPresident(nullptr)
 {
 	mPopulation			= 50;			//Befolkning i miljoner
 	mPatriotism			= 20;
@@ -21,6 +23,7 @@ Capitalist::Capitalist()
 	mSpaceProgram		= 0;
 	mNuclearWeapon		= 10;
 	mIncreasePopulation = false;
+	mType				= CAPITALIST;
 
 
 	initializeCapitalistWindow();
@@ -32,16 +35,16 @@ Capitalist::~Capitalist()
 {
 }
 
-//President Capitalist::getPresident()
-//{
-//	return mPresident;
-//}
+std::shared_ptr<President> Capitalist::getPresident()
+{
+	return mPresident;
+}
 
 
-//President Capitalist::setPresident(President &president)
-//{
-//	mPresident = president;
-//}
+void Capitalist::setPresident(std::shared_ptr<President> president)
+{
+	mPresident = president;
+}
 
 
 //-----------------------------------------------------------
@@ -130,6 +133,10 @@ void Capitalist::initializeCapitalistWindow()
 	GUIManager::getInstance()->addGUIElement(mCapitalistMainWindow);
 }
 
+/*
+	Ger alla GUIButton:s en funktion som körs när den klickas på
+
+																	*/
 void Capitalist::initializeGuiFunctions()
 {
 	mCapitalistTaxesButton->setOnClickFunction([=]() { mTaxesWindow->setVisible(true); });
@@ -141,104 +148,6 @@ void Capitalist::initializeGuiFunctions()
 	mResourceCloseButton->setOnClickFunction([=]() { mResourceWindow->setVisible(false); });
 	mUpgradeCloseButton->setOnClickFunction([=]() { mUpgradeWindow->setVisible(false); });
 	mExportCloseButton->setOnClickFunction([=]() { mExportWindow->setVisible(false); });
-}
-
-/*
-  Om vänster musknapp har blivit nedtryckt och GUI elementet är en existerande knapp
-  kommer denna att kalla på sin open menu funktion för att initiera ett nytt fönster med nya
-  menyval beroende på vilken knapp som blivit vald.
- 
- 		Av: Jon Wahlström	2013-23-01
-																		*/
-void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
-{
-	if(guiElement == mCapitalistTaxesButton)
-	{
-		openTaxesMenu();
-	}
-
-	else if(guiElement == mTaxesCloseButton)
-	{
-		closeTaxesMenu();
-	}
-
-	else if(guiElement == mCapitalistResourceButton)
-	{
-		openResourceMenu();
-	}
-
-	else if(guiElement == mResourceCloseButton)
-	{
-		closeResourceMenu();
-	}
-
-	else if(guiElement == mCapitalistUpgradeButton)
-	{
-		openUpgradeMenu();
-	}
-
-	else if(guiElement == mUpgradeCloseButton)
-	{
-		closeUpgradeMenu();
-	}
-
-	else if(guiElement == mCapitalistExportButton)
-	{
-		openExportMenu();
-	}
-
-	else if(guiElement == mExportCloseButton)
-	{
-		closeExportMenu();
-	}
-}
-
-/*
-	Dessa funktioner kallas då menyfönstret väljs att stängas ner eller öppnas upp. 
-	Det den gör är att sätta fönstrets synlighet till false/true och 
-	därmed kommer fönstrets barnnoder även dem att sättas till false/true
-		
-		Av: Jon Wahlström 2013-24-01
-			Arvid Backman 2013-28-01
-																*/
-void Capitalist::openTaxesMenu()
-{
-	mTaxesWindow->setVisible(true);
-}
-
-void Capitalist::closeTaxesMenu()
-{
-	mTaxesWindow->setVisible(false);
-}
-
-void Capitalist::openResourceMenu()
-{
-	mResourceWindow->setVisible(true);
-}
-
-void Capitalist::closeResourceMenu()
-{
-	mResourceWindow->setVisible(false);
-}
-
-void Capitalist::openUpgradeMenu()
-{
-	mUpgradeWindow->setVisible(true);
-}
-
-void Capitalist::closeUpgradeMenu()
-{
-	mUpgradeWindow->setVisible(false);
-}
-
-void Capitalist::openExportMenu()
-{
-	mExportWindow->setVisible(true);
-} 
-
-void Capitalist::closeExportMenu()
-{
-	mExportWindow->setVisible(false);
 }
 
 void Capitalist::showGUI()

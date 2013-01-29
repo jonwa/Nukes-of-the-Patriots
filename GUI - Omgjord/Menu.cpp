@@ -2,7 +2,7 @@
 //#include "GUIManager.h"
 //#include <SFML\Window\Mouse.hpp>
 //
-///*Konstruktorn kör initialize-funktionen*/
+// /*Konstruktorn kör initialize-funktionen*/
 //Menu::Menu(sf::RenderWindow &window) :
 //	mWindow(window)	{ initialize(); }
 //Menu::~Menu(){}
@@ -62,8 +62,8 @@
 //void Menu::initializeGUIFuctions()
 //{
 //	mStartNewGameButton->setOnClickFunction([=]() {} );
-//	mLoadGameButton->setOnClickFunction([=]() {});
-//	mSettingsButton->setOnClickFunction([=]() {});
-//	mCreditsButton->setOnClickFunction([=]() {});
-//	mExitButton->setOnClickFunction([=]() { mWindow.close(); });
+//	mLoadGameButton->setOnClickFunction([=]()	  { });
+//	mSettingsButton->setOnClickFunction([=]()     { mMainMenuWindow->setVisible(false); mSettingsMenuWindow->setVisible(true); });
+//	mCreditsButton->setOnClickFunction([=]()      { mMainMenuWindow->setVisible(false); mCreditsMenuWindow->setVisible(true);});
+//	mExitButton->setOnClickFunction([=]()	      { mWindow.close(); });
 //}
