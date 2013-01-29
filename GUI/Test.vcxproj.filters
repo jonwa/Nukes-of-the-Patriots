@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Capitalist">
       <UniqueIdentifier>{b612831f-28d9-4bfb-9284-8c889f77f838}</UniqueIdentifier>
     </Filter>
@@ -34,12 +30,13 @@
     <Filter Include="Menu - source">
       <UniqueIdentifier>{287aeafe-eb10-4f49-bcc9-951f1ada1f29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Capitalist.cpp">
@@ -69,17 +66,19 @@
     <ClCompile Include="ResourceHandler.cpp">
       <Filter>ResourceHandler</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menu - source</Filter>
+=======
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PoliticalSystem.cpp">
       <Filter>Source Files</Filter>
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EventHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Capitalist.h">
       <Filter>Capitalist</Filter>
     </ClInclude>
@@ -107,12 +106,17 @@
     <ClInclude Include="ResourceHandler.h">
       <Filter>ResourceHandler</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Menu.h">
+      <Filter>Menu - header</Filter>
+=======
 
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PoliticalSystem.h">
       <Filter>Header Files</Filter>
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     </ClInclude>
   </ItemGroup>
 </Project>

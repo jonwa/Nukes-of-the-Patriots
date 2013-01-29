@@ -40,6 +40,8 @@ void GUIWindow::render(sf::RenderWindow &window)
 
 void GUIWindow::setScale(float width, float height)
 {
+	//int Width = static_cast<int>(width);
+	//int Height = static_cast<int>(height);
 	mWidth	*= width;
 	mHeight *= height;
 }

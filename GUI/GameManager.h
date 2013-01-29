@@ -1,28 +1,27 @@
-#ifndef GAMEMANAGER_H
-#define GAMEMANAGER_H
+#ifndef _GAME_MANAGER_H
+#define _GAME_MANAGER_H
 
-#include "Capitalist.h"
-#include "Communist.h"
+#include "PoliticalSystem.h"
+#include <vector>
 
 class GameManager
 {
 public:
-	static GameManager *getInstance();
-	~GameManager();
-
-	void update();
-	void render();
-
-
+									GameManager(int year, std::vector<PoliticalSystem*> politicalSystemVec, PoliticalSystem *currentPlayer);
+	int								getYear()const;
+	PoliticalSystem*				getCurrentPlayer()const;
+	std::vector<PoliticalSystem*>	getPlayers()const;
+	void							setCurrentPlayer(PoliticalSystem* nextPlayer);
+	void							setYear(int year);
+	void							startRound();
+	void							nextRound();
+									~GameManager();
 private:
-	GameManager();
-	GameManager(const GameManager &);
-	void operator=(const GameManager &);
-	static GameManager *mInstance;
-
-	Capitalist	mCapitalist;
-	Communist	mCommunist;
-
+	int mYear, mRound;
+	// Theoretically you should be able to play with x amount of players - instead of only 2
+	std::vector<PoliticalSystem*> mVecPoliticalSystems;
+	std::vector<PoliticalSystem*> mVecPlayersLeft;
+	PoliticalSystem *mCurrentPlayer;
 };
 
 #endif

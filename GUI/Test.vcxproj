@@ -13,8 +13,11 @@
   <ItemGroup>
     <ClCompile Include="Capitalist.cpp" />
     <ClCompile Include="Communist.cpp" />
+<<<<<<< HEAD
+=======
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="GameManager.cpp" />
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     <ClCompile Include="GUIButton.cpp" />
     <ClCompile Include="GUIElement.cpp" />
     <ClCompile Include="GUIImage.cpp" />
@@ -22,23 +25,33 @@
     <ClCompile Include="GUIText.cpp" />
     <ClCompile Include="GUIWindow.cpp" />
     <ClCompile Include="Main.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="Menu.cpp" />
+=======
     <ClCompile Include="PoliticalSystem.cpp" />
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     <ClCompile Include="ResourceHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Capitalist.h" />
     <ClInclude Include="Communist.h" />
+<<<<<<< HEAD
+=======
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="GameManager.h" />
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     <ClInclude Include="GUIButton.h" />
     <ClInclude Include="GUIElement.h" />
     <ClInclude Include="GUIImage.h" />
     <ClInclude Include="GUIManager.h" />
     <ClInclude Include="GUIText.h" />
     <ClInclude Include="GUIWindow.h" />
+<<<<<<< HEAD
+    <ClInclude Include="Menu.h" />
+=======
     <ClInclude Include="PoliticalSystem.h" />
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     <ClInclude Include="ResourceHandler.h" />
-    <ClInclude Include="SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B74A280D-2E50-470B-B8E2-7E4FDB97756A}</ProjectGuid>

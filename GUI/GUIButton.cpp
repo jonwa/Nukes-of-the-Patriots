@@ -18,10 +18,10 @@ void GUIButton::render(sf::RenderWindow &window)
 	}
 	if(visible)
 	{
-		float width = static_cast<float>(getWidth());
+		float width	 = static_cast<float>(getWidth());
 		float height = static_cast<float>(getHeight());
-		float xPos = static_cast<float>(mX);
-		float yPos = static_cast<float>(mY);
+		float xPos	 = static_cast<float>(mX);
+		float yPos	 = static_cast<float>(mY);
 		sf::RectangleShape rect(sf::Vector2f(width, height));
 		rect.setPosition(xPos, yPos);
 		rect.setFillColor(sf::Color::Color(255, 255, 255, 255));
@@ -39,6 +39,8 @@ void GUIButton::render(sf::RenderWindow &window)
 
 void GUIButton::setScale(float width, float height)
 {
+	//int Width = static_cast<int>(width);
+	//int Height = static_cast<int>(height);
 	mWidth	*= width;
 	mHeight *= height;
 }

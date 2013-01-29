@@ -10,6 +10,7 @@ GUIElement::GUIElement(int x, int y, int width, int height, std::shared_ptr<GUIE
 	mGUIType(guiType),
 	mMouseInside(false)
 {
+	//ändra och lägg till någon annanstans
 	if(mParent != NULL)
 	{
 		mParent->addChild(getPtr());
@@ -31,8 +32,8 @@ GUIElement::~GUIElement()
 
 std::shared_ptr<GUIElement> GUIElement::getPtr()
 {
-	//return std::shared_ptr<GUIElement>(this);
-	return std::shared_ptr<GUIElement>(shared_from_this());
+	return std::shared_ptr<GUIElement>(this);
+	//return std::shared_ptr<GUIElement>(shared_from_this());
 }
 
 void GUIElement::addChild(std::shared_ptr<GUIElement> guiElement)
