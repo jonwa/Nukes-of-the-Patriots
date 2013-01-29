@@ -8,7 +8,7 @@ Arvid Backman 2013-01-21
 #ifndef COMMUNIST_H
 #define COMMUNIST_H
 
-#include "PoliticalSystem.h"
+#include "SuperPower.h"
 #include <memory>
 #include <sstream>
 
@@ -19,7 +19,7 @@ class GUIImage;
 class GUIWindow;
 
 
-class Communist : public PoliticalSystem
+class Communist : public SuperPower
 {
 public:
 	Communist();

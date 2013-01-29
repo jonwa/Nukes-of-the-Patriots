@@ -1,5 +1,5 @@
-#ifndef POLITICALSYSTEM_H
-#define POLITICALSYSTEM_H
+#ifndef SUPERPOWER_H
+#define SUPERPOWER_H
 
 #include <memory>
 
@@ -10,11 +10,11 @@ enum PoliticalType
 	CAPITALIST, COMMUNIST
 }; 
 
-class PoliticalSystem
+class SuperPower
 {
 public:
-	PoliticalSystem();
-	~PoliticalSystem();
+	SuperPower();
+	~SuperPower();
 
 	int			getFood();
 	int			getGoods();

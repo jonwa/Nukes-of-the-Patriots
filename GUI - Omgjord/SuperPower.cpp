@@ -1,102 +1,102 @@
-#include "PoliticalSystem.h"
+#include "SuperPower.h"
 
 
-PoliticalSystem::PoliticalSystem()
+SuperPower::SuperPower()
 {
 }
 
 
-PoliticalSystem::~PoliticalSystem()
+SuperPower::~SuperPower()
 {
 }
 
 
 /*Funktioner som returnerar medlemsvariablernas värden*/
-int PoliticalSystem::getCurrency()
+int SuperPower::getCurrency()
 {
 	return mCurrency;
 }
 
-int PoliticalSystem::getFood()
+int SuperPower::getFood()
 {
 	return mFood;
 }
 
-int PoliticalSystem::getGoods()
+int SuperPower::getGoods()
 {
 	return mGoods;
 }
 
-int PoliticalSystem::getPopulation()
+int SuperPower::getPopulation()
 {
 	return mPopulation;
 }
 
-int PoliticalSystem::getTaxes()
+int SuperPower::getTaxes()
 {
 	return mTaxes;
 }
 
-int PoliticalSystem::getTech()
+int SuperPower::getTech()
 {
 	return mTech;
 }
 
-int PoliticalSystem::getNuclearWeapon()
+int SuperPower::getNuclearWeapon()
 {
 	return mNuclearWeapon;
 }
 
-int PoliticalSystem::getSpaceProgram()
+int SuperPower::getSpaceProgram()
 {
 	return mSpaceProgram;
 }
 
-int PoliticalSystem::getSpyNetwork()
+int SuperPower::getSpyNetwork()
 {
 	return mSpyNetwork;
 }
 
-int PoliticalSystem::getRound()
+int SuperPower::getRound()
 {
 	return mRound;
 }
 //--------------------------------------------
 /*Funktioner som ger medlemsvariabler nya värden*/
-void PoliticalSystem::setFood(int food)
+void SuperPower::setFood(int food)
 {
 	mFood = food;
 }
 
-void PoliticalSystem::setGoods(int goods)
+void SuperPower::setGoods(int goods)
 {
 	mGoods = goods;
 }
 
-void PoliticalSystem::setTaxes(int taxes)
+void SuperPower::setTaxes(int taxes)
 {
 	mTaxes = taxes;
 }
 
-void PoliticalSystem::setTech(int tech)
+void SuperPower::setTech(int tech)
 {
 	mTech = tech;
 }
 
-void PoliticalSystem::setRound(int round)
+void SuperPower::setRound(int round)
 {
 	mRound = round;
 }
 //-----------------------------------------------------------
 
 /*Uppgraderar mCurrency med mTaxes multiplicerat med mPopulation*/
-void PoliticalSystem::getTaxIncome()
+void SuperPower::getTaxIncome()
 {
 	mCurrency += mTaxes * mPopulation;
 }
 
 /*Kontrollerar ifall det finns nog med mat till hela befolkningen*/
-bool PoliticalSystem::enoughFood()
+bool SuperPower::enoughFood()
 {
 	if(mFood >= mPopulation)
 	{
@@ -108,7 +108,7 @@ bool PoliticalSystem::enoughFood()
 	}
 }
 
-void PoliticalSystem::updateFood()
+void SuperPower::updateFood()
 {
 	/*	Om mängden mat är tillräcklig blir mängden mat subtraherad med antalet befolkningen i miljoner
 		Populationen ökar och om landet har mer eller lika mycket pengar som befolkning blir mIncreasePopulation true.
@@ -144,14 +144,14 @@ void PoliticalSystem::updateFood()
 	}
 }
 /*Kontrollerar ifall det är möjligt att öka sin population*/
-bool PoliticalSystem::enableToIncreasePopulation()
+bool SuperPower::enableToIncreasePopulation()
 {
 	return mIncreasePopulation;
 }
 /*	mCurrency subtraheras med mPopulation, befolkningen i miljoner.
 	Ökar befolkningen med ett, en miljon.
 	Och tilldelar boolean:en mIncreasePopulation till false.*/
-void PoliticalSystem::increasePopulation()
+void SuperPower::increasePopulation()
 {
 	mCurrency -= mPopulation;
 
