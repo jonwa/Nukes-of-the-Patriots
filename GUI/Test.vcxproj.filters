@@ -66,8 +66,16 @@
     <ClCompile Include="ResourceHandler.cpp">
       <Filter>ResourceHandler</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Menu.cpp">
       <Filter>Menu - source</Filter>
+=======
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoliticalSystem.cpp">
+      <Filter>Source Files</Filter>
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,8 +106,17 @@
     <ClInclude Include="ResourceHandler.h">
       <Filter>ResourceHandler</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Menu.h">
       <Filter>Menu - header</Filter>
+=======
+
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoliticalSystem.h">
+      <Filter>Header Files</Filter>
+>>>>>>> 5ad1229939316ef4f3980679bdfcd2bda5f5c242
     </ClInclude>
   </ItemGroup>
 </Project>

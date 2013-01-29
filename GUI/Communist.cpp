@@ -201,13 +201,13 @@ void Communist::increasePopulation()
 
 void Communist::initializeCommunistWindow()
 {
-	mCommunistMainWindow		= std::make_shared<GUIElement>( GUIWindow(0, 0, 1024, 768));
-	mCommunistMainImage			= std::make_shared<GUIElement>( GUIImage(0, 0, 0, 0, "ref.png", mCommunistMainWindow));
-	mCommunistTaxesButton		= std::make_shared<GUIElement>( GUIButton	(112, 636, 200, 132, mCommunistMainWindow));
-	mCommunistResourcesButton	= std::make_shared<GUIElement>( GUIButton	(0, 0, 0, 0, mCommunistMainWindow));
-	mCommunistUpgradeButton		= std::make_shared<GUIElement>( GUIButton	(0, 0, 0, 0, mCommunistMainWindow));
-	mCommunistExportButton		= std::make_shared<GUIElement>( GUIButton	(0, 0, 0, 0, mCommunistMainWindow));
-	mCommunistTaxesImage		= std::make_shared<GUIElement>( GUIImage	(112, 636, 200, 132, "7_kap_tax.png", mCommunistMainWindow));
+	mCommunistMainWindow		= std::make_shared<GUIWindow>	(0, 0, 1024, 768);
+	mCommunistMainImage			= std::make_shared<GUIImage>	(0, 0, 0, 0, "ref.png", mCommunistMainWindow);
+	mCommunistTaxesButton		= std::make_shared<GUIButton>	(112, 636, 200, 132, mCommunistMainWindow);
+	mCommunistResourcesButton	= std::make_shared<GUIButton>	(0, 0, 0, 0, mCommunistMainWindow);
+	mCommunistUpgradeButton		= std::make_shared<GUIButton>	(0, 0, 0, 0, mCommunistMainWindow);
+	mCommunistExportButton		= std::make_shared<GUIButton>	(0, 0, 0, 0, mCommunistMainWindow);
+	mCommunistTaxesImage		= std::make_shared<GUIImage>	(112, 636, 200, 132, "7_kap_tax.png", mCommunistMainWindow);
 	mCommunistResourceImage;
 	mCommunistUpgradeImage;
 	mCommunistExportImage;
@@ -233,9 +233,9 @@ void Communist::openTaxesMenu()
 {
 	if(mTaxesWindow == NULL)
 	{
-		mTaxesWindow		= std::make_shared<GUIElement>( GUIWindow(227, 264, 570, 168, mCommunistMainWindow));
-		mTaxesImage			= std::make_shared<GUIElement>( GUIImage(-227, -264, 0, 0, "ref5.png", mTaxesWindow));
-		mTaxesCloseButton	= std::make_shared<GUIElement>( GUIButton(235, 110, 101, 40, mTaxesWindow));
+		mTaxesWindow		= std::make_shared<GUIWindow>	(227, 264, 570, 168, mCommunistMainWindow);
+		mTaxesImage			= std::make_shared<GUIImage>	(-227, -264, 0, 0, "ref5.png", mTaxesWindow);
+		mTaxesCloseButton	= std::make_shared<GUIButton>	(235, 110, 101, 40, mTaxesWindow);
 
 		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
 	}

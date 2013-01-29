@@ -261,10 +261,10 @@ void Capitalist::openTaxesMenu()
 		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
 	}
 
-	if(!mTaxesWindow->getVisible())
+	/*if(!mTaxesWindow->getVisible())
 	{
 		mTaxesWindow->setVisible(true);
-	}
+	}*/
 }
 
 /*
