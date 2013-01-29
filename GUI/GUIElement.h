@@ -28,13 +28,15 @@ public:
 	void			setAlpha(int alpha);
 	void			setMouseIsInside(bool inside);
 	void			addChild(std::shared_ptr<GUIElement> guiElement);
-	std::shared_ptr<GUIElement> getPtr();
+
 	std::vector<std::shared_ptr<GUIElement>>& getChildVector();
 
 	virtual void	setScale(float width, float height) {}
 	virtual void	render(sf::RenderWindow &window) {}
 	virtual			~GUIElement();
 protected:
+	std::shared_ptr<GUIElement> getPtr();
+
 	int mX, mY, mWidth, mHeight, mAlpha;
 	bool mVisible, mMouseInside;
 	std::shared_ptr<GUIElement> mParent;
