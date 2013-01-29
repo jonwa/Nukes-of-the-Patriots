@@ -5,18 +5,19 @@
 #include "GUIImage.h"
 #include "GUIText.h"
 
-Communist::Communist() :
-	mPopulation(50),			//Befolkning i miljoner
-	mPatriotism(20),
-	mTaxes(30),
-	mFood(0),
-	mTech(0),
-	mGoods(0),
-	mSpyNetwork(0),
-	mSpaceProgram(0),
-	mNuclearWeapon(10),
-	mIncreasePopulation(false)
+Communist::Communist()
 {
+	mPopulation			= 50;			//Befolkning i miljoner
+	mPatriotism			= 20;
+	mTaxes				= 30;
+	mFood				= 0;
+	mTech				= 0;
+	mGoods				= 0;
+	mSpyNetwork			= 0;
+	mSpaceProgram		= 0;
+	mNuclearWeapon		= 10;
+	mIncreasePopulation = false;
+
 	initializeCommunistWindow();
 }
 
@@ -27,76 +28,20 @@ Communist::~Communist()
 
 //-------------------------------------
 /*Funktioner som returnerar medlemsvariablernas värden*/
-int Communist::getCurrency()
-{
-	return mCurrency;
-}
-
-int Communist::getFood()
-{
-	return mFood;
-}
-
-int Communist::getGoods()
-{
-	return mGoods;
-}
-
-int Communist::getTaxes()
-{
-	return mTaxes;
-}
-
-int Communist::getTech()
-{
-	return mTech;
-}
-
-int Communist::getNuclearWeapon()
-{
-	return mNuclearWeapon;
-}
-
-int Communist::getSpaceProgram()
-{
-	return mSpaceProgram;
-}
-
-int Communist::getSpyNetwork()
-{
-	return mSpyNetwork;
-}
 
 //President Communist::getPresident()
 //{
 //	return mPresident;
 //}
+
 //--------------------------------------------
 /*Funktioner som ger medlemsvariabler nya värden*/
-void Communist::setFood(int food)
-{
-	mFood = food;
-}
-
-void Communist::setGoods(int goods)
-{
-	mGoods = goods;
-}
-
-void Communist::setTaxes(int taxes)
-{
-	mTaxes = taxes;
-}
-
-void Communist::setTech(int tech)
-{
-	mTech = tech;
-}
 
 //President Communist::setPresident(President &president)
 //{
 //	mPresident = &president;
 //}
+
 //-----------------------------------------------------------
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
@@ -126,77 +71,6 @@ void Communist::upgradeSpyNetwork()
 	++mSpyNetwork;
 
 	mTech -= 10 * mSpyNetwork;
-}
-
-/*Uppgraderar mCurrency med mTaxes multiplicerat med mPopulation*/
-void Communist::getTaxIncome()
-{
-	mCurrency += mTaxes * mPopulation;
-}
-
-/*Kontrollerar ifall det finns nog med mat till hela befolkningen*/
-bool Communist::enoughFood()
-{
-	if(mFood >= mPopulation)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-void Communist::updateFood()
-{
-	/*	Om mängden mat är tillräcklig blir mängden mat subtraherad med antalet befolkningen i miljoner
-		Populationen ökar och om landet har mer eller lika mycket pengar som befolkning blir mIncreasePopulation true.
-		Den används sedan för att ge möjligheten att betala en viss summa för att öka befolkningen*/
-	if(enoughFood())
-	{
-		mFood -= mPopulation;
-		++mPopulation;
-		if(mCurrency >= mPopulation)
-		{
-			mIncreasePopulation = true;
-		}
-	}
-	/*	Om mängden mat är mindre än häflten av befolkningen tilldelas mFood noll
-		mPatriotism subtraheras även med två*/
-	else if(mFood <= mPopulation / 2)
-	{
-		mFood = 0;
-		mPatriotism -= 2;
-	}
-	/*	Om det inte finns tillräckligt med mat och mFood inte är lika med noll
-		ökar inte patriotismen men mFood tilldelas noll*/
-	else if(!enoughFood() && mFood != 0)
-	{
-		mFood = 0;
-	}
-	/*	Om inga av det överstående stämmer, innebär det att maten är lika med noll och befolkningen inte fått någon mat
-		Detta ger minus fyra i patriotism*/
-	else
-	{
-		mFood = 0;
-		mPatriotism -= 4;
-	}
-}
-/*Kontrollerar ifall det är möjligt att öka sin population*/
-bool Communist::enableToIncreasePopulation()
-{
-	return mIncreasePopulation;
-}
-/*	mCurrency subtraheras med mPopulation, befolkningen i miljoner.
-	Ökar befolkningen med ett, en miljon.
-	Och tilldelar boolean:en mIncreasePopulation till false.*/
-void Communist::increasePopulation()
-{
-	mCurrency -= mPopulation;
-
-	++mPopulation;
-
-	mIncreasePopulation = false;
 }
 
 void Communist::initializeCommunistWindow()
@@ -248,4 +122,14 @@ void Communist::openTaxesMenu()
 void Communist::closeTaxesMenu()
 {
 	mTaxesWindow->setVisible(false);
+}
+
+void Communist::showGUI()
+{
+	mCommunistMainWindow->setVisible(false);
+}
+
+void Communist::hideGUI()
+{
+	mCommunistMainWindow->setVisible(true);
 }

@@ -8,6 +8,7 @@ Arvid Backman 2013-01-21
 #ifndef COMMUNIST_H
 #define COMMUNIST_H
 
+#include "PoliticalSystem.h"
 #include <memory>
 #include <sstream>
 
@@ -18,7 +19,7 @@ class GUIImage;
 class GUIWindow;
 
 
-class Communist
+class Communist : public PoliticalSystem
 {
 public:
 	Communist();
@@ -57,7 +58,8 @@ public:
 	void		openTaxesMenu();
 	void		closeTaxesMenu();
 
-
+	void showGUI();
+	void hideGUI();
 private:
 	std::string intToString(int i)
 	{
@@ -65,19 +67,9 @@ private:
 		converter << i;
 		return converter.str();
 	}
-
-	int			mPatriotism;
-	int			mCurrency;
-	int			mPopulation;
-	int			mFood;
-	int			mGoods;
-	int			mTech;
-	int			mTaxes;
-	int			mSpyNetwork;
-	int			mNuclearWeapon;
-	int			mSpaceProgram;
+ 
 	//President	*mPresident;
-	bool		mIncreasePopulation;
+	
 
 	std::shared_ptr<GUIElement> mCommunistMainWindow;
 	std::shared_ptr<GUIElement> mCommunistMainImage;

@@ -16,36 +16,17 @@ class GUIImage;
 class GUIText;
 class GUIWindow;
 
+#include "PoliticalSystem.h"
 #include <vector>
 #include <memory>
 #include <sstream>
 #include <SFML\Graphics\RenderWindow.hpp>
 
-class Capitalist
+class Capitalist : public PoliticalSystem 
 {
 public:
 	Capitalist();
 	~Capitalist();
-
-	int	getFood();
-	int	getGoods();
-	int	getTech();
-	int	getTaxes();
-	int	getNuclearWeapon();
-	int	getSpaceProgram();
-	int	getSpyNetwork();
-	int	getCurrency();
-	//President	getPresident();
-
-	void setFood(int food);
-	void setGoods(int goods);
-	void setTech(int tech);
-	void setTaxes(int taxes);
-	//void		setPresident(President &president);
-
-	void getTaxIncome();
-	void updateFood();
-	bool enoughFood();
 
 	void initializeCapitalistWindow();
 
@@ -68,6 +49,8 @@ public:
 	bool enableToIncreasePopulation();
 	void increasePopulation();
 
+	void showGUI();
+	void hideGUI();
 private:
 	std::string intToString(int i)
 	{
@@ -76,23 +59,9 @@ private:
 		return converter.str();
 	}
 	
-	int	mPatriotism;
-	int	mCurrency;
-	int	mPopulation;
-
-	int	mFood;
-	std::shared_ptr<GUIText> mFoodText;
-
-	int	mGoods;
-	int	mTech;
-	int	mTaxes;
-	int	mSpyNetwork;
-	int	mNuclearWeapon;
-	std::shared_ptr<GUIText> mNuclearText;
-
-	int	mSpaceProgram;
+	
 	//President	*mPresident;
-	bool mIncreasePopulation;
+	
 
 
 

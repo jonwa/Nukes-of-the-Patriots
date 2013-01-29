@@ -8,18 +8,20 @@
 
 #include <SFML\Window\Mouse.hpp>
 
-Capitalist::Capitalist() :
-	mPopulation(50),			//Befolkning i miljoner
-	mPatriotism(20),
-	mTaxes(30),
-	mFood(0),
-	mTech(0),
-	mGoods(0),
-	mSpyNetwork(0),
-	mSpaceProgram(0),
-	mNuclearWeapon(10),
-	mIncreasePopulation(false)
+Capitalist::Capitalist()
 {
+	mPopulation			= 50;			//Befolkning i miljoner
+	mPatriotism			= 20;
+	mTaxes				= 30;
+	mFood				= 0;
+	mTech				= 0;
+	mGoods				= 0;
+	mSpyNetwork			= 0;
+	mSpaceProgram		= 0;
+	mNuclearWeapon		= 10;
+	mIncreasePopulation = false;
+
+
 	initializeCapitalistWindow();
 }
 
@@ -28,76 +30,11 @@ Capitalist::~Capitalist()
 {
 }
 
-//-------------------------------------
-/*Funktioner som returnerar medlemsvariablernas värden*/
-int Capitalist::getCurrency()
-{
-	return mCurrency;
-}
-
-int Capitalist::getFood()
-{
-	return mFood;
-}
-
-int Capitalist::getGoods()
-{
-	return mGoods;
-}
-
-int Capitalist::getTaxes()
-{
-	return mTaxes;
-}
-
-int Capitalist::getTech()
-{
-	return mTech;
-}
-
-int Capitalist::getNuclearWeapon()
-{
-	return mNuclearWeapon;
-}
-
-int Capitalist::getSpaceProgram()
-{
-	return mSpaceProgram;
-}
-
-int Capitalist::getSpyNetwork()
-{
-	return mSpyNetwork;
-}
-
 //President Capitalist::getPresident()
 //{
 //	return mPresident;
 //}
 
-
-//--------------------------------------------
-/*Funktioner som ger medlemsvariabler nya värden*/
-void Capitalist::setFood(int food)
-{
-	mFood += food;
-	mFoodText->setText(intToString(mFood));
-}
-
-void Capitalist::setGoods(int goods)
-{
-	mGoods = goods;
-}
-
-void Capitalist::setTaxes(int taxes)
-{
-	mTaxes = taxes;
-}
-
-void Capitalist::setTech(int tech)
-{
-	mTech = tech;
-}
 
 //President Capitalist::setPresident(President &president)
 //{
@@ -114,6 +51,8 @@ void Capitalist::upgradeNuclearWeapon()
 
 	mGoods	-= 10;
 	mTech	-= 5;
+
+
 
 	mNuclearText->setText(intToString(mNuclearWeapon));
 }
@@ -138,25 +77,6 @@ void Capitalist::upgradeSpyNetwork()
 	mTech -= 10 * mSpyNetwork;
 }
 
-/*Uppgraderar mCurrency med mTaxes multiplicerat med mPopulation*/
-void Capitalist::getTaxIncome()
-{
-	mCurrency += mTaxes * mPopulation;
-}
-
-/*Kontrollerar ifall det finns nog med mat till hela befolkningen*/
-bool Capitalist::enoughFood()
-{
-	if(mFood >= mPopulation)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 /*
   Initierar huvudfönster med all GUI-information som behövs
  
@@ -178,10 +98,25 @@ void Capitalist::initializeCapitalistWindow()
 	mFoodText		= std::make_shared<GUIText> (160, 16, intToString(mFood), mCapitalistMainWindow);
 	mNuclearText	= std::make_shared<GUIText> (962, 16, intToString(mNuclearWeapon), mCapitalistMainWindow);
 
-	mTaxesWindow	= NULL;
-	mResourceWindow	= NULL;
-	mUpgradeWindow	= NULL;
-	mExportWindow	= NULL;
+	mTaxesWindow			= std::make_shared<GUIWindow>(227, 264, 570, 168, mCapitalistMainWindow);
+	mTaxesImage				= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref5.png", mTaxesWindow);
+	mTaxesCloseButton		= std::make_shared<GUIButton>(235, 110, 100, 40, mTaxesWindow);
+	mTaxesCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mTaxesWindow);
+
+	mResourceWindow			= std::make_shared<GUIWindow>(227, 264 , 568, 165, mCapitalistMainWindow);
+	mResourceImage			= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref6.png", mResourceWindow);
+	mResourceCloseButton    = std::make_shared<GUIButton>(235, 110, 100, 40, mResourceWindow);
+	mResourceCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mResourceWindow);
+
+	mUpgradeWindow			= std::make_shared<GUIWindow>(226, 79 , 568, 534, mCapitalistMainWindow);
+	mUpgradeImage			= std::make_shared<GUIImage> (-226, -79, 1024, 768, "CapitalistImages/ref7.png", mUpgradeWindow);
+	mUpgradeCloseButton		= std::make_shared<GUIButton>(236, 478, 100, 40, mUpgradeWindow);
+	mUpgradeCloseImage		= std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mUpgradeWindow);
+
+	mExportWindow			= std::make_shared<GUIWindow> (226, 79, 568, 534, mCapitalistMainWindow);
+	mExportImage			= std::make_shared<GUIImage>  (-226, -79, 1024, 768, "CapitalistImages/ref8.png", mExportWindow);
+	mExportCloseButton		 = std::make_shared<GUIButton>(236, 478, 100, 40, mExportWindow);
+	mExportCloseImage		 = std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mExportWindow);
 
 	/*
 	 	Lägger in föräldernoden i vektorn som finns i GUIManager
@@ -243,117 +178,26 @@ void Capitalist::onGUIClick(std::shared_ptr<GUIElement> guiElement)
 }
 
 /*
-	Initierar GUI information för taxes fönstret som dyker upp då
-	denna menyknapp blivit vald. 
-
-		Av: Jon Wahlström 2013-01-24
+	Dessa funktioner kallas då menyfönstret väljs att stängas ner eller öppnas upp. 
+	Det den gör är att sätta fönstrets synlighet till false/true och 
+	därmed kommer fönstrets barnnoder även dem att sättas till false/true
+		
+		Av: Jon Wahlström 2013-24-01
+			Arvid Backman 2013-28-01
 																*/
 void Capitalist::openTaxesMenu()
 {
-	if(mTaxesWindow == NULL) 
-	{
-		mTaxesWindow			= std::make_shared<GUIWindow>(227, 264, 570, 168, mCapitalistMainWindow);
-		mTaxesImage				= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref5.png", mTaxesWindow);
-	
-		mTaxesCloseButton		= std::make_shared<GUIButton>(235, 110, 100, 40, mTaxesWindow);
-		mTaxesCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mTaxesWindow);
-
-		GUIManager::getInstance()->addGUIElement(mTaxesWindow);
-	}
-
-	/*if(!mTaxesWindow->getVisible())
-	{
-		mTaxesWindow->setVisible(true);
-	}*/
+	mTaxesWindow->setVisible(true);
 }
 
-/*
-	Initierar GUI information för resurs fönstret som dyker upp då
-	denna menyknapp blivit vald. 
-
-		Av: Jon Wahlström 2013-01-24
-																*/
-void Capitalist::openResourceMenu()
-{
-	if(mResourceWindow == NULL)
-	{
-		mResourceWindow			= std::make_shared<GUIWindow>(227, 264 , 568, 165, mCapitalistMainWindow);
-		mResourceImage			= std::make_shared<GUIImage> (-227, -264, 1024, 768, "CapitalistImages/ref6.png", mResourceWindow);
-
-		mResourceCloseButton    = std::make_shared<GUIButton>(235, 110, 100, 40, mResourceWindow);
-		mResourceCloseImage		= std::make_shared<GUIImage> (235, 110, 100, 40, "CapitalistImages/button_okay.png", mResourceWindow);
-
-		GUIManager::getInstance()->addGUIElement(mResourceWindow);
-	}
-
-	if(!mResourceWindow->getVisible())
-	{
-		mResourceWindow->setVisible(true);
-	}
-}
-
-/*
-	Initierar GUI information för upgraderings fönstret som dyker upp då
-	denna menyknapp blivit vald. 
-
-		Av: Jon Wahlström 2013-01-24
-																*/
-void Capitalist::openUpgradeMenu()
-{
-	if(mUpgradeWindow == NULL)
-	{
-		mUpgradeWindow			= std::make_shared<GUIWindow>(226, 79 , 568, 534, mCapitalistMainWindow);
-		mUpgradeImage			= std::make_shared<GUIImage> (-226, -79, 1024, 768, "CapitalistImages/ref7.png", mUpgradeWindow);
-
-		mUpgradeCloseButton		= std::make_shared<GUIButton>(236, 478, 100, 40, mUpgradeWindow);
-		mUpgradeCloseImage		= std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mUpgradeWindow);
-
-		GUIManager::getInstance()->addGUIElement(mUpgradeWindow);
-		
-	}
-
-	if(!mUpgradeWindow->getVisible())
-	{
-		mUpgradeWindow->setVisible(true);
-	}
-}
-
-/*
-	Initierar GUI information för export fönstret som dyker upp då
-	denna menyknapp blivit vald. 
-
-		Av: Jon Wahlström 2013-01-24
-																*/
-void Capitalist::openExportMenu()
-{
-	if(mExportWindow == NULL)
-	{
-		mExportWindow			= std::make_shared<GUIWindow> (226, 79, 568, 534, mCapitalistMainWindow);
-		mExportImage			= std::make_shared<GUIImage>  (-226, -79, 1024, 768, "CapitalistImages/ref8.png", mExportWindow);
-
-		mExportCloseButton		 = std::make_shared<GUIButton>(236, 478, 100, 40, mExportWindow);
-		mExportCloseImage		 = std::make_shared<GUIImage> (236, 478, 100, 40, "CapitalistImages/button_okay.png", mExportWindow);
-
-		GUIManager::getInstance()->addGUIElement(mExportWindow);
-	}
-
-	if(!mExportWindow->getVisible())
-	{
-		mExportWindow->setVisible(true);
-	}
-}
-
-/*
-	Dessa funktioner kallas då menyfönstret väljs att stängas ner. 
-	Det den gör är att sätta fönstrets synlighet till false och 
-	därmed kommer fönstrets barnnoder även dem att sättas till false
-		
-		Av: Jon Wahlström 2013-24-01
-															*/
 void Capitalist::closeTaxesMenu()
 {
 	mTaxesWindow->setVisible(false);
-	
+}
+
+void Capitalist::openResourceMenu()
+{
+	mResourceWindow->setVisible(true);
 }
 
 void Capitalist::closeResourceMenu()
@@ -361,65 +205,32 @@ void Capitalist::closeResourceMenu()
 	mResourceWindow->setVisible(false);
 }
 
+void Capitalist::openUpgradeMenu()
+{
+	mUpgradeWindow->setVisible(true);
+}
+
 void Capitalist::closeUpgradeMenu()
 {
 	mUpgradeWindow->setVisible(false);
 }
+
+void Capitalist::openExportMenu()
+{
+	mExportWindow->setVisible(true);
+} 
 
 void Capitalist::closeExportMenu()
 {
 	mExportWindow->setVisible(false);
 }
 
-
-void Capitalist::updateFood()
+void Capitalist::showGUI()
 {
-	/*	Om mängden mat är tillräcklig blir mängden mat subtraherad med antalet befolkningen i miljoner
-		Populationen ökar och om landet har mer eller lika mycket pengar som befolkning blir mIncreasePopulation true.
-		Den används sedan för att ge möjligheten att betala en viss summa för att öka befolkningen*/
-	if(enoughFood())
-	{
-		mFood -= mPopulation;
-		++mPopulation;
-		if(mCurrency >= mPopulation)
-		{
-			mIncreasePopulation = true;
-		}
-	}
-	/*	Om mängden mat är mindre än häflten av befolkningen tilldelas mFood noll
-		mPatriotism subtraheras även med två*/
-	else if(mFood <= mPopulation / 2)
-	{
-		mFood = 0;
-		mPatriotism -= 2;
-	}
-	/*	Om det inte finns tillräckligt med mat och mFood inte är lika med noll
-		ökar inte patriotismen men mFood tilldelas noll*/
-	else if(!enoughFood() && mFood != 0)
-	{
-		mFood = 0;
-	}
-	/*	Om inga av det överstående stämmer, innebär det att maten är lika med noll och befolkningen inte fått någon mat
-		Detta ger minus fyra i patriotism*/
-	else
-	{
-		mFood = 0;
-		mPatriotism -= 4;
-	}
+	mCapitalistMainWindow->setVisible(false);
 }
-/*Kontrollerar ifall det är möjligt att öka sin population*/
-bool Capitalist::enableToIncreasePopulation()
-{
-	return mIncreasePopulation;
-}
-/*	mCurrency subtraheras med mPopulation, befolkningen i miljoner.
-	Ökar befolkningen med ett, en miljon.
-	Och tilldelar boolean:en mIncreasePopulation till false.*/
-void Capitalist::increasePopulation()
-{
-	mCurrency -= mPopulation;
 
-	++mPopulation;
-
-	mIncreasePopulation = false;
+void Capitalist::hideGUI()
+{
+	mCapitalistMainWindow->setVisible(true);
 }
