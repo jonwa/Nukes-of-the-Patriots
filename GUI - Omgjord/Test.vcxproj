@@ -23,7 +23,7 @@
     <ClCompile Include="GUIWindow.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="PoliticalSystem.cpp" />
+    <ClCompile Include="SuperPower.cpp" />
     <ClCompile Include="ResourceHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -38,9 +38,8 @@
     <ClInclude Include="GUIText.h" />
     <ClInclude Include="GUIWindow.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="PoliticalSystem.h" />
+    <ClInclude Include="SuperPower.h" />
     <ClInclude Include="ResourceHandler.h" />
-    <ClInclude Include="SplashScreen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B74A280D-2E50-470B-B8E2-7E4FDB97756A}</ProjectGuid>

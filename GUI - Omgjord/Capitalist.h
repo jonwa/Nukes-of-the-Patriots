@@ -16,13 +16,13 @@ class GUIImage;
 class GUIText;
 class GUIWindow;
 
-#include "PoliticalSystem.h"
+#include "SuperPower.h"
 #include <vector>
 #include <memory>
 #include <sstream>
 #include <SFML\Graphics\RenderWindow.hpp>
 
-class Capitalist : public PoliticalSystem 
+class Capitalist : public SuperPower 
 {
 public:
 	Capitalist();
