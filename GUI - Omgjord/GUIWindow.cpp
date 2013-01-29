@@ -24,7 +24,7 @@ void GUIWindow::render(sf::RenderWindow &window)
 		float yPos = static_cast<float>(mY);
 		sf::RectangleShape rect(sf::Vector2f(width, height));
 		rect.setPosition(xPos, yPos);
-		rect.setFillColor(sf::Color::Color(255, 0, 0, 255));
+		rect.setFillColor(sf::Color::Color(255, 0, 0, 100));
 		window.draw(rect);
 	}
 

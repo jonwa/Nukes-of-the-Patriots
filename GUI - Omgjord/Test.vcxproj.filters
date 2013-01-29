@@ -75,6 +75,9 @@
     <ClCompile Include="PoliticalSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menu - source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventHandler.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="SplashScreen.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Menu - header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
