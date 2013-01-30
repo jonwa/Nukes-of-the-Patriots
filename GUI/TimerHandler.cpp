@@ -1,5 +1,6 @@
 #include "TimerHandler.h"
 #include "Timer.h"
+#include <iostream>
 
 TimerHandler::TimerHandler():mVecTimers(){}
 
@@ -10,12 +11,11 @@ void TimerHandler::addTimer(Timer* timer)
 
 void TimerHandler::removeTimer(Timer* timer)
 {
-	for(std::vector<Timer*>::iterator it = mVecTimers.begin(); it != mVecTimers.end(); it++)
+	for(std::vector<Timer*>::size_type it = 0; it < mVecTimers.size(); it++)
 	{
-		if((*it) == timer)
+		if(mVecTimers[it] == timer)
 		{
-			//delete (*it);
-			mVecTimers.erase(it);
+			mVecTimers[it] = NULL; // Elements are not going to be deleted here
 			break;
 		}
 	}
@@ -23,15 +23,24 @@ void TimerHandler::removeTimer(Timer* timer)
 
 void TimerHandler::tick()
 {
-	for(std::vector<Timer*>::iterator it = mVecTimers.begin(); it != mVecTimers.end();)
+	for(std::vector<Timer*>::size_type it = 0; it < mVecTimers.size(); it++)
 	{
-		if(!(*it)->tick())
+		if(mVecTimers[it] == NULL)
 		{
-			delete (*it);
-			it = mVecTimers.erase(it);
+			delete mVecTimers[it];
+			mVecTimers.erase(mVecTimers.begin() + it);
 		}
 		else
-			++it;
+		{
+			if(!mVecTimers[it]->tick())
+			{
+				if(mVecTimers[it] != NULL)
+				{
+					delete mVecTimers[it];
+					mVecTimers.erase(mVecTimers.begin() + it);
+				}
+			}
+		}
 	}
 }
 

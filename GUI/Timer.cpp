@@ -1,17 +1,29 @@
 #include "Timer.h"
 #include "TimerHandler.h"
+#include <sstream>
 
-Timer::Timer(std::function<void()> callbackFunc, double time, int timesToExecute):mCallbackFunc(callbackFunc),
+Timer::Timer(std::function<void()> callbackFunc, int time, int timesToExecute):mCallbackFunc(callbackFunc),
 	mTime(time > 0 ? time : 50),mTimesToExecute(timesToExecute >= 0 ? timesToExecute : 1),mClock()
 {
 	TimerHandler::getInstance()->addTimer(this);
 }
 
-Timer* Timer::setTimer(std::function<void()> callbackFunc, double time, int timesToExecute)
+Timer* Timer::setTimer(std::function<void()> callbackFunc, int time, int timesToExecute)
 {
 	if(callbackFunc != nullptr)
 		return new Timer(callbackFunc, time, timesToExecute);
 	return nullptr;
+}
+
+int Timer::getTimeLeft()
+{
+	sf::Time timePassed = mClock.getElapsedTime();
+	return mTime - timePassed.asMilliseconds();
+}
+
+int Timer::getTimesToExecuteLeft()
+{
+	return mTimesToExecute;
 }
 
 bool Timer::tick()
