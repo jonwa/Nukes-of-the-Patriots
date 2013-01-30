@@ -3,8 +3,6 @@
 
 #include <functional>
 #include <SFML\System\Clock.hpp>
-#include <vector>
-#include <string>
 
 class TimerHandler;
 
