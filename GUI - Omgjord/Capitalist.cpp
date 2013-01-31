@@ -7,6 +7,7 @@
 #include "GUIText.h"
 #include "President.h"
 #include <iostream>
+#include "Randomizer.h"
 
 #include <SFML\Window\Mouse.hpp>
 
@@ -127,6 +128,59 @@ void Capitalist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
 
 	++currentSpyCount;
 }
+/*  Köper en dos propaganda för 100 kr/dos som kan ge upp till 10 av en resurs, 
+antalet man får är ==  10 rolls med en %chans baserat på resursens andel av 
+det årets planerade totala mängd resurser. (Därav måste 5-årsplanen komma före)
+Man kan inte med hjälp av propaganda producera mer av en 
+resurs än den mängd som står i femårsplanen för det året.
+								*/
+void Capitalist::buyPropaganda()
+{
+	
+	mPropagandacount = 0;
+	int percent=0;
+
+	if(true)	//Food
+		percent = mFood/mResourceTotal;
+		percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+		mFood++;
+		}
+	}
+	if(false)	//Goods
+		percent = mGoods/mResourceTotal;
+		percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+		mGoods++;
+		}
+	}
+	if(true)	//Tech
+		percent = mTech/mResourceTotal;
+		percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+		mTech++;
+		}
+	}
+}
+
 
 /*
   Initierar huvudfönster med all GUI-information som behövs
