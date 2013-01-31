@@ -34,10 +34,13 @@ public:
 	void upgradeNuclearWeapon();
 	void upgradeSpaceProgram();
 	void upgradeSpyNetwork();
+	void buyPropaganda();
 
 	void showGUI();
 	void hideGUI();
 private:
+	int mPropagandaCount;
+
 	std::string intToString(int i)
 	{
 		std::stringstream converter;
