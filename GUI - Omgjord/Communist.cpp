@@ -5,6 +5,11 @@
 #include "GUIImage.h"
 #include "GUIText.h"
 
+static int foodCost		= 10;
+static int goodsCost	= 20;
+static int techCost		= 30;
+static int taxChange	= 5;
+
 Communist::Communist()
 {
 	mPopulation			= 50;			//Befolkning i miljoner
@@ -16,6 +21,7 @@ Communist::Communist()
 	mSpyNetwork			= 0;
 	mSpaceProgram		= 0;
 	mNuclearWeapon		= 10;
+	mRound				= 0;
 	mIncreasePopulation = false;
 	mType				= COMMUNIST;
 
@@ -30,32 +36,68 @@ Communist::~Communist()
 
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
-void Communist::upgradeNuclearWeapon()
+void Communist::upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech)
 {
-	++mNuclearWeapon;
-
-	mGoods	-= 10;
-	mTech	-= 5;
+	currentGoods	-= 10;
+	currentTech		-= 5;
+	
+	++currentNuclearCount;
 }
 
 /*	Uppgraderar mSpaceProgram med ett
 	Kostar 5 mGoods multiplicerat med den nuvarande nivån
 	och 10 mTech multiplicerat med den nuvarande nivån*/
-void Communist::upgradeSpaceProgram()
+void Communist::upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech)
 {
-	++mSpaceProgram;
-
-	mGoods	-= 5 * mSpaceProgram;
-	mTech	-= 10 * mSpaceProgram;
+	currentGoods	-= 5 * currentSpaceCount;
+	currentTech		-= 10 * currentSpaceCount;
+	
+	++currentSpaceCount;
 }
 
-/*	Uppgraderar mSpyNetwork med ett
-	Kostar 10 mTech multiplicerat med den nuvarande nivån*/
-void Communist::upgradeSpyNetwork()
+/*	
+	Uppgraderar mSpyNetwork med ett
+	Kostar 10 mTech multiplicerat med den nuvarande nivån
+															 */
+void Communist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
 {
-	++mSpyNetwork;
+	currentTech -= 10 * currentSpyCount;
+	
+	++currentSpyCount;
+}
 
-	mTech -= 10 * mSpyNetwork;
+//--------------------------------------------
+/*Funktioner som ger medlemsvariabler nya värden*/
+void Communist::setFood(int foodCount, int currentCurrency, int value)
+{
+	foodCount		+= value;
+	currentCurrency -= value * foodCost;
+}
+
+void Communist::setGoods(int goodsCount, int currentCurrency, int value)
+{
+	goodsCount		+= value;
+	currentCurrency -= value * goodsCost;
+}
+
+void Communist::setTech(int techCount, int currentCurrency, int value)
+{
+	techCount		+= value;
+	currentCurrency -= value * techCost;
+}
+
+int Communist::increaseTaxCost(int currentTax)
+{
+	currentTax += taxChange;
+	
+	return currentTax;
+}
+  
+int Communist::decreaseTaxCost(int currentTax)
+{
+	currentTax -= taxChange;
+	
+	return currentTax;
 }
 
 void Communist::initializeCommunistWindow()

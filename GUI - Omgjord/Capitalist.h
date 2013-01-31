@@ -31,12 +31,19 @@ public:
 	std::shared_ptr<President>	getPresident();
 	void						setPresident(std::shared_ptr<President>);
 
-	void upgradeNuclearWeapon();
-	void upgradeSpaceProgram();
-	void upgradeSpyNetwork();
-
+	void upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
+	void upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
+	void upgradeSpyNetwork(int currentSpyCount, int currentTech);
+	
 	void showGUI();
 	void hideGUI();
+
+	int	increaseTaxCost(int currentTax);
+	int	decreaseTaxCost(int currentTax);
+
+	void setFood(int foodCount, int currentCurrency, int value);
+	void setGoods(int goodsCount, int currentCurrency, int value);
+	void setTech(int techCount, int currentCurrency, int value);
 private:
 	std::string intToString(int i)
 	{

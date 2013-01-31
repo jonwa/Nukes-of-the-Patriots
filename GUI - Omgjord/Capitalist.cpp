@@ -10,6 +10,12 @@
 
 #include <SFML\Window\Mouse.hpp>
 
+
+static int foodCost		= 10;
+static int goodsCost	= 20;
+static int techCost		= 30;
+static int taxChange	= 5;
+
 Capitalist::Capitalist() :
 	mPresident(nullptr)
 {
@@ -22,6 +28,7 @@ Capitalist::Capitalist() :
 	mSpyNetwork			= 0;
 	mSpaceProgram		= 0;
 	mNuclearWeapon		= 10;
+	mRound				= 0;
 	mIncreasePopulation = false;
 	mType				= CAPITALIST;
 
@@ -40,46 +47,85 @@ std::shared_ptr<President> Capitalist::getPresident()
 	return mPresident;
 }
 
+int Capitalist::increaseTaxCost(int currentTax)
+{						
+	currentTax += taxChange + mPresident->getPatriotismTaxModifier();
+
+	return currentTax;
+}
+
+int Capitalist::decreaseTaxCost(int currentTax)
+{
+	currentTax -= taxChange + mPresident->getPatriotismTaxModifier();
+
+	return currentTax;
+}
 
 void Capitalist::setPresident(std::shared_ptr<President> president)
 {
+
 	mPresident = president;
+	
+	foodCost	+= president->getFoodPriceModifier();
+	goodsCost	+= president->getGoodsPriceModifier();
+	techCost	+= president->getTechPriceModifier();
 }
 
+void Capitalist::setFood(int foodCount, int currentCurrency, int amount)
+{
+	foodCount += amount;
+	currentCurrency -= amount * foodCost;
+}
+
+void Capitalist::setGoods(int goodsCount, int currentCurrency, int amount)
+{
+	goodsCount += amount;
+	currentCurrency -= amount * goodsCost;
+}
+
+void Capitalist::setTech(int techCount, int currentCurrency, int amount)
+{
+	techCount += amount;
+	currentCurrency -= amount * techCost;
+}
 
 //-----------------------------------------------------------
-/*	Uppgraderar mNuclearWeapon med ett
-	Kostar 10 mGoods och 5 mTech*/
-void Capitalist::upgradeNuclearWeapon()
+/*	
+	Uppgraderar mNuclearWeapon med ett
+	Kostar 10 mGoods och 5 mTech
+										*/
+void Capitalist::upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech)
 {
-	++mNuclearWeapon;
+	currentGoods	-= 10 * mPresident->getNuclearPriceModifier();
+	currentTech		-= 5  * mPresident->getNuclearPriceModifier();
 
-	mGoods	-= 10;
-	mTech	-= 5;
-
-
+	++currentNuclearCount;
 
 	mNuclearText->setText(intToString(mNuclearWeapon));
 }
 
-/*	Uppgraderar mSpaceProgram med ett
+/*	
+	Uppgraderar mSpaceProgram med ett
 	Kostar 5 mGoods multiplicerat med den nuvarande nivån
-	och 10 mTech multiplicerat med den nuvarande nivån*/
-void Capitalist::upgradeSpaceProgram()
+	och 10 mTech multiplicerat med den nuvarande nivån
+															*/
+void Capitalist::upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech)
 {
-	++mSpaceProgram;
+	currentGoods	-= 5 * currentSpaceCount * mPresident->getSpacePriceModifier();
+	currentTech		-= 10 * currentSpaceCount * mPresident->getSpacePriceModifier();
 
-	mGoods	-= 5 * mSpaceProgram;
-	mTech	-= 10 * mSpaceProgram;
+	++currentSpaceCount;
 }
 
-/*	Uppgraderar mSpyNetwork med ett
-	Kostar 10 mTech multiplicerat med den nuvarande nivån*/
-void Capitalist::upgradeSpyNetwork()
+/*	
+	Uppgraderar mSpyNetwork med ett
+	Kostar 10 mTech multiplicerat med den nuvarande nivån
+															*/
+void Capitalist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
 {
-	++mSpyNetwork;
+	currentTech -= 10 * currentSpyCount * mPresident->getSpyPriceModifier();
 
-	mTech -= 10 * mSpyNetwork;
+	++currentSpyCount;
 }
 
 /*

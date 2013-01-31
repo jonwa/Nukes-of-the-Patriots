@@ -29,10 +29,6 @@ public:
 
 	PoliticalType getType();
 
-	void		setFood(int food);
-	void		setGoods(int goods);
-	void		setTech(int tech);
-	void		setTaxes(int taxes);
 	void		setRound(int round);
 
 	void		getTaxIncome();
@@ -42,9 +38,14 @@ public:
 	bool		enableToIncreasePopulation();
 	void		increasePopulation();
 	
-	virtual void		upgradeNuclearWeapon() = 0;
-	virtual void		upgradeSpaceProgram() = 0;
-	virtual void		upgradeSpyNetwork() = 0;
+	virtual void		upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech) = 0;
+	virtual void		upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech) = 0;
+	virtual void		upgradeSpyNetwork(int currentSpyCount, int currentTech) = 0;
+	virtual int			increaseTaxCost(int currentTax) = 0;
+	virtual int			decreaseTaxCost(int currentTax) = 0;
+	virtual void		setFood(int foodCount, int currentCurrency, int value) = 0;
+	virtual void		setGoods(int goodsCount, int currentCurrency, int value) = 0;
+	virtual void		setTech(int techCount, int currentCurrency, int value) = 0;
 	virtual void		showGUI() = 0;
 	virtual void		hideGUI() = 0;
 protected:

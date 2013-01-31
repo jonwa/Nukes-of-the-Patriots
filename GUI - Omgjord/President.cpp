@@ -33,18 +33,18 @@ void President::randomStatFunc()
 	posStatMap.insert(std::pair<std::string,float>("foodPrice", -2));
 	posStatMap.insert(std::pair<std::string,float>("goodsPrice", -2));
 	posStatMap.insert(std::pair<std::string,float>("techPrice", -2));
-	posStatMap.insert(std::pair<std::string,float>("nuclearPrice", -0.2));
-	posStatMap.insert(std::pair<std::string,float>("spacePrice", -0.2));
-	posStatMap.insert(std::pair<std::string,float>("spyPrice", -0.2));
+	posStatMap.insert(std::pair<std::string,float>("nuclearPrice", 0.8));
+	posStatMap.insert(std::pair<std::string,float>("spacePrice",0.8));
+	posStatMap.insert(std::pair<std::string,float>("spyPrice", 0.8));
 	posStatMap.insert(std::pair<std::string,float>("patriotismTax", 1));
 
 	std::map<std::string, float> negStatMap;
 	negStatMap.insert(std::pair<std::string,float>("foodPrice", 2));
 	negStatMap.insert(std::pair<std::string,float>("goodsPrice", 2));
 	negStatMap.insert(std::pair<std::string,float>("techPrice", 2));
-	negStatMap.insert(std::pair<std::string,float>("nuclearPrice", 0.2));
-	negStatMap.insert(std::pair<std::string,float>("spacePrice", 0.2));
-	negStatMap.insert(std::pair<std::string,float>("spyPrice", 0.2));
+	negStatMap.insert(std::pair<std::string,float>("nuclearPrice", 1.2));
+	negStatMap.insert(std::pair<std::string,float>("spacePrice", 1.2));
+	negStatMap.insert(std::pair<std::string,float>("spyPrice", 1.2));
 	negStatMap.insert(std::pair<std::string,float>("popEatsMore", 0.1));
 
 	int random = ( randomizer->randomNr(randomStats.size(),0) );
@@ -75,8 +75,7 @@ void President::randomStatFunc()
 
 	for(std::vector<std::string>::iterator it = randomStats.begin(); it != randomStats.end(); it++)
 	{
-		float a = 0;
-		mValues.insert(std::pair<std::string, float>((*it), a));
+		mValues.insert(std::pair<std::string, float>((*it), 0));
 	}
 
 	randomStats.clear();
@@ -101,17 +100,17 @@ float President::getTechPriceModifier()
 
 float President::getNuclearPriceModifier()
 {
-	return mValues["nuclearPrice"];
+	return mValues["nuclearPrice"] == 0 ? 1 : mValues["nuclearPrice"];
 }
 
 float President::getSpacePriceModifier()
 {
-	return mValues["spacePrice"];
+	return mValues["spacePrice"] == 0 ? 1 : mValues["spacePrice"];
 }
 
 float President::getSpyPriceModifier()
 {
-	return mValues["spyPrice"];
+	return mValues["spyPrice"] == 0 ? 1 : mValues["spyPrice"];
 }
 
 float President::getPatriotismTaxModifier()

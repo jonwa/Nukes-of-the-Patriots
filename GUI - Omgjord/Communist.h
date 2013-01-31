@@ -29,9 +29,16 @@ public:
 	void		updateFood();
 	bool		enoughFood();
 
-	void		upgradeNuclearWeapon();
-	void		upgradeSpaceProgram();
-	void		upgradeSpyNetwork();
+	void		setFood(int foodCount, int currentCurrency, int value);
+	void		setGoods(int goodsCount, int currentCurrency, int value);
+	void		setTech(int techCount, int currentCurrency, int value);
+
+	void		upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
+	void		upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
+	void		upgradeSpyNetwork(int currentSpyCount, int currentTech);
+
+	int			increaseTaxCost(int currentTax);
+	int			decreaseTaxCost(int currentTax);
 
 	void showGUI();
 	void hideGUI();
@@ -42,6 +49,8 @@ private:
 		converter << i;
 		return converter.str();
 	}
+
+	
 
 	void initializeCommunistWindow();
 	void initializeGuiFunctions();

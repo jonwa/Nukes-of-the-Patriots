@@ -61,27 +61,6 @@ int SuperPower::getRound()
 {
 	return mRound;
 }
-//--------------------------------------------
-/*Funktioner som ger medlemsvariabler nya värden*/
-void SuperPower::setFood(int food)
-{
-	mFood = food;
-}
-
-void SuperPower::setGoods(int goods)
-{
-	mGoods = goods;
-}
-
-void SuperPower::setTaxes(int taxes)
-{
-	mTaxes = taxes;
-}
-
-void SuperPower::setTech(int tech)
-{
-	mTech = tech;
-}
 
 void SuperPower::setRound(int round)
 {
