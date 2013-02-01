@@ -1,7 +1,14 @@
 #include "SuperPower.h"
 
 
-SuperPower::SuperPower()
+SuperPower::SuperPower() : 
+	mCurrencyUpdate(0),
+	mFoodUpdate(0),
+	mGoodsUpdate(0),
+	mTechUpdate(0),
+	mNuclearWeaponUpdate(0),
+	mSpaceProgramUpdate(0),
+	mSpyNetworkUpdate(0)
 {
 }
 

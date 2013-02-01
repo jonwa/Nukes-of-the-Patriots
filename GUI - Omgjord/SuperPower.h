@@ -54,19 +54,19 @@ protected:
 	int mRound;
 
 	int	mPatriotism;
-	int	mCurrency;
+	int	mCurrency, mCurrencyUpdate;
 	int	mPopulation;
 
-	int	mFood;
+	int	mFood, mFoodUpdate;
 	std::shared_ptr<GUIText> mFoodText;
 
-	int	mGoods;
-	int	mTech;
-	int	mTaxes;
-	int	mSpyNetwork;
-	int	mNuclearWeapon;
+	int	mGoods, mGoodsUpdate;
+	int	mTech, mTechUpdate;
+	int	mTaxes, mTaxesUpdate;
+	int	mSpyNetwork, mSpyNetworkUpdate;
+	int	mNuclearWeapon, mNuclearWeaponUpdate;
 	std::shared_ptr<GUIText> mNuclearText;
-	int	mSpaceProgram;
+	int	mSpaceProgram, mSpaceProgramUpdate;
 	bool mIncreasePopulation;
 };
 

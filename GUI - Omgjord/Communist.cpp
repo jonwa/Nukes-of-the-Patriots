@@ -142,7 +142,7 @@ void Communist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
 /*Funktioner som ger medlemsvariabler nya värden*/
 void Communist::setFood(int foodCount, int currentCurrency, int value)
 {
-	foodCount		+= value;
+ 	foodCount		+= value;
 	currentCurrency -= value * foodCost;
 }
 
@@ -197,6 +197,7 @@ void Communist::buyPropagandaFood(int round)
 			mFood++;
 		}
 	}
+	mCurrency -= foodCost * 10;
 }
 
 void Communist::buyPropagandaGoods(int round)
@@ -218,6 +219,7 @@ void Communist::buyPropagandaGoods(int round)
 			mGoods++;
 		}
 	}
+	mCurrency -= goodsCost * 10;
 }
 
 void Communist::buyPropagandaTech(int round)
@@ -239,6 +241,7 @@ void Communist::buyPropagandaTech(int round)
 		mTech++;
 		}
 	}
+	mCurrency -= techCost * 10;
 }
 
 void Communist::initializeCommunistWindow()

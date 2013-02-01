@@ -44,9 +44,20 @@ void GameManager::startRound()
 	getCurrentPlayer()->showGUI(this);
 }
 
-int GameManager::getYear()const{ return mYear; }
-PoliticalSystem* GameManager::getCurrentPlayer()const{ return mCurrentPlayer; }
-std::vector<PoliticalSystem*> GameManager::getPlayers()const{ return mVecPoliticalSystems; }
+int GameManager::getYear()const
+{
+	return mYear;
+}
+
+PoliticalSystem* GameManager::getCurrentPlayer()const
+{
+	return mCurrentPlayer;
+}
+
+std::vector<PoliticalSystem*> GameManager::getPlayers()const
+{
+	return mVecPoliticalSystems;
+}
 
 void GameManager::setCurrentPlayer(PoliticalSystem *newPlayer)
 {
@@ -68,7 +79,11 @@ void GameManager::selectStartingPlayer(PoliticalSystem *startingPlayer)
 	}
 }
 
-void GameManager::setYear(int year){ mYear = year; }
+void GameManager::setYear(int year)
+{
+	mYear = year; 
+}
+
 void GameManager::nextRound()
 {
 	for(std::vector<PoliticalSystem*>::iterator it = mVecPoliticalSystems.begin(); it != mVecPoliticalSystems.end(); it++)
