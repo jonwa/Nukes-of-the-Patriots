@@ -4,6 +4,7 @@
 #include "GUIButton.h"
 #include "GUIImage.h"
 #include "GUIText.h"
+#include "Randomizer.h"
 
 static int foodCost		= 10;
 static int goodsCost	= 20;
@@ -27,12 +28,83 @@ Communist::Communist()
 
 	initializeCommunistWindow();
 	initializeGuiFunctions();
+
+	fiveYearInitialize();
 }
 
 
 Communist::~Communist()
 {
 }
+
+void Communist::fiveYearInitialize()
+{
+	for(int i = 0; i < 5; ++i)
+	{
+		std::map<std::string, int> tempMap;
+		tempMap.insert(std::pair<std::string, int> ("food", 0));
+		tempMap.insert(std::pair<std::string, int> ("goods", 0));
+		tempMap.insert(std::pair<std::string, int> ("tech", 0));
+		tempMap.insert(std::pair<std::string, int> ("taxes", 0));
+		mYearVector.push_back(tempMap);
+	}
+}
+
+void Communist::setYearlyResources(int year, std::string key, int value)
+{
+	mYearVector[year-1][key] += value;
+}
+
+int Communist::getYearlyFood(int round)
+{
+	int year = round %5;
+
+	if(year == 0)
+	{
+		year = 5;
+	}
+	year -= 1;
+	return mYearVector[year]["food"];
+}
+
+int Communist::getYearlyGoods(int round)
+{
+	int year = round %5;
+
+	if(year == 0)
+	{
+		year = 5;
+	}
+	year -= 1;
+	return mYearVector[year]["goods"];
+}
+
+int Communist::getYearlyTech(int round)
+{
+	int year = round %5;
+
+	if(year == 0)
+	{
+		year = 5;
+	}
+	year -= 1;
+	return mYearVector[year]["tech"];
+}
+
+int Communist::getYearlyTaxes(int round)
+{
+	int year = round %5;
+
+	if(year == 0)
+	{
+		year = 5;
+	}
+	year -= 1;
+
+	return mYearVector[year]["taxes"];
+}
+
+
 
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
@@ -98,6 +170,75 @@ int Communist::decreaseTaxCost(int currentTax)
 	currentTax -= taxChange;
 	
 	return currentTax;
+}
+
+/*  Köper en dos propaganda för 100 kr/dos som kan ge upp till 10 av en resurs, 
+	antalet man får är ==  10 rolls med en %chans baserat på resursens andel av 
+	det årets planerade totala mängd resurser. (Därav måste 5-årsplanen komma före)
+	Man kan inte med hjälp av propaganda producera mer av en 
+	resurs än den mängd som står i femårsplanen för det året.
+																			*/
+void Communist::buyPropagandaFood(int round)
+{
+	int resourcesTotal = 0;
+	resourcesTotal += getYearlyFood(round);
+	resourcesTotal += getYearlyGoods(round);
+	resourcesTotal += getYearlyTech(round);
+
+	int percent = mFood/resourcesTotal;
+	percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+			mFood++;
+		}
+	}
+}
+
+void Communist::buyPropagandaGoods(int round)
+{
+	int resourcesTotal = 0;
+	resourcesTotal += getYearlyFood(round);
+	resourcesTotal += getYearlyGoods(round);
+	resourcesTotal += getYearlyTech(round);
+
+	int percent = mGoods/resourcesTotal;
+	percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+			mGoods++;
+		}
+	}
+}
+
+void Communist::buyPropagandaTech(int round)
+{
+	int resourcesTotal = 0;
+	resourcesTotal += getYearlyFood(round);
+	resourcesTotal += getYearlyGoods(round);
+	resourcesTotal += getYearlyTech(round);
+	
+	int percent = mTech/resourcesTotal;
+	percent*=100;
+
+	for(int i=0;i<10;i++)
+	{
+		float randNr=Randomizer::getInstance()->randomNr(100,1);
+
+		if(randNr<percent)
+		{
+		mTech++;
+		}
+	}
 }
 
 void Communist::initializeCommunistWindow()

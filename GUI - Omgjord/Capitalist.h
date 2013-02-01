@@ -47,8 +47,6 @@ public:
 	void setGoods(int goodsCount, int currentCurrency, int value);
 	void setTech(int techCount, int currentCurrency, int value);
 private:
-	int mPropagandaCount;
-
 	std::string intToString(int i)
 	{
 		std::stringstream converter;

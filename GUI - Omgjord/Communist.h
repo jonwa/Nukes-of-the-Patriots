@@ -10,6 +10,8 @@ Arvid Backman 2013-01-21
 
 #include "SuperPower.h"
 #include <memory>
+#include <vector>
+#include <map>
 #include <sstream>
 
 class President;
@@ -40,6 +42,15 @@ public:
 	int			increaseTaxCost(int currentTax);
 	int			decreaseTaxCost(int currentTax);
 
+	int			getYearlyFood(int round);
+	int			getYearlyGoods(int round);
+	int			getYearlyTech(int round);
+	int			getYearlyTaxes(int round);
+
+	void		buyPropagandaFood(int round);
+	void		buyPropagandaGoods(int round);
+	void		buyPropagandaTech(int round);
+
 	void showGUI();
 	void hideGUI();
 private:
@@ -50,7 +61,10 @@ private:
 		return converter.str();
 	}
 
-	
+	std::vector<std::map<std::string, int>> mYearVector;
+
+	void fiveYearInitialize();
+	void setYearlyResources(int round, std::string, int value);
 
 	void initializeCommunistWindow();
 	void initializeGuiFunctions();
