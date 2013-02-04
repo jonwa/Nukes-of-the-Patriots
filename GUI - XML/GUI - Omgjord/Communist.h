@@ -37,9 +37,9 @@ public:
 	void		setGoods(int goodsCount, int currentCurrency, int value);
 	void		setTech(int techCount, int currentCurrency, int value);
 
-	void		upgradeNuclearWeapon();
-	void		upgradeSpaceProgram();
-	void		upgradeSpyNetwork();
+	void		upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
+	void		upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
+	void		upgradeSpyNetwork(int currentSpyCount, int currentTech);
 
 	int			increaseTaxCost(int currentTax);
 	int			decreaseTaxCost(int currentTax);
@@ -71,7 +71,7 @@ private:
 	/*Skapar två std::map. En dit alla knappar för kommunisterna läggs in i samt 
 	  en dit alla kommunisternas fönster läggs in i. Detta sker via hämtade värden
 	  från XML dokument samt genom ResourceHandler  
-	  Av: Jon Wahlström 2013-31-01
+	  Av: Jon Wahlström 2013-01-31
 																				*/
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CommunistButtons;
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CommunistWindows;
@@ -82,10 +82,6 @@ private:
 	void initializeCommunistWindow();
  
 	//President	*mPresident;
-
-	std::shared_ptr<GUIText> mNuclearText;
-	std::shared_ptr<GUIText> mSpaceText;
-	std::shared_ptr<GUIText> mSpyText;
 	
 	/*GUI-pekare för kommunisternas interface*/
 	std::shared_ptr<GUIWindow> mCommunistMainWindow;

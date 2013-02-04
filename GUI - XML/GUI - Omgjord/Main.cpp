@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp>
+#include <SFML\Graphics.hpp>
 #include <SFML\Window\Mouse.hpp>
 #include "GUIManager.h"
 #include "GUIElement.h"
@@ -7,6 +7,7 @@
 #include "GUIText.h"
 #include "Capitalist.h"
 #include "Communist.h"
+#include "Menu.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -16,24 +17,22 @@
 
 using namespace std;
 
-sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!");//, sf::Style::Fullscreen);
+sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!", sf::Style::Fullscreen);
 
 int main()
 {
 	ResourceHandler::getInstance()->load();
-	Communist communist;
+	//Communist communist;
 	//Capitalist capitalist;
+	Menu menu(window);
 	
-	//std::function <void (std::shared_ptr<GUIElement>)> capitalistFunctions	= std::bind(&Capitalist::onGUIClick, capitalist, std::placeholders::_1);
-
-	//GUIManager::getInstance()->addOnMouseClickEventHandler(capitalistFunctions);
 
 	while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
-			GUIManager::getInstance()->update(event);
+			GUIManager::getInstance()->update();
             if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                 window.close();
         }

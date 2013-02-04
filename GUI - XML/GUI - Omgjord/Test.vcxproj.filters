@@ -9,9 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="TinyXML">
-      <UniqueIdentifier>{8c870fd5-7aaa-4197-b204-dfa28f992423}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Assets">
       <UniqueIdentifier>{49fa451c-c306-4439-9aa4-e2ffe278c661}</UniqueIdentifier>
     </Filter>
@@ -35,6 +32,9 @@
     </Filter>
     <Filter Include="Source Files\GUI">
       <UniqueIdentifier>{fa2912ef-2a8a-4f7c-b82c-4d605b850a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TinyXML">
+      <UniqueIdentifier>{8c870fd5-7aaa-4197-b204-dfa28f992423}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +75,7 @@
       <Filter>Source Files\SuperPower</Filter>
     </ClCompile>
     <ClCompile Include="tinyxml2.cpp">
-      <Filter>TinyXML</Filter>
+      <Filter>Source Files\TinyXML</Filter>
     </ClCompile>
     <ClCompile Include="President.cpp">
       <Filter>Source Files\SuperPower</Filter>
@@ -128,7 +128,7 @@
       <Filter>Header Files\SuperPower</Filter>
     </ClInclude>
     <ClInclude Include="tinyxml2.h">
-      <Filter>TinyXML</Filter>
+      <Filter>Source Files\TinyXML</Filter>
     </ClInclude>
     <ClInclude Include="President.h">
       <Filter>Header Files\SuperPower</Filter>

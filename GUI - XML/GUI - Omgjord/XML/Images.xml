@@ -45,3 +45,15 @@
 	<image filename="7_kom_window_propaganda1.png"/>
 	<image filename="7_kom_window_propaganda2.png"/>
 </images>
+<images directory ="Menu">
+    <image filename="3_bg.png"/>
+    <image filename="5_bg.png"/>
+    <image filename="6_bg.png"/>
+	<image filename="3_1start.png"/>
+	<image filename="3_2load.png"/>
+	<image filename="3_3settings.png"/>
+	<image filename="3_4credits.png"/>
+	<image filename="3_5exit.png"/>
+	<image filename="6_team_kap.png"/>
+	<image filename="6_team_kom.png"/>
+</images>

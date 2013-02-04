@@ -38,9 +38,9 @@ public:
 	bool		enableToIncreasePopulation();
 	void		increasePopulation();
 	
-	virtual void		upgradeNuclearWeapon() = 0;
-	virtual void		upgradeSpaceProgram() = 0;
-	virtual void		upgradeSpyNetwork() = 0;
+	virtual void		upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech) = 0;
+	virtual void		upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech) = 0;
+	virtual void		upgradeSpyNetwork(int currentSpyCount, int currentTech) = 0;
 	virtual int			increaseTaxCost(int currentTax) = 0;
 	virtual int			decreaseTaxCost(int currentTax) = 0;
 	virtual void		setFood(int foodCount, int currentCurrency, int value) = 0;
@@ -56,12 +56,16 @@ protected:
 	int	mPatriotism;
 	int	mCurrency, mCurrencyUpdate;
 	int	mPopulation;
+
 	int	mFood, mFoodUpdate;
+	std::shared_ptr<GUIText> mFoodText;
+
 	int	mGoods, mGoodsUpdate;
 	int	mTech, mTechUpdate;
 	int	mTaxes, mTaxesUpdate;
 	int	mSpyNetwork, mSpyNetworkUpdate;
 	int	mNuclearWeapon, mNuclearWeaponUpdate;
+	std::shared_ptr<GUIText> mNuclearText;
 	int	mSpaceProgram, mSpaceProgramUpdate;
 	bool mIncreasePopulation;
 };

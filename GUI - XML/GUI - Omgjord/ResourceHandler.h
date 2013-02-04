@@ -33,20 +33,17 @@ public:
 	//Singleton mönster för instansiering
 	static ResourceHandler* getInstance();
 
-	//Image funktioner
-	
+	//Texture funktioner
 	void loadTexture(const std::string &path, const std::string &key);
-	sf::Texture& getTexture(std::string &string);
+	sf::Texture& getTexture(std::string &path);
 
 	//Sound funktioner
-	static sf::SoundBuffer* loadSoundFromFile(const std::string &path); //SKALL ÄNDRAS
-	sf::SoundBuffer* loadSound(const std::string &path);
-	/*sf::Sound* getSoundFromMap();*/
+	void loadSound(const std::string &path, const std::string &key);
+	/*sf::SoundBuffer& getSound(std::string &path);*/
 
 	//Music funktioner
-	static sf::Music* loadMusicFromFile(const std::string &path);  //SKALL ÄNDRAS
-	sf::Music* loadMusic(const std::string &path);
-	//sf::Music* getMusicFromMap();
+	void loadMusic(const std::string &path, const std::string &key);
+	//sf::Music& getMusic(std::string &path);
 
 	void load();
 
@@ -60,11 +57,8 @@ private:
 
 	//std::map :ar innehållandes Images, SoundBuffers and Music
 	std::map<std::string, sf::Texture> Images;
-	std::map<std::string, sf::Music*> Music;
-	std::map<std::string, sf::SoundBuffer*> Sounds;
+	std::map<std::string, sf::Music> Music;
+	std::map<std::string, sf::SoundBuffer> Sounds;
 	
-	//används för att rensa mapparna på information
-	void internalClear();
-
 };
 #endif
