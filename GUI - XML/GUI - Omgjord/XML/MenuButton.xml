@@ -6,7 +6,7 @@
 		<yPos>223</yPos>
 		<width>279</width>
 		<height>52</height>
-		<image></image>
+		<image>start_game</image>
 	</button>
 	<button>
 		<name>LoadGame</name>
@@ -14,7 +14,6 @@
 		<yPos>314</yPos>
 		<width>279</width>
 		<height>52</height>
-		<image></image>
 	</button>
 	<button>
 		<name>Settings</name>
@@ -22,7 +21,6 @@
 		<yPos>404</yPos>
 		<width>279</width>
 		<height>52</height>
-		<image></image>
 	</button>
 	<button>	
 		<name>Credits</name>
@@ -30,7 +28,6 @@
 		<yPos>494</yPos>
 		<width>279</width>
 		<height>52</height>
-		<image></image>
 	</button>
 	<button>		
 		<name>Exit</name>
@@ -38,62 +35,5 @@
 		<yPos>584</yPos>
 		<width>279</width>
 		<height>52</height>	
-		<image></image>
-	</button>
-	<button>
-		<name>TeamCapitalist</name>
-		<xPos>140</xPos>
-		<yPos>50</yPos>
-		<width>300</width>
-		<height>400</height>	
-		<image>Menu/6_team_kap</image>
-	</button>
-	<button>
-		<name>TeamCommunist</name>
-		<xPos>583</xPos>
-		<yPos>50</yPos>
-		<width>300</width>
-		<height>400</height>	
-		<image>Menu/6_team_kom</image>
-	</button>
-	<button>
-		<name>StartGameHover</name>
-		<xPos>252</xPos>
-		<yPos>245</yPos>
-		<width>520</width>
-		<height>30</height>	
-		<image>Menu/3_1start</image>
-	</button>
-	<button>
-		<name>LoadGameHover</name>
-		<xPos>252</xPos>
-		<yPos>336</yPos>
-		<width>520</width>
-		<height>30</height>	
-		<image>Menu/3_2load</image>
-	</button>
-	<button>
-		<name>SettingsHover</name>
-		<xPos>252</xPos>
-		<yPos>426</yPos>
-		<width>520</width>
-		<height>30</height>	
-		<image>Menu/3_3settings</image>
-	</button>
-	<button>
-		<name>CreditsHover</name>
-		<xPos>252</xPos>
-		<yPos>516</yPos>
-		<width>520</width>
-		<height>30</height>	
-		<image>Menu/3_4credits</image>
-	</button>
-	<button>
-		<name>ExitHover</name>
-		<xPos>252</xPos>
-		<yPos>606</yPos>
-		<width>520</width>
-		<height>30</height>	
-		<image>Menu/3_5exit</image>
 	</button>
 </menu>

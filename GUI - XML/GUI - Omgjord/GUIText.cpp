@@ -15,7 +15,7 @@ GUIText::GUIText(sf::FloatRect rect, std::string text, std::shared_ptr<GUIElemen
 
 void GUIText::setText(std::string text)
 {
-	mText.setString(sf::String(text.c_str()));
+	mText.setString(text);
 	sf::FloatRect boundBox = mText.getGlobalBounds();
 	setWidth(boundBox.width);
 	setHeight(boundBox.height);

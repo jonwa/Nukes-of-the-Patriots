@@ -12,7 +12,7 @@ public:
 	GUIManager();
 	void addGUIElement(std::shared_ptr<GUIElement> guiElement);
 	void render(sf::RenderWindow &window);
-	void update();
+	void update(sf::Event &event);
 
 	void addOnMouseClickEventHandler(std::function <void (std::shared_ptr<GUIElement>)>);
 	void addOnMouseEnterEventHandler(std::function <void (std::shared_ptr<GUIElement>)>);

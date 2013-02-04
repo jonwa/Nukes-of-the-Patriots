@@ -49,14 +49,15 @@ void GUIManager::render(sf::RenderWindow &window)
 	}
 }
 
-void GUIManager::update()
+void GUIManager::update(sf::Event &event)
 {
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
-	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
+	/*for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
 		if(!mGuiElements[i]->getChildVector().empty())
-			mGuiElements[i]->update();
-	}
+			mGuiElements[i]->update(event);
+	}*/
+	mGuiElements[0]->update(event);
 	//for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	//{
 	//	std::shared_ptr<GUIElement> guiElement = mGuiElements[i];

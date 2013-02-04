@@ -37,10 +37,10 @@ void ResourceHandler::loadTexture(const std::string &path, const std::string &ke
    in från XML dokumentet
    
      Av: Jon Wahlström 2013-31-01*/
-sf::Texture& ResourceHandler::getTexture(std::string &path)
+sf::Texture& ResourceHandler::getTexture(std::string &string)
 {
 	//assert(Images.count(string) == 1);
-	return Images[path];
+	return Images[string];
 }
 
  /*
@@ -54,7 +54,7 @@ void ResourceHandler::load()
 	doc.LoadFile("XML/Images.xml");
 
 	if(doc.Error())
-		std::cout << "Fel! inhämtning av alla bilder";
+		std::cout << "Fel!";
 	
 	tinyxml2::XMLElement *element = doc.FirstChildElement("images");
 	while (element != 0)
@@ -77,9 +77,80 @@ void ResourceHandler::load()
  *	SOUND FUNKTIONER *
  *********************/
 
+//Laddar in ett ljud i en sf::SoundBuffer pekare. 
+sf::SoundBuffer* ResourceHandler::loadSoundFromFile(const std::string &path)
+{
+	sf::SoundBuffer* buffer = new sf::SoundBuffer; 
+	buffer->loadFromFile(path);
 
+	/*
+	 * Kollar om filen laddas in korrekt. Om inte så avallokeras minnet
+	 * och returnerar en tom pekare.
+	 */
+	if(!buffer->loadFromFile(path))
+	{
+		std::cout << "ERROR! kan inte ladda in ljud" << std::endl;
+		delete buffer;
+	}
+
+	return buffer;
+}
+
+//Laddar in ljud i en std::map
+sf::SoundBuffer* ResourceHandler::loadSound(const std::string &path) 
+{
+	//skapar en soundbufferpekare och tilldelar denna musiken som hör till strängen som laddats in
+	sf::SoundBuffer* buffer = Sounds[path]; 
+
+	/*
+	 * Om sf::SoundBuffer pekaren har värdet noll tilldelas dennna informationen från funktionen 
+	 * loadSoundFromFile och ger informationenen vidare i mappen med en tillhörande sträng 
+	 */
+	if(buffer == NULL) 
+	{
+		buffer = loadSoundFromFile(path);
+		Sounds[path] = buffer;
+	}
+	return buffer;
+}
 
 
 /*********************	
  *	MUSIC FUNKTIONER *
  *********************/
+
+//Laddar in ett musik i en sf::Music pekare.
+sf::Music* ResourceHandler::loadMusicFromFile(const std::string &path)
+{
+	sf::Music* music = new sf::Music;
+	music->openFromFile(path);
+
+	/*
+	 * Kollar om filen laddas in korrekt. Om inte så avallokeras minnet
+	 * och returnerar en tom pekare.
+	 */
+	if(!music->openFromFile(path))
+	{
+		std::cout << "ERROR! kan inte ladda in musik" << std::endl;
+		delete music;
+	}
+	return music;
+}
+
+//Laddar in musik i en std::map
+sf::Music* ResourceHandler::loadMusic(const std::string &path)
+{
+	//skapar en musicpekare och tilldelar denna musiken som hör till strängen som laddats in
+	sf::Music* music = Music[path]; 
+
+	/*
+	 * Om sf::Music pekaren har värdet noll tilldelas dennna informationen från funktionen 
+	 * loadMusicFromFile och ger informationenen vidare i mappen med en tillhörande sträng 
+	 */
+	if(music == NULL) 
+	{
+		music = loadMusicFromFile(path);
+		Music[path] = music;
+	}
+	return music;
+}

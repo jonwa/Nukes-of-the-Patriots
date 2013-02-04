@@ -11,10 +11,10 @@ class GUIElement : public std::enable_shared_from_this<GUIElement>
 {
 public:
 	GUIElement(sf::FloatRect rect, std::shared_ptr<GUIElement> parent, GUIType guiType);
-	float			getX()const;
-	float			getY()const;
-	float			getWidth()const;
-	float			getHeight()const;
+	float				getX()const;
+	float				getY()const;
+	float				getWidth()const;
+	float				getHeight()const;
 	bool			getVisible()const;
 	std::shared_ptr<GUIElement> getParent()const;
 	GUIType			getGUIType()const;
@@ -28,7 +28,6 @@ public:
 	void			setVisible(bool visible);
 	void			setAlpha(int alpha);
 	void			setMouseIsInside(bool inside);
-
 	void			addChild(std::shared_ptr<GUIElement> guiElement);
 	std::shared_ptr<GUIElement> getPtr();
 	std::vector<std::shared_ptr<GUIElement>>& getChildVector();
@@ -43,7 +42,7 @@ public:
 protected:
 	sf::FloatRect mRectangle;
 	int mAlpha;
-	bool mVisible, mMouseInside;
+	bool mVisible, mMouseInside, mUpdated;
 	std::shared_ptr<GUIElement> mParent;
 	GUIType mGUIType;
 
@@ -52,8 +51,6 @@ protected:
 	std::function<void ()> mMouseLeaveFunction;
 	
 	std::vector<std::shared_ptr<GUIElement>> mChilds;
-
-
 };
 
 #endif

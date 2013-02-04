@@ -5,7 +5,8 @@ GUIElement::GUIElement(sf::FloatRect rect, std::shared_ptr<GUIElement> parent, G
 	mVisible(true),
 	mParent(parent),
 	mGUIType(guiType),
-	mMouseInside(false)
+	mMouseInside(false),
+	mUpdated(false)
 {
 	if(mParent != NULL)
 	{

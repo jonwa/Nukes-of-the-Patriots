@@ -34,9 +34,9 @@ public:
 	void						setPresident(std::shared_ptr<President>);
 
 
-	void upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
-	void upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
-	void upgradeSpyNetwork(int currentSpyCount, int currentTech);
+	void upgradeNuclearWeapon();
+	void upgradeSpaceProgram();
+	void upgradeSpyNetwork();
 	
 
 	void showGUI();
@@ -48,9 +48,6 @@ public:
 	void setFood(int foodCount, int currentCurrency, int value);
 	void setGoods(int goodsCount, int currentCurrency, int value);
 	void setTech(int techCount, int currentCurrency, int value);
-
-
-	void initializeCapitalistWindow();
 private:
 	std::string intToString(int i)
 	{
@@ -64,7 +61,7 @@ private:
 	/*Skapar två std::map. En dit alla knappar för kapitalisternas läggs in i samt 
 	  en dit alla kapitalisternas fönster läggs in i. Detta sker via hämtade värden
 	  från XML dokument samt genom ResourceHandler  
-	  Av: Jon Wahlström 2013-01-31
+	  Av: Jon Wahlström 2013-31-01
 																				*/
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CapitalistButtons;
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CapitalistWindows;
@@ -72,6 +69,7 @@ private:
 	void loadButtonPosition();
 	void loadWindowPosition();
 	void initializeGuiFunctions();
+	void initializeCapitalistWindow();
 	
 	//President	*mPresident;
 	
