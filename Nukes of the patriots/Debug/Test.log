@@ -1,9 +1,9 @@
-﻿Build started 2013-02-04 16:45:56.
-     1>Project "C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Test.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 2013-02-04 16:59:07.
+     1>Project "C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Test.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "Debug\Test.lastbuildstate".
        InitializeBuildStatus:
-         Creating "Debug\Test.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\Test.unsuccessfulbuild".
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Animation.cpp Capitalist.cpp Communist.cpp EventHandler.cpp GameManager.cpp GUIButton.cpp GUIElement.cpp GUIImage.cpp GUIManager.cpp GUIText.cpp GUIWindow.cpp Main.cpp Menu.cpp President.cpp Randomizer.cpp SuperPower.cpp ResourceHandler.cpp tinyxml2.cpp
          tinyxml2.cpp
@@ -21,7 +21,7 @@
                      _Other1=const char (&)[10],
                      _Other2=int
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(33) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[10],int>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(33) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[10],int>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -39,7 +39,7 @@
                      _Other1=const char (&)[11],
                      _Other2=int
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(34) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[11],int>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(34) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[11],int>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -57,7 +57,7 @@
                      _Other1=const char (&)[13],
                      _Other2=double
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(36) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[13],double>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(36) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[13],double>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -75,7 +75,7 @@
                      _Other1=const char (&)[11],
                      _Other2=double
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(37) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[11],double>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(37) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[11],double>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -93,7 +93,7 @@
                      _Other1=const char (&)[9],
                      _Other2=double
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(38) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[9],double>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(38) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[9],double>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -111,7 +111,7 @@
                      _Other1=const char (&)[14],
                      _Other2=int
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(39) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[14],int>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(39) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[14],int>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -129,7 +129,7 @@
                      _Other1=const char (&)[12],
                      _Other2=double
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(48) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[12],double>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(48) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<const char(&)[12],double>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -150,7 +150,7 @@
                      _Other1=std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,
                      _Other2=int
                  ]
-                 c:\github\nukes_of_thepatriots\gui - omgjord\president.cpp(78) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<std::basic_string<_Elem,_Traits,_Ax>&,int>(_Other1,_Other2 &&)' being compiled
+                 c:\github\nukes_of_the_patriots\nukes of the patriots\president.cpp(78) : see reference to function template instantiation 'std::pair<_Ty1,_Ty2>::pair<std::basic_string<_Elem,_Traits,_Ax>&,int>(_Other1,_Other2 &&)' being compiled
                  with
                  [
                      _Ty1=std::string,
@@ -162,60 +162,60 @@
                      _Other2=int
                  ]
          Menu.cpp
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(52): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(57): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(62): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(67): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(112): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(117): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(122): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\menu.cpp(127): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(52): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(57): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(62): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(67): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(112): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(117): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(122): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\menu.cpp(127): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          Main.cpp
          GUIWindow.cpp
          GUIText.cpp
          GUIManager.cpp
          GUIImage.cpp
          GUIElement.cpp
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\guielement.cpp(124): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\guielement.cpp(124): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\guielement.cpp(124): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\guielement.cpp(124): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
          GUIButton.cpp
          GameManager.cpp
          EventHandler.cpp
          Communist.cpp
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(195): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(217): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(239): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(281): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(286): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(291): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(339): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(344): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(349): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\communist.cpp(354): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(195): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(217): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(239): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(281): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(286): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(291): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(339): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(344): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(349): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(354): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          Capitalist.cpp
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(53): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(60): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(70): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(71): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(72): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(100): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(101): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(115): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(116): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(127): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(163): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(168): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(173): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(178): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(221): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(226): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(231): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_thepatriots\gui - omgjord\capitalist.cpp(236): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(53): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(60): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(70): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(71): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(72): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(100): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(101): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(115): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(116): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(127): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(163): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(168): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(173): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(178): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(221): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(226): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(231): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(236): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
          Animation.cpp
          Generating Code...
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Debug\Test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\SFML-2.0-rc\lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Debug\Test.lib" /MACHINE:X86 Debug\Animation.obj
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\SFML-2.0-rc\lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\Capitalist.obj
          Debug\Communist.obj
          Debug\EventHandler.obj
@@ -234,14 +234,14 @@
          Debug\ResourceHandler.obj
          Debug\tinyxml2.obj
      1>Animation.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-         Test.vcxproj -> C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Debug\Test.exe
+         Test.vcxproj -> C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.exe
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Debug\Test.exe;#1" /manifest Debug\Test.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.exe;#1" /manifest Debug\Test.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\Test.unsuccessfulbuild".
          Touching "Debug\Test.lastbuildstate".
-     1>Done Building Project "C:\Github\Nukes_of_thePatriots\GUI - Omgjord\Test.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Test.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:19.08
+Time Elapsed 00:00:19.09
