@@ -1,28 +1,29 @@
-#ifndef GAMEMANAGER_H
-#define GAMEMANAGER_H
+#ifndef _GAME_MANAGER_H
+#define _GAME_MANAGER_H
 
-#include "Capitalist.h"
-#include "Communist.h"
+#include <vector>
+
+class SuperPower;
 
 class GameManager
 {
 public:
-	static GameManager *getInstance();
-	~GameManager();
-
-	void update();
-	void render();
-
-
+								GameManager(int year, std::vector<SuperPower*> SuperPowerVec, SuperPower *currentPlayer);
+	int							getYear()const;
+	SuperPower*					getCurrentPlayer()const;
+	std::vector<SuperPower*>	getPlayers()const;
+	void						selectStartingPlayer(SuperPower *startingPlayer);
+	void						setCurrentPlayer(SuperPower* nextPlayer);
+	void						setYear(int year);
+	void						startRound();
+	void						nextRound();
+								~GameManager();
 private:
-	GameManager();
-	GameManager(const GameManager &);
-	void operator=(const GameManager &);
-	static GameManager *mInstance;
-
-	Capitalist	mCapitalist;
-	Communist	mCommunist;
-
+	int mYear, mRound;
+	// Theoretically you should be able to play with x amount of players - instead of only 2
+	std::vector<SuperPower*> mVecSuperPowers;
+	std::vector<SuperPower*> mVecPlayersLeft;
+	SuperPower *mCurrentPlayer;
 };
 
 #endif

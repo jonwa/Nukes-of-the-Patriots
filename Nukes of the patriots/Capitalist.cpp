@@ -20,15 +20,6 @@ static int taxChange	= 5;
 Capitalist::Capitalist() :
 	mPresident(nullptr)
 {
-	mPopulation			= 50;			//Befolkning i miljoner
-	mPatriotism			= 20;
-	mTaxes				= 30;
-	mFood				= 0;
-	mTech				= 0;
-	mGoods				= 0;
-	mSpyNetwork			= 0;
-	mSpaceProgram		= 0;
-	mNuclearWeapon		= 10;
 	mRound				= 0;
 	mIncreasePopulation = false;
 	mType				= CAPITALIST;
@@ -95,14 +86,12 @@ void Capitalist::setTech(int techCount, int currentCurrency, int amount)
 	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech
 										*/
-void Capitalist::upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech)
+void Capitalist::upgradeNuclearWeapon()
 {
-	currentGoods	-= 10 * mPresident->getNuclearPriceModifier();
-	currentTech		-= 5  * mPresident->getNuclearPriceModifier();
+	mGoodsUpdate	-= 10 * mPresident->getNuclearPriceModifier();
+	mTechUpdate		-= 5  * mPresident->getNuclearPriceModifier();
 
-	++currentNuclearCount;
-
-	mNuclearText->setText(intToString(mNuclearWeapon));
+	++mNuclearWeaponUpdate;
 }
 
 /*	
@@ -110,25 +99,37 @@ void Capitalist::upgradeNuclearWeapon(int currentNuclearCount, int currentGoods,
 	Kostar 5 mGoods multiplicerat med den nuvarande nivån
 	och 10 mTech multiplicerat med den nuvarande nivån
 															*/
-void Capitalist::upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech)
+void Capitalist::upgradeSpaceProgram()
 {
-	currentGoods	-= 5 * currentSpaceCount * mPresident->getSpacePriceModifier();
-	currentTech		-= 10 * currentSpaceCount * mPresident->getSpacePriceModifier();
-
-	++currentSpaceCount;
+	if(mSpaceProgramUpdate > 0)
+	{
+		mGoodsUpdate	-= 5 * mSpaceProgramUpdate * mPresident->getSpacePriceModifier();
+		mTechUpdate		-= 10 * mSpaceProgramUpdate * mPresident->getSpacePriceModifier();
+	}
+	else
+	{
+		mGoodsUpdate	-= 5;
+		mTechUpdate		-= 10;
+	}
+	++mSpaceProgramUpdate;
 }
 
 /*	
 	Uppgraderar mSpyNetwork med ett
 	Kostar 10 mTech multiplicerat med den nuvarande nivån
 															*/
-void Capitalist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
+void Capitalist::upgradeSpyNetwork()
 {
-	currentTech -= 10 * currentSpyCount * mPresident->getSpyPriceModifier();
-
-	++currentSpyCount;
+	if(mSpyNetworkUpdate > 0)
+	{
+		mTechUpdate -= 10 * mSpyNetworkUpdate * mPresident->getSpyPriceModifier();
+	}
+	else
+	{
+		mTechUpdate -= 10;
+	}
+	++mSpyNetworkUpdate;
 }
-
 
 //------------------------------------------------------------------------------------------------------
 

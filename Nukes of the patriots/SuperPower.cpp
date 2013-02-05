@@ -2,14 +2,23 @@
 
 
 SuperPower::SuperPower() : 
-	mCurrencyUpdate(0),
-	mFoodUpdate(0),
-	mGoodsUpdate(0),
-	mTechUpdate(0),
-	mNuclearWeaponUpdate(0),
-	mSpaceProgramUpdate(0),
-	mSpyNetworkUpdate(0)
+	mPopulation(50),			//Befolkning i miljoner
+	mPatriotism(20),
+	mTaxes(30),
+	mFood(0),
+	mTech(0),
+	mGoods(0),
+	mSpyNetwork(0),
+	mSpaceProgram(0),
+	mNuclearWeapon(10)
 {
+	mCurrencyUpdate			= mCurrency;
+	mFoodUpdate				= mFood;
+	mGoodsUpdate			= mGoods;
+	mTechUpdate				= mTech;
+	mNuclearWeaponUpdate	= mNuclearWeapon;
+	mSpaceProgramUpdate		= mSpaceProgram;
+	mSpyNetworkUpdate		= mSpyNetwork;
 }
 
 

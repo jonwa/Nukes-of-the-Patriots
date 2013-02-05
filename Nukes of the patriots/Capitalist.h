@@ -34,9 +34,9 @@ public:
 	void						setPresident(std::shared_ptr<President>);
 
 
-	void upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
-	void upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
-	void upgradeSpyNetwork(int currentSpyCount, int currentTech);
+	void upgradeNuclearWeapon();
+	void upgradeSpaceProgram();
+	void upgradeSpyNetwork();
 	
 
 	void showGUI();
@@ -49,8 +49,6 @@ public:
 	void setGoods(int goodsCount, int currentCurrency, int value);
 	void setTech(int techCount, int currentCurrency, int value);
 
-
-	void initializeCapitalistWindow();
 private:
 	std::string intToString(int i)
 	{
@@ -72,6 +70,7 @@ private:
 	void loadButtonPosition();
 	void loadWindowPosition();
 	void initializeGuiFunctions();
+	void initializeCapitalistWindow();
 	
 	//President	*mPresident;
 	
