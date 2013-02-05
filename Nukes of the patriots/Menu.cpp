@@ -7,18 +7,17 @@
 #include <sstream>
 #include <iostream>
 #include <SFML\Window\Mouse.hpp>
+#include "GameManager.h"
 
 
  /*Konstruktorn kör initialize-funktionen*/
 Menu::Menu(sf::RenderWindow &window) : 
-	mWindow(window),
-	mCapitalist(new Capitalist()),
-	mCommunist(new Communist())
+	mWindow(window)
 { 
 	initialize(); 
 	initializeGuiFuctions();
-	mCapitalist->hideGUI();
-	mCommunist->hideGUI();
+	MenuMusic["MainMenuTrack"]->play();
+	MenuMusic["MainMenuTrack"]->setLoop(true);
 }
 Menu::~Menu(){}
 
@@ -142,6 +141,38 @@ void Menu::loadWindowPosition()
 }
 
 
+void Menu::loadMenuMusic()
+{
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile("XML/MenuMusic.xml");
+
+	if(doc.Error())
+		std::cout << "Fel! Menu::loadMusic";
+	
+	tinyxml2::XMLElement *element = doc.FirstChildElement("tracks");
+	tinyxml2::XMLElement *music = element->FirstChildElement("music");
+	
+	const char* temp;
+	while (music != 0)
+	{
+		std::string tempName;
+		if (temp = music->FirstChildElement("name")->GetText())
+		{
+			tempName = temp;
+		}
+		
+		temp	 = music->FirstChildElement("file")->GetText();
+		std::string name;
+		if (temp)
+			name = temp;
+				
+		MenuMusic[tempName] = ResourceHandler::getInstance()->getMusic(name);
+	
+		music = music->NextSiblingElement();	
+	}
+}
+
+
  /*
 	Initierar menyernas fönster, bilder samt knappar som skall finnas med.
 	dessa är av olika typer av GUIElement. Beroende på vilken knapp som 
@@ -154,6 +185,7 @@ void Menu::initialize()
 {
 	loadButtonPosition();
 	loadWindowPosition();
+	loadMenuMusic();
 
 	/*Förälder-fönstret för alla menyer*/
 	mParentWindow			= std::make_shared<GUIWindow>(WindowPos["MenuInterface"]);
@@ -223,7 +255,11 @@ void Menu::initializeGuiFuctions()
 	mExitButton->setMouseLeaveFunction([=]()			{ mExitButton->setTexture(ButtonPos["Exit"]); });
 	mExitButton->setOnClickFunction([=]()				{ mWindow.close(); });
 
-	mTeamCapitalistButton->setOnClickFunction([=]()		{ mParentWindow->setVisible(false); mCapitalist->showGUI(); });
+	/*när spelaren väljer att spela kapitalist */
+	mTeamCapitalistButton->setOnClickFunction([=]()		{ mParentWindow->setVisible(false); MenuMusic["MainMenuTrack"]->stop(); 
+														  GameManager::getInstance()->setCurrentPlayer(std::make_shared<Capitalist>()); });
 
-	mTeamCommunistButton->setOnClickFunction([=]()		{ mParentWindow->setVisible(false); mCommunist->showGUI();});
-}
+	/*när spelaren väljer att spela kommunist*/
+	mTeamCommunistButton->setOnClickFunction([=]()		{ mParentWindow->setVisible(false); MenuMusic["MainMenuTrack"]->stop(); 
+														  GameManager::getInstance()->setCurrentPlayer(std::make_shared<Communist>()); });
+}	

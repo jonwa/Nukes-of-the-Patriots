@@ -10,6 +10,7 @@
 #include "Randomizer.h"
 #include <iostream>
 #include <functional>
+#include "GameManager.h"
 #include <SFML\Window\Mouse.hpp>
 
 static int foodCost		= 10;
@@ -27,6 +28,7 @@ Capitalist::Capitalist() :
 
 	initializeCapitalistWindow();
 	initializeGuiFunctions();
+	CapitalistMusic["CapitalistMainTheme"]->play();
 }
 
 
@@ -251,6 +253,40 @@ void Capitalist::loadWindowPosition()
 	}	
 }
 
+	/*Laddar in kapitalisternas music och ljud via XML 
+			
+			Av: Jon Wahlström*/
+void Capitalist::loadCapitalistMusic()
+{
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile("XML/CapitalistMusic.xml");
+
+	if(doc.Error())
+		std::cout << "Fel! Capitalist::loadCapitalistMusic";
+	
+	tinyxml2::XMLElement *element = doc.FirstChildElement("tracks");
+	tinyxml2::XMLElement *music = element->FirstChildElement("music");
+	
+	const char* temp;
+	while (music != 0)
+	{
+		std::string tempName;
+		if (temp = music->FirstChildElement("name")->GetText())
+		{
+			tempName = temp;
+		}
+		
+		temp	 = music->FirstChildElement("file")->GetText();
+		std::string name;
+		if (temp)
+			name = temp;
+				
+		CapitalistMusic[tempName] = ResourceHandler::getInstance()->getMusic(name);
+	
+		music = music->NextSiblingElement();	
+	}
+}
+
  /*
   Initierar huvudfönster med all GUI-information som behövs
  
@@ -260,13 +296,15 @@ void Capitalist::initializeCapitalistWindow()
 {
 	loadButtonPosition();
 	loadWindowPosition();
+	loadCapitalistMusic();
 
 	mCapitalistMainWindow				= std::make_shared<GUIWindow>(CapitalistWindows["CapitalistInterface"]);
 	mCapitalistTaxesButton				= std::make_shared<GUIButton>(CapitalistButtons["Taxes"], mCapitalistMainWindow);
 	mCapitalistResourceButton			= std::make_shared<GUIButton>(CapitalistButtons["Resource"], mCapitalistMainWindow);
 	mCapitalistUpgradeButton			= std::make_shared<GUIButton>(CapitalistButtons["Upgrade"], mCapitalistMainWindow);
 	mCapitalistExportButton				= std::make_shared<GUIButton>(CapitalistButtons["Export"], mCapitalistMainWindow);
-	
+	mCapitalistEndTurnButton			= std::make_shared<GUIButton>(CapitalistButtons["EndTurn"], mCapitalistMainWindow);
+
 	mTaxesWindow						= std::make_shared<GUIWindow>(CapitalistWindows["CapitalistTaxesWindow"], mCapitalistMainWindow);
 	mLowerTaxesButton					= std::make_shared<GUIButton>(CapitalistButtons["LowerTaxes"], mTaxesWindow);
 	mRaiseTaxesButton					= std::make_shared<GUIButton>(CapitalistButtons["RaiseTaxes"], mTaxesWindow);
@@ -332,13 +370,18 @@ void Capitalist::initializeGuiFunctions()
 
 	mCapitalistResourceButton->setOnClickFunction([=]() { mResourceWindow->setVisible(true); });
 
+	/**/
 	mCapitalistUpgradeButton->setOnClickFunction([=]()	{ mUpgradeWindow->setVisible(true); });
+
 	mCapitalistExportButton->setOnClickFunction([=]()	{ mExportWindow->setVisible(true); });
+
+	mCapitalistEndTurnButton->setOnClickFunction([=]()	{ std::cout << "NEJ ELLER JO";  GameManager::getInstance()->nextRound();  });
 
 	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); });
 	mResourceCloseButton->setOnClickFunction([=]()		{ mResourceWindow->setVisible(false); });
 	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); });
 	mExportCloseButton->setOnClickFunction([=]()		{ mExportWindow->setVisible(false); });
+	
 }
 
 

@@ -8,22 +8,32 @@ class SuperPower;
 class GameManager
 {
 public:
-								GameManager(int year, std::vector<SuperPower*> SuperPowerVec, SuperPower *currentPlayer);
-	int							getYear()const;
-	SuperPower*					getCurrentPlayer()const;
-	std::vector<SuperPower*>	getPlayers()const;
-	void						selectStartingPlayer(SuperPower *startingPlayer);
-	void						setCurrentPlayer(SuperPower* nextPlayer);
-	void						setYear(int year);
-	void						startRound();
-	void						nextRound();
-								~GameManager();
+	static GameManager* getInstance();
+	
+	~GameManager();
+
+	int											getYear()const;
+	std::shared_ptr<SuperPower> 				getCurrentPlayer()const;
+	std::vector<std::shared_ptr<SuperPower> >	getPlayers()const;
+	void										selectStartingPlayer(std::shared_ptr<SuperPower> startingPlayer);
+	void										setCurrentPlayer(std::shared_ptr<SuperPower> nextPlayer);
+	void										setYear(int year);
+	void										startRound();
+	void										nextRound();
+	void										addSuperPower(std::shared_ptr<SuperPower> power);
+	//void										setVector(std::vector<std::shared_ptr<SuperPower> > SuperPowerVec);
+						
+	static void										init(int year);
 private:
-	int mYear, mRound;
+	static GameManager* mInstance;
+	GameManager();
+
+	int mYear;
+	int mRound;
 	// Theoretically you should be able to play with x amount of players - instead of only 2
-	std::vector<SuperPower*> mVecSuperPowers;
-	std::vector<SuperPower*> mVecPlayersLeft;
-	SuperPower *mCurrentPlayer;
+	std::vector<std::shared_ptr<SuperPower> > mVecSuperPowers;
+	std::vector<std::shared_ptr<SuperPower> > mVecPlayersLeft;
+	std::shared_ptr<SuperPower> mCurrentPlayer;
 };
 
 #endif

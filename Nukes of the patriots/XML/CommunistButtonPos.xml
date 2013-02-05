@@ -968,4 +968,12 @@
 		<height>40</height>
 		<image>Communist/button_okay</image>
 	</button>
+	<button>
+		<name>EndTurn</name>
+		<xPos>911</xPos>
+		<yPos>636</yPos>
+		<width>111</width>
+		<height>40</height>
+		<image>Communist/7_kom_end</image>
+	</button>
 </buttons>

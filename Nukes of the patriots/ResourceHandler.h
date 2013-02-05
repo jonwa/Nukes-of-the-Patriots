@@ -43,8 +43,10 @@ public:
 
 	//Music funktioner
 	void loadMusic(const std::string &path, const std::string &key);
-	//sf::Music& getMusic(std::string &path);
+	std::shared_ptr<sf::Music> getMusic(std::string &path);
 
+	void loadImages();
+	void loadSounds();
 	void load();
 
 private:
@@ -57,7 +59,7 @@ private:
 
 	//std::map :ar innehållandes Images, SoundBuffers and Music
 	std::map<std::string, sf::Texture> Images;
-	std::map<std::string, sf::Music> Music;
+	std::map<std::string, std::shared_ptr<sf::Music> > Music;
 	std::map<std::string, sf::SoundBuffer> Sounds;
 	
 };

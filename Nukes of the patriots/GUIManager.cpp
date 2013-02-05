@@ -57,6 +57,7 @@ void GUIManager::update(sf::Event &event)
 		if(!mGuiElements[i]->getChildVector().empty())
 			mGuiElements[i]->update(event);
 	}
+	//mGuiElements[0]->update(event);
 	//for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	//{
 	//	std::shared_ptr<GUIElement> guiElement = mGuiElements[i];

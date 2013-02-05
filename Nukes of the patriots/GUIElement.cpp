@@ -131,11 +131,11 @@ void GUIElement::update(sf::Event &event)
 			}
 			if(event.type == sf::Event::MouseButtonPressed)
 			{
-			if(event.mouseButton.button == sf::Mouse::Left)
-			{
-				if(mOnClickFunction != nullptr)
-					mOnClickFunction();
-			}
+				if(event.mouseButton.button == sf::Mouse::Left)
+				{
+					if(mOnClickFunction != nullptr)
+						mOnClickFunction();
+				}
 			}
 		}
 		else

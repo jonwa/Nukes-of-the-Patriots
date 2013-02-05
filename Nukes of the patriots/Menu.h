@@ -8,6 +8,7 @@
 #include <map>
 
 #include <SFML\Graphics\RenderWindow.hpp>
+#include <SFML\Audio\Music.hpp>
 
 class Capitalist;
 class Communist;
@@ -22,11 +23,13 @@ public:
 private:
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > ButtonPos;
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > WindowPos;
+	std::map<std::string, std::shared_ptr<sf::Music> > MenuMusic;
 
 	void initialize();
 	void initializeGuiFuctions();
 	void loadButtonPosition();
 	void loadWindowPosition();
+	void loadMenuMusic();
 
 	std::shared_ptr<GUIWindow> mParentWindow;
 	std::shared_ptr<GUIWindow> mMainMenuWindow;
@@ -46,8 +49,6 @@ private:
 	std::shared_ptr<GUIButton> mTeamCommunistButton;
 
 	sf::RenderWindow &mWindow;
-	Capitalist *mCapitalist;
-	Communist  *mCommunist;
 };
 
 #endif
