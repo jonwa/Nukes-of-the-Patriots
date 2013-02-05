@@ -110,35 +110,49 @@ int Communist::getYearlyTaxes(int round)
 
 /*	Uppgraderar mNuclearWeapon med ett
 	Kostar 10 mGoods och 5 mTech*/
-void Communist::upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech)
+void Communist::upgradeNuclearWeapon()
 {
-	currentGoods	-= 10;
-	currentTech		-= 5;
+	mGoodsUpdate	-= 10;
+	mTechUpdate		-= 5;
 	
-	++currentNuclearCount;
+	++mNuclearWeaponUpdate;
+	std::cout << "KLICK" << std::endl;
 }
 
 /*	Uppgraderar mSpaceProgram med ett
 	Kostar 5 mGoods multiplicerat med den nuvarande nivån
 	och 10 mTech multiplicerat med den nuvarande nivån*/
-void Communist::upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech)
+void Communist::upgradeSpaceProgram()
 {
-	currentGoods	-= 5 * currentSpaceCount;
-	currentTech		-= 10 * currentSpaceCount;
-	
-	++currentSpaceCount;
+	if(mSpaceProgramUpdate > 0)
+	{
+		mGoodsUpdate	-= 5 * mSpaceProgramUpdate;
+		mTechUpdate		-= 10 * mSpaceProgramUpdate;
+	}
+	else
+	{
+		mGoodsUpdate	-= 5;
+		mTechUpdate		-= 10;
+	}
+	++mSpaceProgramUpdate;
 }
 
 /*	
 	Uppgraderar mSpyNetwork med ett
 	Kostar 10 mTech multiplicerat med den nuvarande nivån
 															 */
-void Communist::upgradeSpyNetwork(int currentSpyCount, int currentTech)
+void Communist::upgradeSpyNetwork()
 {
-	currentTech -= 10 * currentSpyCount;
-	
-	++currentSpyCount;
-}
+	if(mSpyNetworkUpdate > 0)
+	{
+		mTechUpdate -= 10 * mSpyNetworkUpdate;
+	}
+	else
+	{
+		mTechUpdate -= 10;
+	}
+	++mSpyNetworkUpdate;
+} 
 
 //--------------------------------------------
 /*Funktioner som ger medlemsvariabler nya värden*/
@@ -545,6 +559,11 @@ void Communist::initializeCommunistWindow()
 	 	vilket är alla GUIElement som finns i denna klass som har 
 	 	mCapitalistMainWindow som parent-argument i dess konstruktor
 																		*/
+	mNuclearText = std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCommunistMainWindow);
+	mSpaceText	 = std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCommunistMainWindow);
+	mSpyText	 = std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCommunistMainWindow);
+
+
 	GUIManager::getInstance()->addGUIElement(mCommunistMainWindow);
 }
 
@@ -556,16 +575,25 @@ void Communist::initializeGuiFunctions()
 {
 	mCommunistFiveYearPlanButton->setOnClickFunction([=]()		{ mTaxesWindow->setVisible(true); });
 	mCommunistPropagandaButton->setOnClickFunction([=]()		{ mPropagandaWindowFirst->setVisible(true); });
-	mCommunistUpgradeButton->setOnClickFunction([=]()			{ mUpgradeWindow->setVisible(true); });
+	mCommunistUpgradeButton->setOnClickFunction([=]()			{ mUpgradeWindow->setVisible(true); std::cout << "FUCK OFF" << std::endl; });
 	mGoToNextSlideButton->setOnClickFunction([=]()				{ mTaxesWindow->setVisible(false); mResourcesWindow->setVisible(true); });
 	mGoToPreviousSlideButton->setOnClickFunction([=]()			{ mResourcesWindow->setVisible(false); mTaxesWindow->setVisible(true); });
 	mCommunistExportButton->setOnClickFunction([=]()			{ mExportWindow->setVisible(true); });
 
-	mTaxesCloseButton->setOnClickFunction([=]()					{ mTaxesWindow->setVisible(false); });
+	mTaxesCloseButton->setOnClickFunction([=]()					{ mTaxesWindow->setVisible(false); std::cout << "taxes" << std::endl;});
 	mResourcesCloseButton->setOnClickFunction([=]()				{ mResourcesWindow->setVisible(false); });
-	mPropagandaWindowFirstCloseButton->setOnClickFunction([=]()	{ mPropagandaWindowFirst->setVisible(false); });
-	mUpgradeCloseButton->setOnClickFunction([=]()				{ mUpgradeWindow->setVisible(false); });
+	mPropagandaWindowFirstCloseButton->setOnClickFunction([=]()	{ mPropagandaWindowFirst->setVisible(false); std::cout << "Propaganda" << std::endl;});
+
+	mUpgradeCloseButton->setOnClickFunction([=]()				{ mUpgradeWindow->setVisible(false); 
+																  mNuclearWeapon = mNuclearWeaponUpdate; mNuclearText->setText(intToString(getNuclearWeapon()));
+																  mSpaceProgram = mSpaceProgramUpdate; mSpaceText->setText(intToString(getSpaceProgram()));
+															      mSpyNetwork = mSpyNetworkUpdate; mSpyText->setText(intToString(getSpyNetwork()));});
+
 	mExportCloseButton->setOnClickFunction([=]()				{ mExportWindow->setVisible(false); });
+
+	mUpgradeNuclearWeaponButton->setOnClickFunction(std::bind(&Communist::upgradeNuclearWeapon, this));
+	mUpgradeSpaceProgramButton->setOnClickFunction(std::bind(&Communist::upgradeSpaceProgram, this));
+	mUpgradeSpyNetworkButton->setOnClickFunction(std::bind(&Communist::upgradeSpyNetwork, this));
 }
 
 void Communist::showGUI()

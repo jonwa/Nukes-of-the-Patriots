@@ -20,6 +20,7 @@ class President;
 class GUIElement;
 class GUIButton;
 class GUIWindow;
+class GUIText;
 class Randomizer;
 
 
@@ -37,9 +38,9 @@ public:
 	void		setGoods(int goodsCount, int currentCurrency, int value);
 	void		setTech(int techCount, int currentCurrency, int value);
 
-	void		upgradeNuclearWeapon(int currentNuclearCount, int currentGoods, int currentTech);
-	void		upgradeSpaceProgram(int currentSpaceCount, int currentGoods, int currentTech);
-	void		upgradeSpyNetwork(int currentSpyCount, int currentTech);
+	void		upgradeNuclearWeapon();
+	void		upgradeSpaceProgram();
+	void		upgradeSpyNetwork();
 
 	int			increaseTaxCost(int currentTax);
 	int			decreaseTaxCost(int currentTax);
@@ -82,6 +83,10 @@ private:
 	void initializeCommunistWindow();
  
 	//President	*mPresident;
+
+	std::shared_ptr<GUIText> mNuclearText;
+	std::shared_ptr<GUIText> mSpaceText;
+	std::shared_ptr<GUIText> mSpyText;
 	
 	/*GUI-pekare för kommunisternas interface*/
 	std::shared_ptr<GUIWindow> mCommunistMainWindow;
