@@ -41,11 +41,12 @@ public:
 	virtual void		upgradeSpyNetwork() = 0;
 	virtual int			increaseTaxCost(int currentTax) = 0;
 	virtual int			decreaseTaxCost(int currentTax) = 0;
-	virtual void		setFood(int foodCount, int currentCurrency, int value) = 0;
-	virtual void		setGoods(int goodsCount, int currentCurrency, int value) = 0;
-	virtual void		setTech(int techCount, int currentCurrency, int value) = 0;
+	virtual void		setFood(int value) = 0;
+	virtual void		setGoods(int value) = 0;
+	virtual void		setTech(int value) = 0;
 	virtual void		showGUI() = 0;
 	virtual void		hideGUI() = 0;
+	virtual void		playMusic() {};
 protected:
 	PoliticalType mType;
 

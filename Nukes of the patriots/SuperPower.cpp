@@ -16,6 +16,7 @@ SuperPower::SuperPower() :
 	mFoodUpdate				= mFood;
 	mGoodsUpdate			= mGoods;
 	mTechUpdate				= mTech;
+	mTaxesUpdate			= mTaxes;
 	mNuclearWeaponUpdate	= mNuclearWeapon;
 	mSpaceProgramUpdate		= mSpaceProgram;
 	mSpyNetworkUpdate		= mSpyNetwork;

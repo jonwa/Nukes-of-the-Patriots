@@ -34,9 +34,9 @@ public:
 	void		updateFood();
 	bool		enoughFood();
 
-	void		setFood(int foodCount, int currentCurrency, int value);
-	void		setGoods(int goodsCount, int currentCurrency, int value);
-	void		setTech(int techCount, int currentCurrency, int value);
+	void		setFood(int value);
+	void		setGoods(int value);
+	void		setTech(int value);
 
 	void		upgradeNuclearWeapon();
 	void		upgradeSpaceProgram();
@@ -87,6 +87,9 @@ private:
 	std::shared_ptr<GUIText> mNuclearText;
 	std::shared_ptr<GUIText> mSpaceText;
 	std::shared_ptr<GUIText> mSpyText;
+	std::shared_ptr<GUIText> mFoodText;	
+	std::shared_ptr<GUIText >mGoodsText;  
+	std::shared_ptr<GUIText> mTechText;	
 	
 	/*GUI-pekare för kommunisternas interface*/
 	std::shared_ptr<GUIWindow> mCommunistMainWindow;

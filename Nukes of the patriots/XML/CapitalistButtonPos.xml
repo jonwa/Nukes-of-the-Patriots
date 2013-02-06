@@ -304,4 +304,28 @@
 		<height>40</height>
 		<image>Capitalist/7_kap_end</image>
 	</button>
+	<button>
+		<name>FirstPresident</name>
+		<xPos>63</xPos>
+		<yPos>22</yPos>
+		<width>180</width>
+		<height>220</height>
+		<image>Capitalist/7_pr1</image>
+	</button>
+	<button>
+		<name>SecondPresident</name>
+		<xPos>327</xPos>
+		<yPos>22</yPos>
+		<width>180</width>
+		<height>220</height>	
+		<image>Capitalist/7_pr2</image>
+	</button>
+	<button>
+		<name>ClosePresident</name>
+		<xPos>235</xPos>
+		<yPos>477</yPos>
+		<width>100</width>
+		<height>40</height>
+		<image>Capitalist/button_okay</image>
+	</button>
 </buttons>

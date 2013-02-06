@@ -1,28 +1,26 @@
-﻿Build started 2013-02-05 15:55:12.
+﻿Build started 2013-02-06 10:16:25.
      1>Project "C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Test.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Test.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Capitalist.cpp
          Capitalist.cpp
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(46): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(53): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(63): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(64): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(65): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(93): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(94): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(108): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(109): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(127): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(166): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(171): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(176): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(181): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(224): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(229): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(234): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(239): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(67): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(68): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(69): warning C4244: '+=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(97): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(98): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(112): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(113): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(131): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(170): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(175): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(180): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(185): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(228): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(233): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(238): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\capitalist.cpp(243): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\SFML-2.0-rc\lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\Capitalist.obj
@@ -53,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.80
+Time Elapsed 00:00:06.51

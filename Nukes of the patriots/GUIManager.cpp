@@ -29,7 +29,7 @@ void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 			mGuiElements.push_back(guiElement->getChildVector()[i]);
 			if(!guiElement->getChildVector().empty())
 			{
-				for(std::vector<std::shared_ptr<GUIElement>>::size_type j = 0; j < guiElement->getChildVector()[i]->getChildVector().size(); ++j)
+				for(std::vector<std::shared_ptr<GUIElement> >::size_type j = 0; j < guiElement->getChildVector()[i]->getChildVector().size(); ++j)
 				{
 					mGuiElements.push_back(guiElement->getChildVector()[i]->getChildVector()[j]);
 				}
@@ -40,7 +40,7 @@ void GUIManager::addGUIElement(std::shared_ptr<GUIElement> guiElement)
 
 void GUIManager::render(sf::RenderWindow &window)
 {
-	for(std::vector<std::shared_ptr<GUIElement>>::iterator it = mGuiElements.begin(); it != mGuiElements.end(); ++it)
+	for(std::vector<std::shared_ptr<GUIElement> >::iterator it = mGuiElements.begin(); it != mGuiElements.end(); ++it)
 	{
 		if((*it)->getVisible())
 		{
@@ -52,39 +52,15 @@ void GUIManager::render(sf::RenderWindow &window)
 void GUIManager::update(sf::Event &event)
 {
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
-	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
+	for(std::vector<std::shared_ptr<GUIElement> >::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
-		if(!mGuiElements[i]->getChildVector().empty())
 			mGuiElements[i]->update(event);
 	}
+	for(std::vector<std::shared_ptr<GUIElement> >::size_type i = 0; i < mGuiElements.size(); i++)
+	{
+		mGuiElements[i]->setUpdated(false);
+	}
 	//mGuiElements[0]->update(event);
-	//for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
-	//{
-	//	std::shared_ptr<GUIElement> guiElement = mGuiElements[i];
-	//	guiElement->update();
-	//	bool isMouseInside = guiElement->getMouseIsInside();
-	//	// Check if mouse is colliding with gui element
-	//	if(mousePos.x > guiElement->getX() && mousePos.x < guiElement->getX() + guiElement->getWidth() && mousePos.y > guiElement->getY() && mousePos.y < guiElement->getY() + guiElement->getHeight())
-	//	{
-	//		if(!isMouseInside)
-	//		{
-	//			guiElement->setMouseIsInside(true);
-	//			triggerOnMouseEnterEvent(guiElement);
-	//		}
-	//		if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
-	//		{
-	//			triggerOnMouseClickEvent(guiElement);
-	//		}
-	//	}
-	//	else
-	//	{
-	//		if(isMouseInside)
-	//		{
-	//			guiElement->setMouseIsInside(false);
-	//			triggerOnMouseLeaveEvent(guiElement);
-	//		}
-	//	}
-	//}
 }
 
 void GUIManager::addOnMouseClickEventHandler(std::function <void (std::shared_ptr<GUIElement>)> func)

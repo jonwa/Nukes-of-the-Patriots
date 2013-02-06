@@ -221,7 +221,6 @@ void Menu::initialize()
 	mTeamCommunistButton	= std::make_shared<GUIButton>(ButtonPos["TeamCommunist"], mPickTeamWindow);
 	mPickTeamWindow->setVisible(false);
 
-	
 
 	/*Lägger in fönstrerna i vektorn för GUIElement*/
 	GUIManager::getInstance()->addGUIElement(mParentWindow);
@@ -237,7 +236,7 @@ void Menu::initializeGuiFuctions()
 {
 	mStartNewGameButton->setMouseEnterFunction([=]()	{ mStartNewGameButton->setTexture(ButtonPos["StartGameHover"]); });
 	mStartNewGameButton->setMouseLeaveFunction([=]()	{ mStartNewGameButton->setTexture(ButtonPos["StartGame"]); });
-	mStartNewGameButton->setOnClickFunction([=]()		{ mMainMenuWindow->setVisible(false); mPickTeamWindow->setVisible(true); } );
+	mStartNewGameButton->setOnClickFunction([=]()		{ mMainMenuWindow->setVisible(false); mPickTeamWindow->setVisible(true); });
 
 	mLoadGameButton->setMouseEnterFunction([=]()		{ mLoadGameButton->setTexture(ButtonPos["LoadGameHover"]); });
 	mLoadGameButton->setMouseLeaveFunction([=]()		{ mLoadGameButton->setTexture(ButtonPos["LoadGame"]); });
@@ -262,4 +261,7 @@ void Menu::initializeGuiFuctions()
 	/*när spelaren väljer att spela kommunist*/
 	mTeamCommunistButton->setOnClickFunction([=]()		{ mParentWindow->setVisible(false); MenuMusic["MainMenuTrack"]->stop(); 
 														  GameManager::getInstance()->setCurrentPlayer(std::make_shared<Communist>()); });
+
+
+
 }	

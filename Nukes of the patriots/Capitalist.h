@@ -46,9 +46,11 @@ public:
 	int	increaseTaxCost(int currentTax);
 	int	decreaseTaxCost(int currentTax);
 
-	void setFood(int foodCount, int currentCurrency, int value);
-	void setGoods(int goodsCount, int currentCurrency, int value);
-	void setTech(int techCount, int currentCurrency, int value);
+	void setFood(int value);
+	void setGoods(int value);
+	void setTech(int value);
+
+	void playMusic();
 
 private:
 	std::string intToString(int i)
@@ -78,6 +80,13 @@ private:
 	
 	//President	*mPresident;
 	
+	std::shared_ptr<GUIText> mNuclearText;
+	std::shared_ptr<GUIText> mSpaceText;
+	std::shared_ptr<GUIText> mSpyText;
+	std::shared_ptr<GUIText> mFoodText;	
+	std::shared_ptr<GUIText >mGoodsText;  
+	std::shared_ptr<GUIText> mTechText;	  
+
 
 	/*GUI-pekare för kapitalisternas interface*/
 	std::shared_ptr<GUIWindow> mCapitalistMainWindow;		
@@ -130,7 +139,10 @@ private:
 	std::shared_ptr<GUIButton> mExportRaiseTechButton;
 	std::shared_ptr<GUIButton> mExportCloseButton;
 
-
+	std::shared_ptr<GUIWindow> mChoosePresidentWindow;
+	std::shared_ptr<GUIButton> mFirstPresidentButton;
+	std::shared_ptr<GUIButton> mSecondPresidentButton;
+	std::shared_ptr<GUIButton> mClosePresidentWindow;
 };
 
 

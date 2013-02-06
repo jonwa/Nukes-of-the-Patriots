@@ -28,12 +28,16 @@ Capitalist::Capitalist() :
 
 	initializeCapitalistWindow();
 	initializeGuiFunctions();
-	CapitalistMusic["CapitalistMainTheme"]->play();
 }
 
 
 Capitalist::~Capitalist()
 {
+}
+
+void Capitalist::playMusic()
+{
+	CapitalistMusic["CapitalistMainTheme"]->play();
 }
 
 std::shared_ptr<President> Capitalist::getPresident()
@@ -43,14 +47,14 @@ std::shared_ptr<President> Capitalist::getPresident()
 
 int Capitalist::increaseTaxCost(int currentTax)
 {						
-	currentTax += taxChange + mPresident->getPatriotismTaxModifier();
+	currentTax += taxChange; //  + mPresident->getPatriotismTaxModifier();
 
 	return currentTax;
 }
 
 int Capitalist::decreaseTaxCost(int currentTax)
 {
-	currentTax -= taxChange + mPresident->getPatriotismTaxModifier();
+	currentTax -= taxChange; // + mPresident->getPatriotismTaxModifier();
 
 	return currentTax;
 }
@@ -65,22 +69,22 @@ void Capitalist::setPresident(std::shared_ptr<President> president)
 	techCost	+= president->getTechPriceModifier();
 }
 
-void Capitalist::setFood(int foodCount, int currentCurrency, int amount)
+void Capitalist::setFood(int amount)
 {
-	foodCount += amount;
-	currentCurrency -= amount * foodCost;
+	mFoodUpdate += amount;
+	mCurrencyUpdate -= amount * foodCost;
 }
 
-void Capitalist::setGoods(int goodsCount, int currentCurrency, int amount)
+void Capitalist::setGoods(int amount)
 {
-	goodsCount += amount;
-	currentCurrency -= amount * goodsCost;
+	mGoodsUpdate += amount;
+	mCurrencyUpdate -= amount * goodsCost;
 }
 
-void Capitalist::setTech(int techCount, int currentCurrency, int amount)
+void Capitalist::setTech(int amount)
 {
-	techCount += amount;
-	currentCurrency -= amount * techCost;
+	mTechUpdate += amount;
+	mCurrencyUpdate -= amount * techCost;
 }
 
 //-----------------------------------------------------------
@@ -305,6 +309,7 @@ void Capitalist::initializeCapitalistWindow()
 	mCapitalistExportButton				= std::make_shared<GUIButton>(CapitalistButtons["Export"], mCapitalistMainWindow);
 	mCapitalistEndTurnButton			= std::make_shared<GUIButton>(CapitalistButtons["EndTurn"], mCapitalistMainWindow);
 
+
 	mTaxesWindow						= std::make_shared<GUIWindow>(CapitalistWindows["CapitalistTaxesWindow"], mCapitalistMainWindow);
 	mLowerTaxesButton					= std::make_shared<GUIButton>(CapitalistButtons["LowerTaxes"], mTaxesWindow);
 	mRaiseTaxesButton					= std::make_shared<GUIButton>(CapitalistButtons["RaiseTaxes"], mTaxesWindow);
@@ -351,7 +356,22 @@ void Capitalist::initializeCapitalistWindow()
 	mExportRaiseTechButton				= std::make_shared<GUIButton>(CapitalistButtons["RaiseTech"], mExportWindow);
 	mExportCloseButton					= std::make_shared<GUIButton>(CapitalistButtons["CloseExport"], mExportWindow);
 	mExportWindow->setVisible(false);
+	
 
+	mChoosePresidentWindow				= std::make_shared<GUIWindow>(CapitalistWindows["ChoosePresident"], mCapitalistMainWindow);
+	mFirstPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["FirstPresident"], mChoosePresidentWindow);
+	mSecondPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["SecondPresident"], mChoosePresidentWindow);
+	mClosePresidentWindow				= std::make_shared<GUIButton>(CapitalistButtons["ClosePresident"], mChoosePresidentWindow);
+	mChoosePresidentWindow->setVisible(false);
+
+
+	/*GUI text för utskrift av värden*/
+	mNuclearText	= std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCapitalistMainWindow);
+	mSpaceText		= std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCapitalistMainWindow);
+	mSpyText		= std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCapitalistMainWindow);
+	mFoodText		= std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCapitalistMainWindow);
+	mGoodsText		= std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCapitalistMainWindow);
+	mTechText		= std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCapitalistMainWindow);	
 
 	/*
 	 	Lägger in föräldernoden i vektorn som finns i GUIManager
@@ -367,8 +387,34 @@ void Capitalist::initializeGuiFunctions()
 {
 	/*Taxes GUI-window knapparna*/
 	mCapitalistTaxesButton->setOnClickFunction([=]()	{ mTaxesWindow->setVisible(true); });
+	mLowerTaxesButton->setOnClickFunction([=]()			{ mTaxesUpdate = decreaseTaxCost(mTaxesUpdate); });
+	mRaiseTaxesButton->setOnClickFunction([=]()			{ mTaxesUpdate = increaseTaxCost(mTaxesUpdate); });
 
 	mCapitalistResourceButton->setOnClickFunction([=]() { mResourceWindow->setVisible(true); });
+	mLowerFoodByTenButton->setOnClickFunction([=]()		{ setFood(-10);});			
+	mLowerFoodByFiveButton->setOnClickFunction([=]()	{ setFood(-5);});				
+	mLowerFoodByOneButton->setOnClickFunction([=]()		{ setFood(-1);});				
+	mRaiseFoodByOneButton->setOnClickFunction([=]()		{ setFood(1);});				
+	mRaiseFoodByFiveButton->setOnClickFunction([=]()	{ setFood(5);});				
+	mRaiseFoodByTenButton->setOnClickFunction([=]()		{ setFood(10);});	
+
+	mLowerGoodsByTenButton->setOnClickFunction([=]()	{ setGoods(-10);});	
+	mLowerGoodsByFiveButton->setOnClickFunction([=]()	{ setGoods(-5);});	
+	mLowerGoodsByOneButton->setOnClickFunction([=]()	{ setGoods(-1);});	
+	mRaiseGoodsByOneButton->setOnClickFunction([=]()	{ setGoods(1);});	
+	mRaiseGoodsByFiveButton->setOnClickFunction([=]()	{ setGoods(5);});		
+	mRaiseGoodsByTenButton->setOnClickFunction([=]()	{ setGoods(10);});
+
+	mLowerTechByTenButton->setOnClickFunction([=]()		{ setTech(-10);});	
+	mLowerTechByFiveButton->setOnClickFunction([=]()	{ setTech(-5);});	
+	mLowerTechByOneButton->setOnClickFunction([=]()		{ setTech(-1);});	
+	mRaiseTechByOneButton->setOnClickFunction([=]()		{ setTech(1);});		
+	mRaiseTechByFiveButton->setOnClickFunction([=]()	{ setTech(5);});		
+	mRaiseTechByTenButton->setOnClickFunction([=]()		{ setTech(10);});	
+
+	mUpgradeNuclearWeaponButton->setOnClickFunction([=]()		{ upgradeNuclearWeapon(); });		
+	mUpgradeSpaceProgramButton->setOnClickFunction([=]()		{ upgradeSpaceProgram();  });		
+	mUpgradeSpyNetworkButton->setOnClickFunction([=]()			{ upgradeSpyNetwork();    });		
 
 	/**/
 	mCapitalistUpgradeButton->setOnClickFunction([=]()	{ mUpgradeWindow->setVisible(true); });
@@ -377,13 +423,32 @@ void Capitalist::initializeGuiFunctions()
 
 	mCapitalistEndTurnButton->setOnClickFunction([=]()	{ std::cout << "NEJ ELLER JO";  GameManager::getInstance()->nextRound();  });
 
-	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); });
-	mResourceCloseButton->setOnClickFunction([=]()		{ mResourceWindow->setVisible(false); });
-	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); });
+	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); 
+														  mTaxes = mTaxesUpdate; std::cout << mTaxes << "GAY" << std::endl; });
+
+	mResourceCloseButton->setOnClickFunction([=]()		{ mResourceWindow->setVisible(false); 
+														  mFood = mFoodUpdate;
+														  mGoods = mGoodsUpdate;
+														  mTech = mTechUpdate; 
+														  std::cout << "food: " <<mFood << '\n' << "goods: "<< mGoods<<'\n' << "tech: " << mTech<<'\n'; });
+
+	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); 
+													      mNuclearWeapon = mNuclearWeaponUpdate;
+														  mSpaceProgram	 = mSpaceProgramUpdate;
+														  mSpyNetwork	 = mSpyNetworkUpdate;
+														  std::cout << "NW " << mNuclearWeapon << '\n' << "SP " << mSpaceProgram <<'\n' << "SN " << mSpyNetwork <<'\n'; });
+
 	mExportCloseButton->setOnClickFunction([=]()		{ mExportWindow->setVisible(false); });
+
+
+	mFirstPresidentButton->setOnClickFunction([=](){});
+	mSecondPresidentButton->setOnClickFunction([=](){});
+	mClosePresidentWindow->setOnClickFunction([=](){});
+
+
+	  
 	
 }
-
 
 void Capitalist::showGUI()
 {

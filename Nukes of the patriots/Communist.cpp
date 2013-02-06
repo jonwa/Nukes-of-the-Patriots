@@ -156,22 +156,22 @@ void Communist::upgradeSpyNetwork()
 
 //--------------------------------------------
 /*Funktioner som ger medlemsvariabler nya värden*/
-void Communist::setFood(int foodCount, int currentCurrency, int value)
+void Communist::setFood(int value)
 {
- 	foodCount		+= value;
-	currentCurrency -= value * foodCost;
+ 	mFoodUpdate		+= value;
+	mCurrencyUpdate -= value * foodCost;
 }
 
-void Communist::setGoods(int goodsCount, int currentCurrency, int value)
+void Communist::setGoods(int value)
 {
-	goodsCount		+= value;
-	currentCurrency -= value * goodsCost;
+	mGoodsUpdate	+= value;
+	mCurrencyUpdate -= value * goodsCost;
 }
 
-void Communist::setTech(int techCount, int currentCurrency, int value)
+void Communist::setTech(int value)
 {
-	techCount		+= value;
-	currentCurrency -= value * techCost;
+	mTechUpdate		+= value;
+	mCurrencyUpdate -= value * techCost;
 }
 
 int Communist::increaseTaxCost(int currentTax)
@@ -560,9 +560,14 @@ void Communist::initializeCommunistWindow()
 	 	vilket är alla GUIElement som finns i denna klass som har 
 	 	mCapitalistMainWindow som parent-argument i dess konstruktor
 																		*/
+
+	/*GUI text för utskrift av värden*/
 	mNuclearText = std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCommunistMainWindow);
 	mSpaceText	 = std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCommunistMainWindow);
 	mSpyText	 = std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCommunistMainWindow);
+	mFoodText	 = std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCommunistMainWindow);
+	mGoodsText   = std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCommunistMainWindow);
+	mTechText	 = std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCommunistMainWindow);		
 
 
 	GUIManager::getInstance()->addGUIElement(mCommunistMainWindow);

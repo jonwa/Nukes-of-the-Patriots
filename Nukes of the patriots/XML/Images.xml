@@ -20,6 +20,10 @@
 	<image filename="button_upgrade.png"/>
 	<image filename="button_yes.png"/>
 	<image filename="7_kap_end.png"/>
+	<image filename="7_kap_window_president1.png"/>
+	<image filename="7_pr1.png"/>
+	<image filename="7_pr2.png"/>
+	<image filename="7_pr3.png"/>
 </images>
 <images directory ="Communist">
     <image filename="7_kom_bg.png"/>

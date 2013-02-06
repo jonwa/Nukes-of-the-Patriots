@@ -88,6 +88,7 @@ std::vector<std::shared_ptr<SuperPower> > GameManager::getPlayers()const
 void GameManager::setCurrentPlayer(std::shared_ptr<SuperPower> newPlayer)
 {
 	mCurrentPlayer = newPlayer;
+	mCurrentPlayer->playMusic(); // ta bort senare, mest för att testa
 	mCurrentPlayer->setRound(mCurrentPlayer->getRound() + 1);
 }
 
