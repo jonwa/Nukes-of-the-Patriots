@@ -54,9 +54,9 @@ void GUIManager::update(sf::Event &event)
 	sf::Vector2i mousePos = sf::Mouse::getPosition();
 	for(std::vector<std::shared_ptr<GUIElement> >::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
-			mGuiElements[i]->update(event);
+		mGuiElements[i]->update(event);
 	}
-	for(std::vector<std::shared_ptr<GUIElement> >::size_type i = 0; i < mGuiElements.size(); i++)
+	for(std::vector<std::shared_ptr<GUIElement>>::size_type i = 0; i < mGuiElements.size(); ++i)
 	{
 		mGuiElements[i]->setUpdated(false);
 	}

@@ -125,7 +125,7 @@ void GUIElement::update(sf::Event &event)
 	{
 		mUpdated = true;
 		sf::Vector2i mousePos = sf::Mouse::getPosition();
-	
+
 		bool isMouseInside = getMouseIsInside();
 		// Check if mouse is colliding with gui element
 		if(mRectangle.contains(mousePos.x, mousePos.y))

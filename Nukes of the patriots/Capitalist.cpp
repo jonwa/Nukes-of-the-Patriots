@@ -423,6 +423,7 @@ void Capitalist::initializeGuiFunctions()
 
 	mCapitalistEndTurnButton->setOnClickFunction([=]()	{ std::cout << "NEJ ELLER JO";  GameManager::getInstance()->nextRound();  });
 
+
 	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); 
 														  mTaxes = mTaxesUpdate; std::cout << mTaxes << "GAY" << std::endl; });
 

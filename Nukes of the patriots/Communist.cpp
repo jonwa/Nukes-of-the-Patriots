@@ -595,8 +595,8 @@ void Communist::initializeGuiFunctions()
 	mUpgradeCloseButton->setOnClickFunction([=]()				{ mUpgradeWindow->setVisible(false); 
 																  mNuclearWeapon = mNuclearWeaponUpdate; mNuclearText->setText(intToString(getNuclearWeapon()));
 																  mSpaceProgram = mSpaceProgramUpdate; mSpaceText->setText(intToString(getSpaceProgram()));
-															      mSpyNetwork = mSpyNetworkUpdate; mSpyText->setText(intToString(getSpyNetwork()));});
-    /**/
+															      mSpyNetwork = mSpyNetworkUpdate; mSpyText->setText(intToString(getSpyNetwork())); std::cout << "HERRRRRO" << std::endl;});
+
 	mExportCloseButton->setOnClickFunction([=]()				{ mExportWindow->setVisible(false); });
 
 	mUpgradeNuclearWeaponButton->setOnClickFunction(std::bind(&Communist::upgradeNuclearWeapon, this));
