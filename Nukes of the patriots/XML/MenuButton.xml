@@ -2,7 +2,7 @@
 <menu>
 	<button>
 		<name>StartGame</name>
-		<xPos>378</xPos>
+		<xPos>374</xPos>
 		<yPos>223</yPos>
 		<width>279</width>
 		<height>52</height>
@@ -10,7 +10,7 @@
 	</button>
 	<button>
 		<name>LoadGame</name>
-		<xPos>378</xPos>
+		<xPos>374</xPos>
 		<yPos>314</yPos>
 		<width>279</width>
 		<height>52</height>
@@ -18,7 +18,7 @@
 	</button>
 	<button>
 		<name>Settings</name>
-		<xPos>378</xPos>
+		<xPos>374</xPos>
 		<yPos>404</yPos>
 		<width>279</width>
 		<height>52</height>
@@ -26,7 +26,7 @@
 	</button>
 	<button>	
 		<name>Credits</name>
-		<xPos>378</xPos>
+		<xPos>374</xPos>
 		<yPos>494</yPos>
 		<width>279</width>
 		<height>52</height>
@@ -34,7 +34,7 @@
 	</button>
 	<button>		
 		<name>Exit</name>
-		<xPos>378</xPos>
+		<xPos>374</xPos>
 		<yPos>584</yPos>
 		<width>279</width>
 		<height>52</height>	
@@ -95,5 +95,5 @@
 		<width>520</width>
 		<height>30</height>	
 		<image>Menu/3_5exit</image>
-	</button>
+	</button>		
 </menu>

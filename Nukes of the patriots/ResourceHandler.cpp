@@ -14,7 +14,7 @@ ResourceHandler* ResourceHandler::getInstance()
 	return mInstance;	
 }
 
-ResourceHandler::ResourceHandler() { }
+ResourceHandler::ResourceHandler() {	}
 
 //Destruktor, kör internalClear funktionen för att rensa mapparna
 ResourceHandler::~ResourceHandler() { }

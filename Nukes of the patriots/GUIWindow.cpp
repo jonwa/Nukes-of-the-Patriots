@@ -25,7 +25,7 @@ void GUIWindow::render(sf::RenderWindow &window)
 		sf::RectangleShape rect(sf::Vector2f(getWidth(), getHeight()));
 		rect.setPosition(getX(), getY());
 		rect.setFillColor(sf::Color::Color(255, 0, 0, 100));
-		window.draw(rect);
+		//window.draw(rect);
 		mSprite.setPosition(getX(), getY());
 		window.draw(mSprite);
 	}

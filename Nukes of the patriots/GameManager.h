@@ -4,6 +4,7 @@
 #include <vector>
 
 class SuperPower;
+class President;
 
 class GameManager
 {
@@ -22,17 +23,24 @@ public:
 	void										nextRound();
 	void										addSuperPower(std::shared_ptr<SuperPower> power);
 	//void										setVector(std::vector<std::shared_ptr<SuperPower> > SuperPowerVec);
-						
-	static void										init(int year);
+	
+	std::shared_ptr<President>					getRandomPresident();
+
+	void										init(int year);
 private:
 	static GameManager* mInstance;
 	GameManager();
+	GameManager(const GameManager&){}
+	GameManager operator=(const GameManager&){}
+
+	void loadPresidents();
 
 	int mYear;
 	int mRound;
 	// Theoretically you should be able to play with x amount of players - instead of only 2
 	std::vector<std::shared_ptr<SuperPower> > mVecSuperPowers;
 	std::vector<std::shared_ptr<SuperPower> > mVecPlayersLeft;
+	std::vector<std::shared_ptr<President> > mPresidentVector;
 	std::shared_ptr<SuperPower> mCurrentPlayer;
 };
 

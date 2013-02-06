@@ -1,7 +1,8 @@
 #include "president.h"
+#include "ResourceHandler.h"
 #include <iostream>
 
-President::President(const std::string &filename)
+President::President(std::string &filename)
 	
 	
 {
@@ -123,9 +124,14 @@ float President::getPopEatsMore()
 	return mValues["popEatsMore"];
 }
 
-void President::initializeImages(const std::string &path)
+void President::initializeImages(std::string &path)
 {
-	mPortrait.loadFromFile(path);
-
+	ResourceHandler* handler = ResourceHandler::getInstance();
+	mTexture = &handler->getTexture(path);
+	mPortrait.setTexture(*mTexture);
 }
 
+sf::Texture* President::getTexture()
+{
+	return mTexture;
+}

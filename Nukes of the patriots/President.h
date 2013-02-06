@@ -2,6 +2,7 @@
 #include <string>
 #include "randomizer.h"
 #include <vector>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 
@@ -16,10 +17,11 @@
 class President
 {
 public:
-	President(const std::string& filename);
+	President(std::string& filename);
 	~President();
 
-	void initializeImages(const std::string &path);
+	void initializeImages(std::string &path);
+	sf::Texture* getTexture();
 
 	float getFoodPriceModifier();
 	float getGoodsPriceModifier();
@@ -33,7 +35,8 @@ public:
 
 private:
 	void randomStatFunc();
-	sf::Image mPortrait;
+	sf::Sprite mPortrait;
+	sf::Texture* mTexture;
 	std::map <std::string,float> mValues;
 	std::vector<std::string> randomStats;
 	

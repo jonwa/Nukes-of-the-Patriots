@@ -3,8 +3,12 @@
 #include "Capitalist.h"
 #include "Communist.h"
 #include "SuperPower.h"
+#include "President.h"
+#include "tinyxml2.h"
 
+static int inc = 0;
 GameManager* GameManager::mInstance = NULL;
+
 GameManager* GameManager::getInstance()
 {
 	if(mInstance == NULL)
@@ -18,8 +22,19 @@ GameManager::GameManager() :
 		mVecPlayersLeft(),
 		mRound(0)
 {
+}
+
+GameManager::~GameManager()
+{}
+
+void GameManager::init(int year)
+{
+	getInstance()->setYear(year);
+	loadPresidents();
 	mVecSuperPowers.push_back(std::make_shared<Capitalist>());
 	mVecSuperPowers.push_back(std::make_shared<Communist>());
+
+	
 	//for(std::vector<std::shared_ptr<SuperPower> >::iterator it = mVecSuperPowers.begin(); it != mVecSuperPowers.end(); it++)
 	//{
 	//	//(*it)->choosePresident();
@@ -27,14 +42,51 @@ GameManager::GameManager() :
 	mCurrentPlayer = mVecSuperPowers[Randomizer::getInstance()->randomNr(mVecSuperPowers.size(), 0)];
 }
 
-void GameManager::init(int year)
+void GameManager::loadPresidents()
 {
-	getInstance()->setYear(year);
+	tinyxml2::XMLDocument doc;
+	doc.LoadFile("XML/Images.xml");
+
+	if(doc.Error())
+		std::cout << "Fel!";
+	
+	tinyxml2::XMLElement *images = doc.FirstChildElement("images");
+	while(images != NULL)
+	{
+		if(strcmp(images->Attribute("directory"), "President") == 0)
+		{
+			tinyxml2::XMLElement *childNode = images->FirstChildElement("image");
+			while (childNode != NULL)
+			{
+				std::string filename = childNode->Attribute("filename");
+				std::string key		 = "President/" + filename.substr(0, filename.length() - 4);
+				mPresidentVector.push_back(std::make_shared<President>(key));
+				childNode = childNode->NextSiblingElement("image");
+			}
+		}
+		if(strcmp(images->Attribute("directory"), "Capitalist President") == 0)
+		{
+			tinyxml2::XMLElement *childNode = images->FirstChildElement("image");
+			while (childNode != NULL)
+			{
+				std::string filename = childNode->Attribute("filename");
+				std::string key		 = filename.substr(0, filename.length() - 4);
+				mPresidentVector.push_back(std::make_shared<President>(key));
+				childNode = childNode->NextSiblingElement("image");
+			}
+		}
+		images = images->NextSiblingElement("images");
+	}
+}
+
+std::shared_ptr<President> GameManager::getRandomPresident()
+{
+	return mPresidentVector[Randomizer::getInstance()->randomNr(mPresidentVector.size(), 0)];
 }
 
 void GameManager::addSuperPower(std::shared_ptr<SuperPower> power)
 {
-	mVecSuperPowers.push_back(power);		
+	mVecSuperPowers.push_back(power);
 }
 
 void GameManager::startRound()

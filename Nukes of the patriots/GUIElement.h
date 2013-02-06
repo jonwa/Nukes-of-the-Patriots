@@ -29,6 +29,7 @@ public:
 	void			setAlpha(int alpha);
 	void			setMouseIsInside(bool inside);
 	void			setUpdated(bool update);
+	sf::FloatRect	getRectangle();
 
 	void			addChild(std::shared_ptr<GUIElement> guiElement);
 	std::shared_ptr<GUIElement> getPtr();

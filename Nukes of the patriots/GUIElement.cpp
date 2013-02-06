@@ -81,8 +81,13 @@ int	GUIElement::getAlpha()const
 	return mAlpha; 
 }
 bool GUIElement::getMouseIsInside()const
-{ 
+{
 	return mMouseInside;
+}
+
+sf::FloatRect GUIElement::getRectangle()
+{
+	return mRectangle;
 }
 
 void GUIElement::setX(float x)

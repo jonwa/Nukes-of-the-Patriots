@@ -52,7 +52,7 @@
 	<image filename="7_kom_end.png"/>
 </images>
 <images directory ="Menu">
-    <image filename="3_bg.png"/>
+    <image filename="Background.png"/>
     <image filename="5_bg.png"/>
     <image filename="6_bg.png"/>
 	<image filename="3_1start.png"/>
@@ -62,4 +62,21 @@
 	<image filename="3_5exit.png"/>
 	<image filename="6_team_kap.png"/>
 	<image filename="6_team_kom.png"/>
+</images>
+<images directory="President">
+	<image filename="president-Alva.png"/>
+	<image filename="president-Blingfaster.png"/>
+	<image filename="president-Bob.png"/>
+	<image filename="president-Boris.png"/>
+	<image filename="president-Burt.png"/>
+	<image filename="president-Carl.png"/>
+	<image filename="president-Dhelma.png"/>
+	<image filename="president-Flaire.png"/>
+	<image filename="president-Frank.png"/>
+	<image filename="president-Frankie.png"/>
+	<image filename="president-Gramma.png"/>
+	<image filename="president-Gustav.png"/>
+	<image filename="president-Hans.png"/>
+	<image filename="president-Henrich.png"/>
+	<image filename="president-Hugo.png"/>
 </images>

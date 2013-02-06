@@ -395,6 +395,15 @@ void Communist::initializeCommunistWindow()
 	mCommunistExportButton			= std::make_shared<GUIButton>(CommunistButtons["Export"], mCommunistMainWindow);
 	mCommunistEndTurnButton			= std::make_shared<GUIButton>(CommunistButtons["EndTurn"], mCommunistMainWindow);
 
+	/*GUI text för utskrift av värden på kapitalisternas interface*/
+	mNuclearText = std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCommunistMainWindow);
+	mSpaceText	 = std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCommunistMainWindow);
+	mSpyText	 = std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCommunistMainWindow);
+	mFoodText	 = std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCommunistMainWindow);
+	mGoodsText   = std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCommunistMainWindow);
+	mTechText	 = std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCommunistMainWindow);	
+
+	/*Taxes fönster med knappar*/
 	mTaxesWindow					= std::make_shared<GUIWindow>(CommunistWindows["CommunistTaxesWindow"], mCommunistMainWindow);	
 	mYearOneLowerTaxesButton		= std::make_shared<GUIButton>(CommunistButtons["YearOneLowerTaxes"], mTaxesWindow);	
 	mYearOneRaiseTaxesButton		= std::make_shared<GUIButton>(CommunistButtons["YearOneRaiseTaxes"], mTaxesWindow);	
@@ -561,15 +570,6 @@ void Communist::initializeCommunistWindow()
 	 	mCapitalistMainWindow som parent-argument i dess konstruktor
 																		*/
 
-	/*GUI text för utskrift av värden*/
-	mNuclearText = std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCommunistMainWindow);
-	mSpaceText	 = std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCommunistMainWindow);
-	mSpyText	 = std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCommunistMainWindow);
-	mFoodText	 = std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCommunistMainWindow);
-	mGoodsText   = std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCommunistMainWindow);
-	mTechText	 = std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCommunistMainWindow);		
-
-
 	GUIManager::getInstance()->addGUIElement(mCommunistMainWindow);
 }
 
@@ -581,7 +581,7 @@ void Communist::initializeGuiFunctions()
 {
 	mCommunistFiveYearPlanButton->setOnClickFunction([=]()		{ mTaxesWindow->setVisible(true); });
 	mCommunistPropagandaButton->setOnClickFunction([=]()		{ mPropagandaWindowFirst->setVisible(true); });
-	mCommunistUpgradeButton->setOnClickFunction([=]()			{ mUpgradeWindow->setVisible(true); std::cout << "FUCK OFF" << std::endl; });
+	mCommunistUpgradeButton->setOnClickFunction([=]()			{ mUpgradeWindow->setVisible(true); });
 	mGoToNextSlideButton->setOnClickFunction([=]()				{ mTaxesWindow->setVisible(false); mResourcesWindow->setVisible(true); });
 	mGoToPreviousSlideButton->setOnClickFunction([=]()			{ mResourcesWindow->setVisible(false); mTaxesWindow->setVisible(true); });
 	mCommunistExportButton->setOnClickFunction([=]()			{ mExportWindow->setVisible(true); });

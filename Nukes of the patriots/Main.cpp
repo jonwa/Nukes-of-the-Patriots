@@ -23,7 +23,7 @@ int main()
 {
 	ResourceHandler::getInstance()->loadImages();
 	ResourceHandler::getInstance()->load();
-	GameManager::init(1952);
+	GameManager::getInstance()->init(1952);
 	Menu menu(window);
 	
 	

@@ -310,7 +310,7 @@
 		<yPos>22</yPos>
 		<width>180</width>
 		<height>220</height>
-		<image>Capitalist/7_pr1</image>
+		<image></image>
 	</button>
 	<button>
 		<name>SecondPresident</name>
@@ -318,7 +318,7 @@
 		<yPos>22</yPos>
 		<width>180</width>
 		<height>220</height>	
-		<image>Capitalist/7_pr2</image>
+		<image></image>
 	</button>
 	<button>
 		<name>ClosePresident</name>

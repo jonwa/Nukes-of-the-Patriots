@@ -25,7 +25,6 @@ Capitalist::Capitalist() :
 	mIncreasePopulation = false;
 	mType				= CAPITALIST;
 
-
 	initializeCapitalistWindow();
 	initializeGuiFunctions();
 }
@@ -194,6 +193,7 @@ void Capitalist::loadButtonPosition()
 		CapitalistButtons[tempName].first.width = Width;
 		CapitalistButtons[tempName].first.height = Height;
 		CapitalistButtons[tempName].second = &ResourceHandler::getInstance()->getTexture(name);
+
 		button = button->NextSiblingElement();
 	}
 }
@@ -309,6 +309,13 @@ void Capitalist::initializeCapitalistWindow()
 	mCapitalistExportButton				= std::make_shared<GUIButton>(CapitalistButtons["Export"], mCapitalistMainWindow);
 	mCapitalistEndTurnButton			= std::make_shared<GUIButton>(CapitalistButtons["EndTurn"], mCapitalistMainWindow);
 
+	/*GUI text för utskrift av värden på komunisternas interface*/
+	mNuclearText						= std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCapitalistMainWindow);
+	mSpaceText							= std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCapitalistMainWindow);
+	mSpyText							= std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCapitalistMainWindow);
+	mFoodText							= std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCapitalistMainWindow);
+	mGoodsText							= std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCapitalistMainWindow);
+	mTechText							= std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCapitalistMainWindow);
 
 	mTaxesWindow						= std::make_shared<GUIWindow>(CapitalistWindows["CapitalistTaxesWindow"], mCapitalistMainWindow);
 	mLowerTaxesButton					= std::make_shared<GUIButton>(CapitalistButtons["LowerTaxes"], mTaxesWindow);
@@ -362,17 +369,10 @@ void Capitalist::initializeCapitalistWindow()
 	mFirstPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["FirstPresident"], mChoosePresidentWindow);
 	mSecondPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["SecondPresident"], mChoosePresidentWindow);
 	mClosePresidentWindow				= std::make_shared<GUIButton>(CapitalistButtons["ClosePresident"], mChoosePresidentWindow);
-	mChoosePresidentWindow->setVisible(false);
 
-
-	/*GUI text för utskrift av värden*/
-	mNuclearText	= std::make_shared<GUIText>(sf::FloatRect(962, 16, 40, 40), intToString(getNuclearWeapon()), mCapitalistMainWindow);
-	mSpaceText		= std::make_shared<GUIText>(sf::FloatRect(962, 228, 40, 40), intToString(getSpaceProgram()), mCapitalistMainWindow);
-	mSpyText		= std::make_shared<GUIText>(sf::FloatRect(962, 440, 40, 40), intToString(getSpyNetwork()), mCapitalistMainWindow);
-	mFoodText		= std::make_shared<GUIText>(sf::FloatRect(160, 16, 40, 40), intToString(getFood()), mCapitalistMainWindow);
-	mGoodsText		= std::make_shared<GUIText>(sf::FloatRect(160, 228, 40, 40), intToString(getGoods()), mCapitalistMainWindow);
-	mTechText		= std::make_shared<GUIText>(sf::FloatRect(160, 440, 40, 40), intToString(getTech()), mCapitalistMainWindow);	
-
+	mFirstPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mFirstPresidentButton->getRectangle(), GameManager::getInstance()->getRandomPresident()->getTexture()));
+	mSecondPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mSecondPresidentButton->getRectangle(), GameManager::getInstance()->getRandomPresident()->getTexture()));
+	//mChoosePresidentWindow->setVisible(true);
 	/*
 	 	Lägger in föräldernoden i vektorn som finns i GUIManager
 	 	och kommer automatiskt få med sig alla barnnoder till denna
@@ -441,14 +441,10 @@ void Capitalist::initializeGuiFunctions()
 
 	mExportCloseButton->setOnClickFunction([=]()		{ mExportWindow->setVisible(false); });
 
-
+	
 	mFirstPresidentButton->setOnClickFunction([=](){});
 	mSecondPresidentButton->setOnClickFunction([=](){});
-	mClosePresidentWindow->setOnClickFunction([=](){});
-
-
-	  
-	
+	mClosePresidentWindow->setOnClickFunction([=]()		{ mChoosePresidentWindow->setVisible(false); });
 }
 
 void Capitalist::showGUI()
