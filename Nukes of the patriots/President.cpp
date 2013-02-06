@@ -30,22 +30,22 @@ void President::randomStatFunc()
 	
 
 	std::map<std::string, float> posStatMap;
-	posStatMap.insert(std::pair<std::string,float>("foodPrice", -2));
-	posStatMap.insert(std::pair<std::string,float>("goodsPrice", -2));
-	posStatMap.insert(std::pair<std::string,float>("techPrice", -2));
-	posStatMap.insert(std::pair<std::string,float>("nuclearPrice", 0.8));
-	posStatMap.insert(std::pair<std::string,float>("spacePrice",0.8));
-	posStatMap.insert(std::pair<std::string,float>("spyPrice", 0.8));
-	posStatMap.insert(std::pair<std::string,float>("patriotismTax", 1));
+	posStatMap.insert(std::pair<std::string,float>("foodPrice", -2.f));
+	posStatMap.insert(std::pair<std::string,float>("goodsPrice", -2.f));
+	posStatMap.insert(std::pair<std::string,float>("techPrice", -2.f));
+	posStatMap.insert(std::pair<std::string,float>("nuclearPrice", 0.8f));
+	posStatMap.insert(std::pair<std::string,float>("spacePrice",0.8f));
+	posStatMap.insert(std::pair<std::string,float>("spyPrice", 0.8f));
+	posStatMap.insert(std::pair<std::string,float>("patriotismTax", 1.f));
 
 	std::map<std::string, float> negStatMap;
-	negStatMap.insert(std::pair<std::string,float>("foodPrice", 2));
-	negStatMap.insert(std::pair<std::string,float>("goodsPrice", 2));
-	negStatMap.insert(std::pair<std::string,float>("techPrice", 2));
-	negStatMap.insert(std::pair<std::string,float>("nuclearPrice", 1.2));
-	negStatMap.insert(std::pair<std::string,float>("spacePrice", 1.2));
-	negStatMap.insert(std::pair<std::string,float>("spyPrice", 1.2));
-	negStatMap.insert(std::pair<std::string,float>("popEatsMore", 0.1));
+	negStatMap.insert(std::pair<std::string,float>("foodPrice", 2.f));
+	negStatMap.insert(std::pair<std::string,float>("goodsPrice", 2.f));
+	negStatMap.insert(std::pair<std::string,float>("techPrice", 2.f));
+	negStatMap.insert(std::pair<std::string,float>("nuclearPrice", 1.2f));
+	negStatMap.insert(std::pair<std::string,float>("spacePrice", 1.2f));
+	negStatMap.insert(std::pair<std::string,float>("spyPrice", 1.2f));
+	negStatMap.insert(std::pair<std::string,float>("popEatsMore", 0.1f));
 
 	int random = ( randomizer->randomNr(randomStats.size(),0) );
 
@@ -75,7 +75,7 @@ void President::randomStatFunc()
 
 	for(std::vector<std::string>::iterator it = randomStats.begin(); it != randomStats.end(); it++)
 	{
-		mValues.insert(std::pair<std::string, float>((*it), 0));
+		mValues.insert(std::pair<std::string, float>((*it), 0.f));
 	}
 
 	randomStats.clear();

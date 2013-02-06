@@ -28,6 +28,7 @@ public:
 	void			setVisible(bool visible);
 	void			setAlpha(int alpha);
 	void			setMouseIsInside(bool inside);
+	void			setUpdated(bool update);
 
 	void			addChild(std::shared_ptr<GUIElement> guiElement);
 	std::shared_ptr<GUIElement> getPtr();
@@ -43,7 +44,7 @@ public:
 protected:
 	sf::FloatRect mRectangle;
 	int mAlpha;
-	bool mVisible, mMouseInside;
+	bool mVisible, mMouseInside, mUpdated;
 	std::shared_ptr<GUIElement> mParent;
 	GUIType mGUIType;
 

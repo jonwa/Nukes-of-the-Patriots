@@ -5,7 +5,8 @@ GUIElement::GUIElement(sf::FloatRect rect, std::shared_ptr<GUIElement> parent, G
 	mVisible(true),
 	mParent(parent),
 	mGUIType(guiType),
-	mMouseInside(false)
+	mMouseInside(false),
+	mUpdated(false)
 {
 	if(mParent != NULL)
 	{
@@ -113,12 +114,18 @@ void GUIElement::setAlpha(int alpha)
 	mAlpha = alpha; 
 }
 
+void GUIElement::setUpdated(bool update)
+{
+	mUpdated = update;
+}
+
 void GUIElement::update(sf::Event &event)
 {
-	if(mVisible)
+	if(mVisible && !mUpdated)
 	{
+		mUpdated = true;
 		sf::Vector2i mousePos = sf::Mouse::getPosition();
-	
+
 		bool isMouseInside = getMouseIsInside();
 		// Check if mouse is colliding with gui element
 		if(mRectangle.contains(mousePos.x, mousePos.y))

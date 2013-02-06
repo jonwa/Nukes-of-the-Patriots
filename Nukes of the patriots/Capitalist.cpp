@@ -337,8 +337,9 @@ void Capitalist::initializeGuiFunctions()
 
 	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); });
 	mResourceCloseButton->setOnClickFunction([=]()		{ mResourceWindow->setVisible(false); });
-	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); });
+	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); std::cout << "HEJSVEJS" << std::endl; });
 	mExportCloseButton->setOnClickFunction([=]()		{ mExportWindow->setVisible(false); });
+	
 }
 
 
