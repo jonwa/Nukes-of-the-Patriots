@@ -393,6 +393,7 @@ void Communist::initializeCommunistWindow()
 	mCommunistPropagandaButton		= std::make_shared<GUIButton>(CommunistButtons["Propaganda"], mCommunistMainWindow);
 	mCommunistUpgradeButton			= std::make_shared<GUIButton>(CommunistButtons["Upgrade"], mCommunistMainWindow);
 	mCommunistExportButton			= std::make_shared<GUIButton>(CommunistButtons["Export"], mCommunistMainWindow);
+	mCommunistEndTurnButton			= std::make_shared<GUIButton>(CommunistButtons["EndTurn"], mCommunistMainWindow);
 
 	mTaxesWindow					= std::make_shared<GUIWindow>(CommunistWindows["CommunistTaxesWindow"], mCommunistMainWindow);	
 	mYearOneLowerTaxesButton		= std::make_shared<GUIButton>(CommunistButtons["YearOneLowerTaxes"], mTaxesWindow);	
@@ -584,11 +585,18 @@ void Communist::initializeGuiFunctions()
 	mResourcesCloseButton->setOnClickFunction([=]()				{ mResourcesWindow->setVisible(false); });
 	mPropagandaWindowFirstCloseButton->setOnClickFunction([=]()	{ mPropagandaWindowFirst->setVisible(false); std::cout << "Propaganda" << std::endl;});
 
+	/*Vad som skall hända då spelaren väljer att uppgradera
+	  aningen nuclear, space eller spy*/
 	mUpgradeCloseButton->setOnClickFunction([=]()				{ mUpgradeWindow->setVisible(false); 
 																  mNuclearWeapon = mNuclearWeaponUpdate; mNuclearText->setText(intToString(getNuclearWeapon()));
 																  mSpaceProgram = mSpaceProgramUpdate; mSpaceText->setText(intToString(getSpaceProgram()));
+<<<<<<< HEAD
 															      mSpyNetwork = mSpyNetworkUpdate; mSpyText->setText(intToString(getSpyNetwork())); std::cout << "HERRRRRO" << std::endl;});
 
+=======
+															      mSpyNetwork = mSpyNetworkUpdate; mSpyText->setText(intToString(getSpyNetwork()));});
+    /**/
+>>>>>>> 785bc099f37b94a82f9dce9592336b75230acf7d
 	mExportCloseButton->setOnClickFunction([=]()				{ mExportWindow->setVisible(false); });
 
 	mUpgradeNuclearWeaponButton->setOnClickFunction(std::bind(&Communist::upgradeNuclearWeapon, this));

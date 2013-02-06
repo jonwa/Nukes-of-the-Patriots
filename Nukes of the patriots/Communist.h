@@ -94,6 +94,8 @@ private:
 	std::shared_ptr<GUIElement> mCommunistPropagandaButton;	
 	std::shared_ptr<GUIButton> mCommunistUpgradeButton;		
 	std::shared_ptr<GUIButton> mCommunistExportButton;	
+	/*GUI-pekare för end turn*/
+	std::shared_ptr<GUIButton> mCommunistEndTurnButton;
 
 	/*GUI-pekare för fem års planen*/
 	std::shared_ptr<GUIWindow> mTaxesWindow;

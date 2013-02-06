@@ -23,6 +23,7 @@ class Randomizer;
 #include <map>
 #include <sstream>
 #include <SFML\Graphics\RenderWindow.hpp>
+#include <SFML\Audio\Music.hpp>
 
 class Capitalist : public SuperPower 
 {
@@ -66,11 +67,14 @@ private:
 																				*/
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CapitalistButtons;
 	std::map<std::string, std::pair<sf::FloatRect, sf::Texture*> > CapitalistWindows;
+	std::map<std::string, std::shared_ptr<sf::Music> > CapitalistMusic;
 	
 	void loadButtonPosition();
 	void loadWindowPosition();
+	void loadCapitalistMusic();
 	void initializeGuiFunctions();
 	void initializeCapitalistWindow();
+
 	
 	//President	*mPresident;
 	
@@ -81,6 +85,8 @@ private:
 	std::shared_ptr<GUIButton> mCapitalistResourceButton;	
 	std::shared_ptr<GUIButton> mCapitalistUpgradeButton;		
 	std::shared_ptr<GUIButton> mCapitalistExportButton;	
+	/*GUI-pekare för end turn*/
+	std::shared_ptr<GUIButton> mCapitalistEndTurnButton;
 
 	/*GUI-pekare för taxes */
 	std::shared_ptr<GUIWindow> mTaxesWindow;
@@ -123,6 +129,8 @@ private:
 	std::shared_ptr<GUIButton> mExportLowerTechButton;
 	std::shared_ptr<GUIButton> mExportRaiseTechButton;
 	std::shared_ptr<GUIButton> mExportCloseButton;
+
+
 };
 
 

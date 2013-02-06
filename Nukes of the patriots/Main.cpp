@@ -13,7 +13,7 @@
 #include <iostream>
 #include <functional>
 #include "ResourceHandler.h"
-
+#include "GameManager.h"
 
 using namespace std;
 
@@ -21,12 +21,12 @@ sf::RenderWindow window(sf::VideoMode(1024, 768, 32), "SFML works!", sf::Style::
 
 int main()
 {
+	ResourceHandler::getInstance()->loadImages();
 	ResourceHandler::getInstance()->load();
-	//Communist communist;
-	//Capitalist capitalist;
+	GameManager::init(1952);
 	Menu menu(window);
 	
-
+	
 	while (window.isOpen())
     {
         sf::Event event;
