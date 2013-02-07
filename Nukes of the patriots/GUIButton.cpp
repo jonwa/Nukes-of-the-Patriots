@@ -45,7 +45,6 @@ void GUIButton::render(sf::RenderWindow &window)
 void GUIButton::setTexture(std::pair<sf::FloatRect, sf::Texture*> &pair)
 {
 	mSprite.setTexture(*pair.second);
-	//mSprite.setPosition(pair.first.left, pair.first.top);
-
+	mSprite.setPosition(pair.first.left, pair.first.top);
 	mSprite.setTextureRect(sf::IntRect(0, 0, pair.first.width, pair.first.height));
 }

@@ -1,21 +1,12 @@
-﻿Build started 2013-02-07 11:33:53.
+﻿Build started 2013-02-07 12:52:24.
      1>Project "C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Test.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Test.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Communist.cpp
-         Communist.cpp
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(210): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(232): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(254): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(301): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(306): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(311): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(354): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(359): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(364): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\github\nukes_of_the_patriots\nukes of the patriots\communist.cpp(369): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\SFML-2.0-rc\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GUIButton.cpp
+         GUIButton.cpp
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\guibutton.cpp(49): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\github\nukes_of_the_patriots\nukes of the patriots\guibutton.cpp(49): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\SFML-2.0-rc\lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-audio-d.lib" "sfml-graphics-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Github\Nukes_of_the_Patriots\Nukes of the patriots\Debug\Test.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\Capitalist.obj
@@ -46,4 +37,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:06.17
+Time Elapsed 00:00:03.36

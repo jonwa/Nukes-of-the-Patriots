@@ -592,7 +592,6 @@ void Communist::chooseLeader()
 	mFourthGeneral  = GameManager::getInstance()->getGeneral(4);
 	mFifthGeneral	= GameManager::getInstance()->getGeneral(5);
 
-
 }
 
 
