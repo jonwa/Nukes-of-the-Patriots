@@ -1,5 +1,13 @@
-<?xml version="1.0?>
+<?xml version="1.0"?>
 <buttons>
+	<button>
+		<name>President</name>
+		<xPos>0</xPos>
+		<yPos>636</yPos>
+		<width>111</width>
+		<height>132</height>
+		<image>Capitalist/7_kom_pres</image>
+	</button>
 	<button>
 		<name>Taxes</name>
 		<xPos>111</xPos>
@@ -318,6 +326,14 @@
 		<yPos>22</yPos>
 		<width>180</width>
 		<height>220</height>	
+		<image></image>
+	</button>
+	<button>
+		<name>PickedPresident</name>
+		<xPos>195</xPos>
+		<yPos>22</yPos>
+		<width>180</width>
+		<height>220</height>
 		<image></image>
 	</button>
 	<button>

@@ -54,6 +54,8 @@ public:
 	void		buyPropagandaGoods(int round);
 	void		buyPropagandaTech(int round);
 
+	void		chooseLeader();
+
 	void showGUI();
 	void hideGUI();
 private:
@@ -64,6 +66,14 @@ private:
 		return converter.str();
 	}
 	
+
+	std::shared_ptr<President> mGeneral;
+	std::shared_ptr<President> mFirstGeneral;
+	std::shared_ptr<President> mSecondGeneral;
+	std::shared_ptr<President> mThirdGeneral;
+	std::shared_ptr<President> mFourthGeneral;
+	std::shared_ptr<President> mFifthGeneral;
+
 	std::vector<std::map<std::string, int>> mYearVector;
 
 	void fiveYearInitialize();
@@ -93,8 +103,9 @@ private:
 	
 	/*GUI-pekare för kommunisternas interface*/
 	std::shared_ptr<GUIWindow> mCommunistMainWindow;
+	std::shared_ptr<GUIButton> mCommunistGeneralButton;
 	std::shared_ptr<GUIButton> mCommunistFiveYearPlanButton;		
-	std::shared_ptr<GUIElement> mCommunistPropagandaButton;	
+	std::shared_ptr<GUIButton> mCommunistPropagandaButton;	
 	std::shared_ptr<GUIButton> mCommunistUpgradeButton;		
 	std::shared_ptr<GUIButton> mCommunistExportButton;	
 	/*GUI-pekare för end turn*/
@@ -267,6 +278,15 @@ private:
 	std::shared_ptr<GUIButton> mExportLowerTechButton;
 	std::shared_ptr<GUIButton> mExportRaiseTechButton;
 	std::shared_ptr<GUIButton> mExportCloseButton;
+
+	std::shared_ptr<GUIWindow> mChooseGeneralWindow;
+	std::shared_ptr<GUIWindow> mPickedGeneralWindow;
+	std::shared_ptr<GUIButton> mFirstGeneralChoise;
+	std::shared_ptr<GUIButton> mSecondGeneralChoise;
+	std::shared_ptr<GUIButton> mThirdGeneralChoise;
+	std::shared_ptr<GUIButton> mFourthGeneralChoise;
+	std::shared_ptr<GUIButton> mFifthGeneralChoise; 
+
 
 
 };

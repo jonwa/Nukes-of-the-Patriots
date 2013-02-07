@@ -6,6 +6,7 @@
 #include "tinyxml2.h"
 #include "ResourceHandler.h"
 #include "Randomizer.h"
+#include "GameManager.h"
 #include <sstream>
 
 static int foodCost		= 10;
@@ -30,7 +31,7 @@ Communist::Communist()
 
 	initializeCommunistWindow();
 	initializeGuiFunctions();
-
+	
 	fiveYearInitialize();
 }
 
@@ -389,6 +390,7 @@ void Communist::initializeCommunistWindow()
 	loadWindowPosition();
 
 	mCommunistMainWindow			= std::make_shared<GUIWindow>(CommunistWindows["CommunistInterface"]);
+	mCommunistGeneralButton			= std::make_shared<GUIButton>(CommunistButtons["General"], mCommunistMainWindow);
 	mCommunistFiveYearPlanButton    = std::make_shared<GUIButton>(CommunistButtons["FiveYearPlan"], mCommunistMainWindow);
 	mCommunistPropagandaButton		= std::make_shared<GUIButton>(CommunistButtons["Propaganda"], mCommunistMainWindow);
 	mCommunistUpgradeButton			= std::make_shared<GUIButton>(CommunistButtons["Upgrade"], mCommunistMainWindow);
@@ -563,6 +565,14 @@ void Communist::initializeCommunistWindow()
 	mExportRaiseTechButton				= std::make_shared<GUIButton>(CommunistButtons["CommunistRaiseTech"], mExportWindow);
 	mExportCloseButton					= std::make_shared<GUIButton>(CommunistButtons["CloseExport"], mExportWindow);
 	mExportWindow->setVisible(false);
+
+
+	//mChooseGeneralWindow				= std::make_shared<GUIWindow>(CommunistWindows[""], mCommunistMainWindow);
+	//mPickedGeneralWindow				= std::make_shared<GUIWindow>(CommunistWindows[""], mCommunistMainWindow);
+	//mFirstGeneralChoise					= std::make_shared<GUIButton>(CommunistButtons[""], );
+	//mSecondGeneralChoise				= std::make_shared<GUIButton>(CommunistButtons[""], );
+
+
 	/*
 	 	Lägger in föräldernoden i vektorn som finns i GUIManager
 	 	och kommer automatiskt få med sig alla barnnoder till denna
@@ -574,6 +584,16 @@ void Communist::initializeCommunistWindow()
 }
 
 
+void Communist::chooseLeader()
+{
+	mFirstGeneral	= GameManager::getInstance()->getGeneral(1);
+	mSecondGeneral  = GameManager::getInstance()->getGeneral(2);
+	mThirdGeneral	= GameManager::getInstance()->getGeneral(3);
+	mFourthGeneral  = GameManager::getInstance()->getGeneral(4);
+	mFifthGeneral	= GameManager::getInstance()->getGeneral(5);
+
+
+}
 
 
  /**/

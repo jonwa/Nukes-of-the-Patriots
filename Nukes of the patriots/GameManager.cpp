@@ -64,14 +64,14 @@ void GameManager::loadPresidents()
 				childNode = childNode->NextSiblingElement("image");
 			}
 		}
-		if(strcmp(images->Attribute("directory"), "Capitalist President") == 0)
+		if(strcmp(images->Attribute("directory"), "Generals") == 0)
 		{
 			tinyxml2::XMLElement *childNode = images->FirstChildElement("image");
 			while (childNode != NULL)
 			{
 				std::string filename = childNode->Attribute("filename");
 				std::string key		 = filename.substr(0, filename.length() - 4);
-				mPresidentVector.push_back(std::make_shared<President>(key));
+				mGeneralVector.push_back(std::make_shared<President>(key));
 				childNode = childNode->NextSiblingElement("image");
 			}
 		}
@@ -82,6 +82,11 @@ void GameManager::loadPresidents()
 std::shared_ptr<President> GameManager::getRandomPresident()
 {
 	return mPresidentVector[Randomizer::getInstance()->randomNr(mPresidentVector.size(), 0)];
+}
+
+std::shared_ptr<President> GameManager::getGeneral(int number)
+{
+	return mGeneralVector[number - 1];
 }
 
 void GameManager::addSuperPower(std::shared_ptr<SuperPower> power)

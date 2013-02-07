@@ -44,6 +44,7 @@ public:
 	virtual void		setFood(int value) = 0;
 	virtual void		setGoods(int value) = 0;
 	virtual void		setTech(int value) = 0;
+	virtual void		chooseLeader(){};
 	virtual void		showGUI() = 0;
 	virtual void		hideGUI() = 0;
 	virtual void		playMusic() {};

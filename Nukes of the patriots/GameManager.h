@@ -25,7 +25,7 @@ public:
 	//void										setVector(std::vector<std::shared_ptr<SuperPower> > SuperPowerVec);
 	
 	std::shared_ptr<President>					getRandomPresident();
-
+	std::shared_ptr<President>					getGeneral(int number);
 	void										init(int year);
 private:
 	static GameManager* mInstance;
@@ -41,6 +41,7 @@ private:
 	std::vector<std::shared_ptr<SuperPower> > mVecSuperPowers;
 	std::vector<std::shared_ptr<SuperPower> > mVecPlayersLeft;
 	std::vector<std::shared_ptr<President> > mPresidentVector;
+	std::vector<std::shared_ptr<President> > mGeneralVector;
 	std::shared_ptr<SuperPower> mCurrentPlayer;
 };
 

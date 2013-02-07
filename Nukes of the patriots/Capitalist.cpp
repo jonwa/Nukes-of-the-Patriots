@@ -36,7 +36,7 @@ Capitalist::~Capitalist()
 
 void Capitalist::playMusic()
 {
-	CapitalistMusic["CapitalistMainTheme"]->play();
+	//CapitalistMusic["CapitalistMainTheme"]->play();
 }
 
 std::shared_ptr<President> Capitalist::getPresident()
@@ -60,7 +60,6 @@ int Capitalist::decreaseTaxCost(int currentTax)
 
 void Capitalist::setPresident(std::shared_ptr<President> president)
 {
-
 	mPresident = president;
 	
 	foodCost	+= president->getFoodPriceModifier();
@@ -291,6 +290,8 @@ void Capitalist::loadCapitalistMusic()
 	}
 }
 
+
+
  /*
   Initierar huvudfönster med all GUI-information som behövs
  
@@ -303,6 +304,7 @@ void Capitalist::initializeCapitalistWindow()
 	loadCapitalistMusic();
 
 	mCapitalistMainWindow				= std::make_shared<GUIWindow>(CapitalistWindows["CapitalistInterface"]);
+	mCapitalistPresident				= std::make_shared<GUIButton>(CapitalistButtons["President"], mCapitalistMainWindow);
 	mCapitalistTaxesButton				= std::make_shared<GUIButton>(CapitalistButtons["Taxes"], mCapitalistMainWindow);
 	mCapitalistResourceButton			= std::make_shared<GUIButton>(CapitalistButtons["Resource"], mCapitalistMainWindow);
 	mCapitalistUpgradeButton			= std::make_shared<GUIButton>(CapitalistButtons["Upgrade"], mCapitalistMainWindow);
@@ -366,13 +368,16 @@ void Capitalist::initializeCapitalistWindow()
 	
 
 	mChoosePresidentWindow				= std::make_shared<GUIWindow>(CapitalistWindows["ChoosePresident"], mCapitalistMainWindow);
+	mPickedPresidentWindow				= std::make_shared<GUIWindow>(CapitalistWindows["PickedPresident"], mCapitalistMainWindow);
+	mPickedPresidentWindow->setVisible(false);
 	mFirstPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["FirstPresident"], mChoosePresidentWindow);
 	mSecondPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["SecondPresident"], mChoosePresidentWindow);
+	mPickedPresidentButton				= std::make_shared<GUIButton>(CapitalistButtons["PickedPresident"], mPickedPresidentWindow);
 	mClosePresidentWindow				= std::make_shared<GUIButton>(CapitalistButtons["ClosePresident"], mChoosePresidentWindow);
+	//mChoosePresidentWindow->setVisible(false);
+	
+	chooseLeader();
 
-	mFirstPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mFirstPresidentButton->getRectangle(), GameManager::getInstance()->getRandomPresident()->getTexture()));
-	mSecondPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mSecondPresidentButton->getRectangle(), GameManager::getInstance()->getRandomPresident()->getTexture()));
-	//mChoosePresidentWindow->setVisible(true);
 	/*
 	 	Lägger in föräldernoden i vektorn som finns i GUIManager
 	 	och kommer automatiskt få med sig alla barnnoder till denna
@@ -382,69 +387,107 @@ void Capitalist::initializeCapitalistWindow()
 	GUIManager::getInstance()->addGUIElement(mCapitalistMainWindow);
 }
 
+
+
+void Capitalist::chooseLeader()
+{
+	mFirstPresident = GameManager::getInstance()->getRandomPresident();
+	mSecondPresident = GameManager::getInstance()->getRandomPresident();
+
+	mFirstPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mFirstPresidentButton->getRectangle(), mFirstPresident->getTexture()));
+	mSecondPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mSecondPresidentButton->getRectangle(), mSecondPresident->getTexture()));
+}
+
+
+
  /**/
 void Capitalist::initializeGuiFunctions()
 {
 	/*Taxes GUI-window knapparna*/
-	mCapitalistTaxesButton->setOnClickFunction([=]()	{ mTaxesWindow->setVisible(true); });
-	mLowerTaxesButton->setOnClickFunction([=]()			{ mTaxesUpdate = decreaseTaxCost(mTaxesUpdate); });
-	mRaiseTaxesButton->setOnClickFunction([=]()			{ mTaxesUpdate = increaseTaxCost(mTaxesUpdate); });
+	mCapitalistTaxesButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(true); });
+	mLowerTaxesButton->setOnClickFunction([=]()					{ mTaxesUpdate = decreaseTaxCost(mTaxesUpdate); });
+	mRaiseTaxesButton->setOnClickFunction([=]()					{ mTaxesUpdate = increaseTaxCost(mTaxesUpdate); });
 
-	mCapitalistResourceButton->setOnClickFunction([=]() { mResourceWindow->setVisible(true); });
-	mLowerFoodByTenButton->setOnClickFunction([=]()		{ setFood(-10);});			
-	mLowerFoodByFiveButton->setOnClickFunction([=]()	{ setFood(-5);});				
-	mLowerFoodByOneButton->setOnClickFunction([=]()		{ setFood(-1);});				
-	mRaiseFoodByOneButton->setOnClickFunction([=]()		{ setFood(1);});				
-	mRaiseFoodByFiveButton->setOnClickFunction([=]()	{ setFood(5);});				
-	mRaiseFoodByTenButton->setOnClickFunction([=]()		{ setFood(10);});	
+	mCapitalistResourceButton->setOnClickFunction([=]()			{ mResourceWindow->setVisible(true); });
+	mLowerFoodByTenButton->setOnClickFunction([=]()				{ setFood(-10);});			
+	mLowerFoodByFiveButton->setOnClickFunction([=]()			{ setFood(-5);});				
+	mLowerFoodByOneButton->setOnClickFunction([=]()				{ setFood(-1);});				
+	mRaiseFoodByOneButton->setOnClickFunction([=]()				{ setFood(1);});				
+	mRaiseFoodByFiveButton->setOnClickFunction([=]()			{ setFood(5);});				
+	mRaiseFoodByTenButton->setOnClickFunction([=]()				{ setFood(10);});	
 
-	mLowerGoodsByTenButton->setOnClickFunction([=]()	{ setGoods(-10);});	
-	mLowerGoodsByFiveButton->setOnClickFunction([=]()	{ setGoods(-5);});	
-	mLowerGoodsByOneButton->setOnClickFunction([=]()	{ setGoods(-1);});	
-	mRaiseGoodsByOneButton->setOnClickFunction([=]()	{ setGoods(1);});	
-	mRaiseGoodsByFiveButton->setOnClickFunction([=]()	{ setGoods(5);});		
-	mRaiseGoodsByTenButton->setOnClickFunction([=]()	{ setGoods(10);});
+	mLowerGoodsByTenButton->setOnClickFunction([=]()			{ setGoods(-10);});	
+	mLowerGoodsByFiveButton->setOnClickFunction([=]()			{ setGoods(-5);	});	
+	mLowerGoodsByOneButton->setOnClickFunction([=]()			{ setGoods(-1);	});	
+	mRaiseGoodsByOneButton->setOnClickFunction([=]()			{ setGoods(1);}	);	
+	mRaiseGoodsByFiveButton->setOnClickFunction([=]()			{ setGoods(5);}	);		
+	mRaiseGoodsByTenButton->setOnClickFunction([=]()			{ setGoods(10);	});
 
-	mLowerTechByTenButton->setOnClickFunction([=]()		{ setTech(-10);});	
-	mLowerTechByFiveButton->setOnClickFunction([=]()	{ setTech(-5);});	
-	mLowerTechByOneButton->setOnClickFunction([=]()		{ setTech(-1);});	
-	mRaiseTechByOneButton->setOnClickFunction([=]()		{ setTech(1);});		
-	mRaiseTechByFiveButton->setOnClickFunction([=]()	{ setTech(5);});		
-	mRaiseTechByTenButton->setOnClickFunction([=]()		{ setTech(10);});	
+	mLowerTechByTenButton->setOnClickFunction([=]()				{ setTech(-10);	});	
+	mLowerTechByFiveButton->setOnClickFunction([=]()			{ setTech(-5);	});	
+	mLowerTechByOneButton->setOnClickFunction([=]()				{ setTech(-1);	});	
+	mRaiseTechByOneButton->setOnClickFunction([=]()				{ setTech(1);	});		
+	mRaiseTechByFiveButton->setOnClickFunction([=]()			{ setTech(5);	});		
+	mRaiseTechByTenButton->setOnClickFunction([=]()				{ setTech(10);	});	
 
 	mUpgradeNuclearWeaponButton->setOnClickFunction([=]()		{ upgradeNuclearWeapon(); });		
 	mUpgradeSpaceProgramButton->setOnClickFunction([=]()		{ upgradeSpaceProgram();  });		
 	mUpgradeSpyNetworkButton->setOnClickFunction([=]()			{ upgradeSpyNetwork();    });		
 
 	/**/
-	mCapitalistUpgradeButton->setOnClickFunction([=]()	{ mUpgradeWindow->setVisible(true); });
+	mCapitalistUpgradeButton->setOnClickFunction([=]()			{ mUpgradeWindow->setVisible(true); });
 
-	mCapitalistExportButton->setOnClickFunction([=]()	{ mExportWindow->setVisible(true); });
+	mCapitalistExportButton->setOnClickFunction([=]()			{ mExportWindow->setVisible(true); });
 
-	mCapitalistEndTurnButton->setOnClickFunction([=]()	{ std::cout << "NEJ ELLER JO";  GameManager::getInstance()->nextRound();  });
+	mCapitalistEndTurnButton->setOnClickFunction([=]()			{ std::cout << "NEJ ELLER JO";  GameManager::getInstance()->nextRound();  });
 
 
-	mTaxesCloseButton->setOnClickFunction([=]()			{ mTaxesWindow->setVisible(false); 
-														  mTaxes = mTaxesUpdate; std::cout << mTaxes << "GAY" << std::endl; });
+	mTaxesCloseButton->setOnClickFunction([=]()					{ mTaxesWindow->setVisible(false); 
+																  mTaxes = mTaxesUpdate; std::cout << mTaxes << "\nGAY" << std::endl; });
+	/*Stänger ner resources fönstret "Okay-knappen"*/
+	mResourceCloseButton->setOnClickFunction([=]()				
+	{ 
+		mResourceWindow->setVisible(false); 														 
+		mFood = mFoodUpdate;													
+		mGoods = mGoodsUpdate;														 
+		mTech = mTechUpdate; 														
+		std::cout << "food: " <<mFood << '\n' << "goods: "<< mGoods<<'\n' << "tech: " << mTech<<'\n'; 
+	});
+	/*Stänger ner upgrade fönstret "Okay-knappen"*/
+	mUpgradeCloseButton->setOnClickFunction([=]()				
+	{ 
+		mUpgradeWindow->setVisible(false); 														 
+		mNuclearWeapon = mNuclearWeaponUpdate;														  
+		mSpaceProgram	 = mSpaceProgramUpdate;														  
+		mSpyNetwork	 = mSpyNetworkUpdate;															  
+		std::cout << "NW " << mNuclearWeapon << '\n' << "SP " << mSpaceProgram <<'\n' << "SN " << mSpyNetwork <<'\n'; 
+	});
+	/*Stänger ner Export fönster "Okay-knappen"*/
+	mExportCloseButton->setOnClickFunction([=]()				{ mExportWindow->setVisible(false); });
 
-	mResourceCloseButton->setOnClickFunction([=]()		{ mResourceWindow->setVisible(false); 
-														  mFood = mFoodUpdate;
-														  mGoods = mGoodsUpdate;
-														  mTech = mTechUpdate; 
-														  std::cout << "food: " <<mFood << '\n' << "goods: "<< mGoods<<'\n' << "tech: " << mTech<<'\n'; });
-
-	mUpgradeCloseButton->setOnClickFunction([=]()		{ mUpgradeWindow->setVisible(false); 
-													      mNuclearWeapon = mNuclearWeaponUpdate;
-														  mSpaceProgram	 = mSpaceProgramUpdate;
-														  mSpyNetwork	 = mSpyNetworkUpdate;
-														  std::cout << "NW " << mNuclearWeapon << '\n' << "SP " << mSpaceProgram <<'\n' << "SN " << mSpyNetwork <<'\n'; });
-
-	mExportCloseButton->setOnClickFunction([=]()		{ mExportWindow->setVisible(false); });
-
+	mCapitalistPresident->setOnClickFunction([=]()				{});
 	
-	mFirstPresidentButton->setOnClickFunction([=](){});
-	mSecondPresidentButton->setOnClickFunction([=](){});
-	mClosePresidentWindow->setOnClickFunction([=]()		{ mChoosePresidentWindow->setVisible(false); });
+	/*Val av president bild 1*/
+	mFirstPresidentButton->setOnClickFunction([=]()				
+	{ 
+		mChoosePresidentWindow->setVisible(false); mPickedPresidentWindow->setVisible(true); 
+		mPresident = mFirstPresident; 
+		mPickedPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mPickedPresidentButton->getRectangle(), mPresident->getTexture())); 
+	});
+
+	/*Val av president bild 2*/
+	mSecondPresidentButton->setOnClickFunction([=]()			
+	{ 
+		mChoosePresidentWindow->setVisible(false); mPickedPresidentWindow->setVisible(true); 
+		mPresident = mSecondPresident; 
+		mPickedPresidentButton->setTexture(std::pair<sf::FloatRect, sf::Texture*>(mPickedPresidentButton->getRectangle(), mPresident->getTexture())); 
+	});			
+	
+
+	mClosePresidentWindow->setOnClickFunction([=]()				
+	{ 
+		mChoosePresidentWindow->setVisible(false); 
+	});
 }
 
 void Capitalist::showGUI()

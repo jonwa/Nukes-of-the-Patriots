@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <images directory ="Capitalist">
     <image filename="ref.png"/>
+	<image filename="7_kom_pres.png"/>
 	<image filename="7_kap_tax.png"/>
 	<image filename="7_kap_res.png"/>
 	<image filename="7_kap_upg.png"/>
@@ -21,6 +22,7 @@
 	<image filename="button_yes.png"/>
 	<image filename="7_kap_end.png"/>
 	<image filename="7_kap_window_president1.png"/>
+	<image filename="7_kap_window_president2.png"/>
 	<image filename="7_pr1.png"/>
 	<image filename="7_pr2.png"/>
 	<image filename="7_pr3.png"/>
@@ -50,6 +52,8 @@
 	<image filename="7_kom_window_propaganda1.png"/>
 	<image filename="7_kom_window_propaganda2.png"/>
 	<image filename="7_kom_end.png"/>
+	<image filename="7_kom_window_president1.png"/>
+	<image filename="7_kom_window_president2.png"/>
 </images>
 <images directory ="Menu">
     <image filename="Background.png"/>
@@ -64,10 +68,8 @@
 	<image filename="6_team_kom.png"/>
 </images>
 <images directory="President">
-	<image filename="president-Alva.png"/>
 	<image filename="president-Blingfaster.png"/>
 	<image filename="president-Bob.png"/>
-	<image filename="president-Boris.png"/>
 	<image filename="president-Burt.png"/>
 	<image filename="president-Carl.png"/>
 	<image filename="president-Dhelma.png"/>
@@ -75,8 +77,22 @@
 	<image filename="president-Frank.png"/>
 	<image filename="president-Frankie.png"/>
 	<image filename="president-Gramma.png"/>
-	<image filename="president-Gustav.png"/>
 	<image filename="president-Hans.png"/>
 	<image filename="president-Henrich.png"/>
 	<image filename="president-Hugo.png"/>
+	<image filename="president-Ludo.png"/>
+	<image filename="president-Nojiko.png"/>
+	<image filename="president-no-nose.png"/>
+	<image filename="president-Sam.png"/>
+	<image filename="president-Sarah.png"/>
+	<image filename="president-Stieg.png"/>
+	<image filename="president-Sture.png"/>
+	<image filename="president-Will.png"/>	
+</images>
+<images directory="Generals">
+	<image filename="president-Alva.png"/>
+	<image filename="president-Boris.png"/>
+	<image filename="president-Gustav.png"/>
+	<image filename="president-Olga.png"/>
+	<image filename="president-SiB.png"/>
 </images>

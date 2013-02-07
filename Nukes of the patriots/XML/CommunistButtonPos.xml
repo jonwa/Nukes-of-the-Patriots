@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <buttons>
 	<button>
+		<name>General</name>
+		<xPos>0</xPos>
+		<yPos>636</yPos>
+		<width>111</width>
+		<height>132</height>
+		<image>Communist/7_kom_plan</image>
+	</button>
+	<button>
 		<name>FiveYearPlan</name>
 		<xPos>111</xPos>
 		<yPos>636</yPos>
@@ -975,5 +983,21 @@
 		<width>111</width>
 		<height>40</height>
 		<image>Communist/7_kom_end</image>
+	</button>
+	<button>
+		<name>FirstGeneral</name>
+		<xPos>63</xPos>
+		<yPos>22</yPos>
+		<width>180</width>
+		<height>220</height>
+		<image></image>
+	</button>
+	<button>
+		<name>SecondGeneral</name>
+		<xPos>327</xPos>
+		<yPos>22</yPos>
+		<width>180</width>
+		<height>220</height>
+		<image></image>
 	</button>
 </buttons>

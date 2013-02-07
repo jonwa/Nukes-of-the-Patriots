@@ -39,6 +39,7 @@ public:
 	void upgradeSpaceProgram();
 	void upgradeSpyNetwork();
 	
+	void chooseLeader();
 
 	void showGUI();
 	void hideGUI();
@@ -61,6 +62,8 @@ private:
 	}
 
 	std::shared_ptr<President> mPresident;
+	std::shared_ptr<President> mFirstPresident;
+	std::shared_ptr<President> mSecondPresident;
 
 	/*Skapar två std::map. En dit alla knappar för kapitalisternas läggs in i samt 
 	  en dit alla kapitalisternas fönster läggs in i. Detta sker via hämtade värden
@@ -89,7 +92,8 @@ private:
 
 
 	/*GUI-pekare för kapitalisternas interface*/
-	std::shared_ptr<GUIWindow> mCapitalistMainWindow;		
+	std::shared_ptr<GUIWindow> mCapitalistMainWindow;
+	std::shared_ptr<GUIButton> mCapitalistPresident;
 	std::shared_ptr<GUIButton> mCapitalistTaxesButton;		
 	std::shared_ptr<GUIButton> mCapitalistResourceButton;	
 	std::shared_ptr<GUIButton> mCapitalistUpgradeButton;		
@@ -140,8 +144,10 @@ private:
 	std::shared_ptr<GUIButton> mExportCloseButton;
 
 	std::shared_ptr<GUIWindow> mChoosePresidentWindow;
+	std::shared_ptr<GUIWindow> mPickedPresidentWindow;
 	std::shared_ptr<GUIButton> mFirstPresidentButton;
 	std::shared_ptr<GUIButton> mSecondPresidentButton;
+	std::shared_ptr<GUIButton> mPickedPresidentButton;
 	std::shared_ptr<GUIButton> mClosePresidentWindow;
 };
 
